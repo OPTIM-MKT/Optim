@@ -1,0 +1,94 @@
+{
+  "seo": {
+    "title": "Optim | Marketing That Converts Attention Into Real Results",
+    "description": "A performance marketing agency focused on capturing attention and driving tangible outcomes. We build strategies merging creativity and data calculation."
+  },
+  "navigation": {
+    "home": "Home",
+    "services": "What We Do",
+    "process": "How We Work",
+    "cases": "Case Studies",
+    "contact": "Book a Consultation"
+  },
+  "hero": {
+    "headline": "Marketing that converts attention into real results",
+    "subheadline": "We engineer strategies, highly engaging content, and ad campaigns focused on measurable growth. We build digital ecosystems.",
+    "cta_primary": "Book a consultation",
+    "cta_secondary": "Explore our methodology"
+  },
+  "pillars": {
+    "section_title": "Our Core Pillars",
+    "creativity_title": "Creativity that captures",
+    "creativity_desc": "Content meticulously designed to steal and hold attention. We leverage strong hooks, dynamic storytelling, and compelling visuals that resonate deeply.",
+    "calculation_title": "Calculation that converts",
+    "calculation_desc": "Attention requires direction. We utilize advanced technological tools and behavioral data analysis to ensure your content reaches the exact right audience."
+  },
+  "services": {
+    "section_title": "Our Solutions",
+    "marketing_strategy": {
+      "title": "Marketing Strategy",
+      "description": "Comprehensive digital blueprints based on core business goals, customer psychology, and untapped market opportunities."
+    },
+    "content_creation": {
+      "title": "Strategic Content Creation",
+      "description": "Production of reels, short-form videos, and carousels engineered with a narrative focus to capture massive attention."
+    },
+    "digital_ads": {
+      "title": "Digital Advertising",
+      "description": "Precision design and management of high-ROI campaigns across Meta Ads, Google Ads, LinkedIn, and YouTube."
+    },
+    "branding": {
+      "title": "Branding & Positioning",
+      "description": "Development of robust visual identities, logo design, and aesthetic guidelines to elevate market perception."
+    },
+    "web_dev": {
+      "title": "Web & Landing Pages",
+      "description": "Creation of high-performance websites and conversion funnels optimized to transform cold traffic into qualified leads."
+    },
+    "crm_integration": {
+      "title": "CRM Integration",
+      "description": "Deployment of automated management systems and sales pipelines to maximize your lead-to-close ratio."
+    }
+  },
+  "branches": {
+    "section_title": "Industry Specialization",
+    "digital": "Optim MKT Digital: Growth solutions for traditional and digital-first businesses.",
+    "real_estate": "Optim MKT Inmobiliario: Lead generation strategies tailored for real estate developers and agencies.",
+    "creators": "Optim Creator Studios: Reach and monetization expansion for influencers and streamers.",
+    "productions": "Optim Productions: Cinema-quality professional audiovisual production."
+  },
+  "methodology": {
+    "section_title": "Our Workflow",
+    "steps":{
+      "discovery":{
+        "title":"Discovery",
+        "description":"We analyze your business, your market, and your goals to understand where the real opportunities lie."
+      },
+      "strategy":{
+        "title":"Strategy",
+        "description":"We design a clear, measurable action plan focused on tangible results."
+      },
+      "execution":{
+        "title":"Execution",
+        "description":"We create optimized content, campaigns, and systems designed to capture attention and generate conversions."
+      },
+      "optimization":{
+        "title":"Continuous Optimization",
+        "description":"We measure, analyze, and adjust constantly to ensure sustainable growth."
+      }
+    }
+  },
+  "contact": {
+    "title": "Conversion System",
+    "subtitle": "We aren't looking for contacts; we are looking for strategic partners.",
+    "form": {
+      "name": "Full Name",
+      "company": "Company Name",
+      "business_type": "Industry or Business Type",
+      "objective": "Primary Objective",
+      "budget": "Estimated Monthly Budget",
+      "past_actions": "What marketing strategies have you tried?",
+      "submit": "Request Analysis"
+    }
+  }
+}

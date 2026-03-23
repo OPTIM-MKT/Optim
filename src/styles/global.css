@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark,.dark *));
+
+@theme {
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-display: 'Clash Display', system-ui, sans-serif;
+  
+  --color-optim-black: #0a0a0a;
+  --color-optim-white: #fafafa;
+  --color-optim-accent: #ff4500;
+  
+  --color-background: var(--color-optim-white);
+  --color-text: var(--color-optim-black);
+  --color-primary: var(--color-optim-black);
+  --color-secondary: #f0f0f0;
+  --color-accent: var(--color-optim-accent);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@layer theme {
+ .dark {
+    --color-background: var(--color-optim-black);
+    --color-text: var(--color-optim-white);
+    --color-primary: var(--color-optim-white);
+    --color-secondary: #1a1a1a;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased selection:bg-accent selection:text-white transition-colors duration-300;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-primary;
+  }
+}

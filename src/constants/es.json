@@ -1,0 +1,94 @@
+{
+  "seo": {
+    "title": "Optim | Marketing que convierte atención en resultados reales",
+    "description": "Agencia de marketing enfocada en capturar atención y convertirla en resultados reales. Construimos estrategias que combinan creatividad y cálculo para escalar tu negocio."
+  },
+  "navigation": {
+    "home": "Inicio",
+    "services": "Qué Hacemos",
+    "process": "Cómo Trabajamos",
+    "cases": "Casos de Éxito",
+    "contact": "Agendar Asesoría"
+  },
+  "hero": {
+    "headline": "Marketing que convierte atención en resultados reales",
+    "subheadline": "Diseñamos estrategias, contenido y campañas enfocadas en crecimiento medible. No hacemos marketing genérico, construimos ecosistemas digitales.",
+    "cta_primary": "Agendar asesoría",
+    "cta_secondary": "Ver cómo trabajamos"
+  },
+  "pillars": {
+    "section_title": "Nuestros Pilares Fundamentales",
+    "creativity_title": "Creatividad que captura",
+    "creativity_desc": "Creamos contenido diseñado para robar y mantener la atención. Utilizamos hooks fuertes, storytelling, edición dinámica y visuales atractivos que no solo se ven bien, sino que conectan profundamente.",
+    "calculation_title": "Cálculo que convierte",
+    "calculation_desc": "La atención requiere dirección. Utilizamos herramientas tecnológicas y análisis de datos avanzado para asegurar que el contenido correcto llegue a la audiencia exacta mediante segmentación y optimización continua."
+  },
+  "services": {
+    "section_title": "Nuestras Soluciones",
+    "marketing_strategy": {
+      "title": "Estrategia de Marketing",
+      "description": "Desarrollo de planes integrales basados en los objetivos del negocio, el comportamiento del cliente y las oportunidades del mercado."
+    },
+    "content_creation": {
+      "title": "Creación de Contenido Estratégico",
+      "description": "Producción de reels, videos y carruseles diseñados bajo un enfoque narrativo para capturar atención masiva."
+    },
+    "digital_ads": {
+      "title": "Publicidad Digital",
+      "description": "Diseño y gestión de campañas de alto rendimiento en Meta Ads, Google Ads, LinkedIn y YouTube."
+    },
+    "branding": {
+      "title": "Branding y Posicionamiento",
+      "description": "Desarrollo de identidad visual, diseño de logos y lineamientos estéticos para elevar la percepción de marca."
+    },
+    "web_dev": {
+      "title": "Web y Landing Pages",
+      "description": "Creación de sitios web y embudos de conversión optimizados para transformar visitantes en clientes calificados."
+    },
+    "crm_integration": {
+      "title": "Integración de CRM",
+      "description": "Desarrollo de sistemas de gestión y procesos de ventas automatizados para maximizar el cierre de leads."
+    }
+  },
+  "branches": {
+    "section_title": "Especialización por Industria",
+    "digital": "Optim MKT Digital: Soluciones de crecimiento para negocios tradicionales y digitales.",
+    "real_estate": "Optim MKT Inmobiliario: Estrategias de captación para inmobiliarias y desarrolladoras.",
+    "creators": "Optim Creator Studios: Monetización y alcance para influencers y streamers.",
+    "productions": "Optim Productions: Producción audiovisual de calidad cinematográfica."
+  },
+  "methodology": {
+    "section_title": "Nuestro Proceso de Trabajo",
+    "steps":{
+      "discovery":{
+        "title":"Descubrimiento",
+        "description":"Analizamos tu negocio, tu mercado y tus objetivos para entender dónde están las oportunidades reales."
+      },
+      "strategy":{
+        "title":"Estrategia",
+        "description":"Diseñamos un plan de acción claro y medible, enfocado en resultados tangibles."
+      },
+      "execution":{
+        "title":"Ejecución",
+        "description":"Creamos contenido, campañas y sistemas optimizados para capturar atención y generar conversiones."
+      },
+      "optimization":{
+        "title":"Optimización Continua",
+        "description":"Medimos, analizamos y ajustamos constantemente para asegurar crecimiento sostenido."
+      }
+    }
+  },
+  "contact": {
+    "title": "Sistema de Conversión",
+    "subtitle": "No buscamos contactos, buscamos aliados estratégicos.",
+    "form": {
+      "name": "Nombre completo",
+      "company": "Empresa",
+      "business_type": "Sector o tipo de negocio",
+      "objective": "Objetivo principal",
+      "budget": "Presupuesto mensual estimado",
+      "past_actions": "¿Qué estrategias han implementado antes?",
+      "submit": "Solicitar análisis"
+    }
+  }
+}
