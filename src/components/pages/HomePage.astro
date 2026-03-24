@@ -26,9 +26,9 @@ interface Props {
 
 const { locale } = Astro.props;
 const dictionary = getDictionary(locale);
-const empresas = (await getCollection("empresas")).sort(
-  (left, right) => left.data.order - right.data.order,
-);
+const empresas = (await getCollection("empresas"))
+  .filter((empresa) => empresa.id.startsWith(`${locale}/`))
+  .sort((left, right) => left.data.order - right.data.order);
 const heroBackgrounds = [
   "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2850&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2850&auto=format&fit=crop",

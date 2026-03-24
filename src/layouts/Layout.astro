@@ -19,9 +19,11 @@ interface Props {
   description?: string;
   pageKey: PageKey;
   snap?: boolean;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
 }
 
-const { locale, title, description, snap = false } = Astro.props;
+const { locale, title, description, snap = false, hideHeader = false, hideFooter = false } = Astro.props;
 const dictionary = getDictionary(locale);
 const seoTitle = title ?? dictionary.seo.defaultTitle;
 const seoDescription = description ?? dictionary.seo.defaultDescription;
@@ -101,15 +103,17 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
     <title>{seoTitle}</title>
   </head>
   <body>
-    <Header
-      locale={locale}
-      dictionary={dictionary}
-      currentPath={Astro.url.pathname}
-    />
+    {!hideHeader && (
+      <Header
+        locale={locale}
+        dictionary={dictionary}
+        currentPath={Astro.url.pathname}
+      />
+    )}
     <main class="min-h-[calc(100vh-5rem)]">
       <slot />
     </main>
-    <Footer locale={locale} dictionary={dictionary} />
+    {!hideFooter && <Footer locale={locale} dictionary={dictionary} />}
     <ScrollToTop />
     <script>
       import Lenis from "lenis";

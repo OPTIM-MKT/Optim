@@ -14,6 +14,7 @@ const empresasCollection = defineCollection({
     results: z.string().min(1).optional(),
     logoUrl: z.string().min(1).optional(),
     featuredImage: z.string().min(1).optional(),
+    links: z.array(z.object({ label: z.string(), url: z.string() })).optional(),
     order: z.number().int().nonnegative().default(0),
   }),
 });

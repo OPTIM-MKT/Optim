@@ -352,23 +352,29 @@ function CompaniesCarousel({
           freeMode={{ enabled: true, momentum: true }}
           grabCursor={true}
         >
-          {items.map((item) => (
-            <SwiperSlide key={item.id} className="!h-auto">
-              <a href={`/empresas/${item.id}`} className="group block h-full">
-                <article className="glass-panel flex h-full flex-col rounded-3xl border border-line p-6 transition-colors duration-300 group-hover:border-strategic">
-                  {item.image ? (
-                    <div className="mb-6 flex h-48 w-full items-center justify-center overflow-hidden rounded-2xl bg-panel p-6">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </div>
-                  ) : (
-                    <div className="mb-6 h-48 w-full rounded-2xl bg-panel" />
-                  )}
-                  <h3 className="text-2xl font-semibold text-ink">{item.name}</h3>
+          {items.map((item) => {
+            const isEn = item.id.startsWith("en/");
+            const slug = item.id.replace(/^(es|en)\//, "");
+            const href = isEn ? `/en/empresas/${slug}` : `/empresas/${slug}`;
+            return (
+            <SwiperSlide key={item.id} className="h-auto!">
+              <a href={href} className="group block h-full">
+                <article className="glass-panel group flex h-full flex-col rounded-3xl border border-line p-6 transition-colors duration-300 hover:border-strategic">
+                  <div className="mb-6 flex h-[220px] w-full items-center justify-center overflow-hidden rounded-2xl bg-panel">
+                    <img
+                      src="https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop"
+                      alt={item.name}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                      style={{ viewTransitionName: `hero-image-${item.id}` }}
+                    />
+                  </div>
+                  <h3 
+                    className="text-2xl font-semibold text-ink"
+                    style={{ viewTransitionName: `title-${item.id}` }}
+                  >
+                    {item.name}
+                  </h3>
                   <div className="mt-3 text-xs uppercase tracking-[0.2em] font-medium text-strategic">
                     {item.industry}
                   </div>
@@ -380,7 +386,8 @@ function CompaniesCarousel({
                 </article>
               </a>
             </SwiperSlide>
-          ))}
+            );
+          })}
         </Swiper>
       </div>
     </section>

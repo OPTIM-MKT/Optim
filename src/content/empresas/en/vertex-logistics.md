@@ -1,0 +1,18 @@
+---
+name: Vertex Logistics
+industry: Logistics
+description: B2B logistics operator that needed clearer positioning and a better-connected sales system.
+servicesProvided:
+  - Marketing Strategy
+  - Branding
+  - Websites and Landing Pages
+  - CRM Integration
+isLandingPage: false
+isComprehensiveStrategy: true
+results: Sales pipeline with centralized tracking and improved lead quality.
+featuredImage: "https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop"
+logoUrl: /images/empresas/vertex-logistics.svg
+order: 3
+---
+
+Placeholder entry designed for B2B companies where message clarity, brand professionalism, and connection to sales are more important than mere reach generation.

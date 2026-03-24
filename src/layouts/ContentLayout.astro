@@ -1,0 +1,70 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ThemeToggle from "@/components/shared/ThemeToggle.astro";
+import { switchLocalePath, type Locale } from "@/lib/site";
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+}
+
+const { locale, title, description } = Astro.props;
+const alternateLocale: Locale = locale === "es" ? "en" : "es";
+const alternatePath = switchLocalePath(Astro.url.pathname, alternateLocale);
+---
+
+<Layout
+  locale={locale}
+  title={title}
+  description={description}
+  pageKey="home"
+  hideHeader={true}
+>
+  <header
+    class="sticky top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur-xl"
+  >
+    <div class="section-shell py-4!">
+      <div class="flex items-center justify-between gap-6">
+        {/* Back Button */}
+        <button
+          type="button"
+          onclick="history.back()"
+          class="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-ink transition-colors hover:text-strategic cursor-pointer"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            class="rotate-180"
+          >
+            <path
+              d="M6 3l5 5-5 5"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          {locale === "es" ? "Regresar" : "Go back"}
+        </button>
+
+        {/* Right Actions */}
+        <div class="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href={alternatePath}
+            class="rounded-full border border-line px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-panel"
+            aria-label={locale === "es"
+              ? "Switch to English"
+              : "Cambiar a español"}
+          >
+            {alternateLocale.toUpperCase()}
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <slot />
+</Layout>

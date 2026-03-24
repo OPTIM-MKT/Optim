@@ -14,9 +14,9 @@ interface Props {
 
 const { locale } = Astro.props;
 const dictionary = getDictionary(locale);
-const empresas = (await getCollection("empresas")).sort(
-  (left, right) => left.data.order - right.data.order,
-);
+const empresas = (await getCollection("empresas"))
+  .filter((empresa) => empresa.id.startsWith(`${locale}/`))
+  .sort((left, right) => left.data.order - right.data.order);
 ---
 
 <Layout

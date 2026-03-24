@@ -4,17 +4,17 @@ import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const empresas = await getCollection("empresas");
-  // Ensure we only build paths for Spanish entries (non-en/ IDs) in this route
-  const esEmpresas = empresas.filter((emp) => !emp.id.startsWith("en/"));
-  return esEmpresas.map((empresa) => ({
-    params: { slug: empresa.id.replace(/^es\//, "") },
+  // Only build paths for English entries
+  const enEmpresas = empresas.filter((emp) => emp.id.startsWith("en/"));
+  return enEmpresas.map((empresa) => ({
+    params: { slug: empresa.id.replace(/^en\//, "") },
     props: { empresa },
   }));
 }
 
 const { empresa } = Astro.props;
 const { Content } = await render(empresa);
-const locale = "es";
+const locale = "en";
 ---
 
 <ContentLayout
@@ -51,7 +51,7 @@ const locale = "es";
       <div class="flex flex-col justify-center space-y-8 lg:pt-8">
         <div>
           <span class="editorial-label text-strategic block mb-4"
-            >Caso de Estudio</span
+            >Case Study</span
           >
           <h1
             class="text-4xl font-semibold leading-tight text-ink md:text-5xl border-l-[3px] border-strategic pl-6 ml-[-1.65rem]"
@@ -75,7 +75,7 @@ const locale = "es";
             empresa.data.servicesProvided.length > 0 && (
               <div class="border-t border-line mt-8 pt-8">
                 <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-ink mb-4">
-                  Servicios Implementados
+                  Implemented Services
                 </h3>
                 <div class="flex flex-wrap gap-2">
                   {empresa.data.servicesProvided.map((service) => (
@@ -93,7 +93,7 @@ const locale = "es";
           empresa.data.links && empresa.data.links.length > 0 && (
             <div class="border-t border-line mt-8 pt-8">
               <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-ink mb-4">
-                Enlaces del Proyecto
+                Project Links
               </h3>
               <div class="flex flex-wrap gap-3">
                 {empresa.data.links.map((link) => (
