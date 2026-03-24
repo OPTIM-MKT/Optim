@@ -168,25 +168,33 @@
         {
           "id": "t1",
           "name": "Juan Pérez",
-          "industry": "Marketing Director",
+          "role": "Marketing Director",
+          "company": "Optima Client Corp",
+          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
           "description": "Thanks to Optim we consolidated our message and sales increased 150% in the first quarter. A highly strategic and capable team."
         },
         {
           "id": "t2",
           "name": "Ana Rodríguez",
-          "industry": "CEO, Tech Solutions",
+          "role": "CEO",
+          "company": "Tech Solutions",
+          "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
           "description": "They did not just design a beautiful site — they built a commercial system that brings us qualified business opportunities every single day."
         },
         {
           "id": "t3",
           "name": "Carlos Gómez",
-          "industry": "Founder, Real Estate",
+          "role": "Founder",
+          "company": "Real Estate Plus",
+          "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
           "description": "Before, our media and creative were disconnected. Optim unified everything into a system that works perfectly from the click to the close."
         },
         {
           "id": "t4",
           "name": "María Fernández",
-          "industry": "CMO, StartupHub",
+          "role": "CMO",
+          "company": "StartupHub",
+          "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=faces",
           "description": "They understood our vision perfectly and translated it into a brand narrative and a landing page that never stopped converting."
         }
       ]

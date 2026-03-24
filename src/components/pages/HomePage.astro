@@ -1,9 +1,7 @@
 ---
-import { getCollection } from "astro:content";
-import { type BannerSlide, type HeroSlide } from "@/components/SwiperCarousel";
+import { type HeroSlide } from "@/components/SwiperCarousel";
 import HomeBranchesSection from "@/components/home/HomeBranchesSection.astro";
 import HomeClosingSection from "@/components/home/HomeClosingSection.astro";
-import HomeCompaniesSection from "@/components/home/HomeCompaniesSection.astro";
 import HomeHeroSection from "@/components/home/HomeHeroSection.astro";
 import HomePillarsSection from "@/components/home/HomePillarsSection.astro";
 import HomeProcessSection from "@/components/home/HomeProcessSection.astro";
@@ -11,8 +9,8 @@ import HomeServicesPreviewSection from "@/components/home/HomeServicesPreviewSec
 import HomeTestimonialsSection from "@/components/home/HomeTestimonialsSection.astro";
 import ParallaxMedia from "@/components/shared/ParallaxMedia.astro";
 import ImageTextSection from "@/components/shared/ImageTextSection.astro";
-
 import Layout from "@/layouts/Layout.astro";
+
 import {
   DEFAULT_MEDIA_IMAGE,
   getDictionary,
@@ -26,9 +24,6 @@ interface Props {
 
 const { locale } = Astro.props;
 const dictionary = getDictionary(locale);
-const empresas = (await getCollection("empresas"))
-  .filter((empresa) => empresa.id.startsWith(`${locale}/`))
-  .sort((left, right) => left.data.order - right.data.order);
 const heroBackgrounds = [
   "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2850&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2850&auto=format&fit=crop",
@@ -47,15 +42,6 @@ const heroSlides: HeroSlide[] = dictionary.home.hero.slides.map(
     metrics: index === 0 ? dictionary.home.hero.stats : undefined,
   }),
 );
-
-const companySlides: BannerSlide[] = empresas.map((empresa) => ({
-  id: empresa.id,
-  name: empresa.data.name,
-  industry: empresa.data.industry,
-  description: empresa.data.results ?? empresa.data.description,
-  image:
-    empresa.data.logoUrl ?? empresa.data.featuredImage ?? DEFAULT_MEDIA_IMAGE,
-}));
 ---
 
 <Layout
@@ -76,11 +62,10 @@ const companySlides: BannerSlide[] = empresas.map((empresa) => ({
     eyebrow={dictionary.home.companies.eyebrow}
     title={dictionary.home.companies.title}
     description={dictionary.home.companies.description}
-    topImage="/images/placeholders/parallax-top.svg"
-    bottomImage="/images/placeholders/parallax-bottom.svg"
+    topImage="https://images.unsplash.com/photo-1444222362538-bfeab10e1282?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    bottomImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2850&auto=format&fit=crop"
   />
   <HomeProcessSection dictionary={dictionary} />
-  <!-- <HomeCompaniesSection slides={companySlides} dictionary={dictionary} /> -->
   <HomeTestimonialsSection dictionary={dictionary} />
   <HomeBranchesSection dictionary={dictionary} />
   <HomeClosingSection dictionary={dictionary} locale={locale} />

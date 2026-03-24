@@ -1,6 +1,12 @@
 ---
 import ThemeToggle from "@/components/shared/ThemeToggle.astro";
-import { localizePath, navigationSlugs, normalizePath, switchLocalePath, type Locale } from "@/lib/site";
+import {
+  localizePath,
+  navigationSlugs,
+  normalizePath,
+  switchLocalePath,
+  type Locale,
+} from "@/lib/site";
 
 interface Props {
   locale: Locale;
@@ -14,7 +20,7 @@ const labels = [
   dictionary.navigation.home,
   dictionary.navigation.about,
   dictionary.navigation.services,
-  dictionary.navigation.pricing,
+  // dictionary.navigation.pricing,
   dictionary.navigation.contact,
 ];
 
@@ -23,11 +29,19 @@ const alternateLocale: Locale = locale === "es" ? "en" : "es";
 const alternatePath = switchLocalePath(currentPath, alternateLocale);
 ---
 
-<header class="sticky top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur-xl">
+<header
+  class="sticky top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur-xl"
+>
   <div class="section-shell !py-4 relative">
     <div class="flex items-center justify-between gap-6">
-      <a href={localizePath(locale)} class="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-ink z-50">
-        <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink text-canvas">O</span>
+      <a
+        href={localizePath(locale)}
+        class="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-ink z-50"
+      >
+        <span
+          class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink text-canvas"
+          >O</span
+        >
         <span>Optim</span>
       </a>
 
@@ -61,12 +75,14 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
         <div class="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
         </div>
-        
+
         {/* Language switch is always visible */}
         <a
           href={alternatePath}
           class="rounded-full border border-line px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-panel"
-          aria-label={locale === "es" ? "Switch to English" : "Cambiar a español"}
+          aria-label={locale === "es"
+            ? "Switch to English"
+            : "Cambiar a español"}
         >
           {alternateLocale.toUpperCase()}
         </a>
@@ -87,8 +103,12 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
           aria-label="Abrir menú"
           aria-expanded="false"
         >
-          <span class="h-0.5 w-4 rounded-full bg-current transition-transform duration-300 origin-center"></span>
-          <span class="h-0.5 w-4 rounded-full bg-current transition-transform duration-300 origin-center"></span>
+          <span
+            class="h-0.5 w-4 rounded-full bg-current transition-transform duration-300 origin-center"
+          ></span>
+          <span
+            class="h-0.5 w-4 rounded-full bg-current transition-transform duration-300 origin-center"
+          ></span>
         </button>
       </div>
     </div>
@@ -100,7 +120,9 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
     class="fixed inset-0 top-0 left-0 z-40 flex h-dvh w-full flex-col bg-canvas px-6 pt-24 pb-8 transition-transform duration-500 ease-fluid lg:hidden translate-x-full"
     aria-hidden="true"
   >
-    <nav class="flex flex-col gap-6 text-2xl font-semibold tracking-tight text-ink mt-8">
+    <nav
+      class="flex flex-col gap-6 text-2xl font-semibold tracking-tight text-ink mt-8"
+    >
       {
         navigationSlugs.map((slug, index) => {
           const href = localizePath(locale, slug);
@@ -125,7 +147,10 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
 
     <div class="mt-auto flex flex-col gap-6 border-t border-line pt-8">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Tema</span>
+        <span
+          class="text-xs font-semibold uppercase tracking-[0.2em] text-muted"
+          >Tema</span
+        >
         <ThemeToggle />
       </div>
       <a
@@ -157,15 +182,15 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
 
     function toggleMenu() {
       isOpen = !isOpen;
-      
+
       btn.setAttribute("aria-expanded", isOpen.toString());
       drw.setAttribute("aria-hidden", (!isOpen).toString());
-      
+
       if (isOpen) {
         drw.classList.remove("translate-x-full");
         drw.classList.add("translate-x-0");
         document.body.style.overflow = "hidden";
-        
+
         // Animate burger to X
         line1.style.transform = "translateY(4px) rotate(45deg)";
         line2.style.transform = "translateY(-4px) rotate(-45deg)";
@@ -173,7 +198,7 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
         drw.classList.remove("translate-x-0");
         drw.classList.add("translate-x-full");
         document.body.style.overflow = "";
-        
+
         // Reset burger
         line1.style.transform = "translateY(0) rotate(0)";
         line2.style.transform = "translateY(0) rotate(0)";
