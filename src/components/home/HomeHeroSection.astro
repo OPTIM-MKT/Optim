@@ -1,0 +1,12 @@
+---
+import SwiperCarousel, { type HeroSlide } from "@/components/SwiperCarousel";
+
+interface Props {
+  slides: HeroSlide[];
+  ariaLabel: string;
+}
+
+const { slides, ariaLabel } = Astro.props;
+---
+
+<SwiperCarousel client:load variant="hero" items={slides} ariaLabel={ariaLabel} />

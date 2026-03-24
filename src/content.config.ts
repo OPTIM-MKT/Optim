@@ -2,11 +2,8 @@ import { glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 
-const empresas = defineCollection({
-  loader: glob({
-    base: "./src/content/empresas",
-    pattern: "**/*.{md,mdx}",
-  }),
+const empresasCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/empresas" }),
   schema: z.object({
     name: z.string().min(1),
     industry: z.string().min(1),
@@ -15,8 +12,12 @@ const empresas = defineCollection({
     isLandingPage: z.boolean(),
     isComprehensiveStrategy: z.boolean(),
     results: z.string().min(1).optional(),
-    image: z.string().min(1).optional(),
+    logoUrl: z.string().min(1).optional(),
+    featuredImage: z.string().min(1).optional(),
+    order: z.number().int().nonnegative().default(0),
   }),
 });
 
-export const collections = { empresas };
+export const collections = {
+  empresas: empresasCollection,
+};

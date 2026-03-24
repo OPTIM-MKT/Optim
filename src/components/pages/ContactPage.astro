@@ -1,8 +1,8 @@
 ---
-import ContactForm from "@/components/ContactForm.astro";
+import ContactForm from "@/components/shared/ContactForm.astro";
 import Layout from "@/layouts/Layout.astro";
-import MapCard from "@/components/MapCard.astro";
-import PageHero from "@/components/PageHero.astro";
+import MapCard from "@/components/shared/MapCard.astro";
+import PageHero from "@/components/shared/PageHero.astro";
 import { getDictionary, type Locale } from "@/lib/site";
 
 interface Props {
@@ -26,16 +26,29 @@ const dictionary = getDictionary(locale);
   />
 
   <section class="pb-24">
-    <div class="section-shell grid gap-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+    <div
+      class="section-shell grid gap-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
+    >
       <ContactForm dictionary={dictionary} />
 
       <div class="grid gap-6">
-        <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
+        <article class="glass-panel rounded-4xl border border-line p-8 md:p-10">
           <p class="editorial-label">{dictionary.contactPage.details.title}</p>
           <div class="mt-8 grid gap-4 text-base text-muted">
-            <a href={`mailto:${dictionary.contactPage.details.email}`} class="text-ink">{dictionary.contactPage.details.email}</a>
-            <a href={`tel:${dictionary.contactPage.details.phone.replaceAll(" ", "")}`} class="text-ink">{dictionary.contactPage.details.phone}</a>
-            <a href={`https://wa.me/${dictionary.contactPage.details.whatsapp.replaceAll(/\D/g, "")}`} target="_blank" rel="noreferrer" class="text-ink">{dictionary.contactPage.details.whatsapp}</a>
+            <a
+              href={`mailto:${dictionary.contactPage.details.email}`}
+              class="text-ink">{dictionary.contactPage.details.email}</a
+            >
+            <a
+              href={`tel:${dictionary.contactPage.details.phone.replaceAll(" ", "")}`}
+              class="text-ink">{dictionary.contactPage.details.phone}</a
+            >
+            <a
+              href={`https://wa.me/${dictionary.contactPage.details.whatsapp.replaceAll(/\D/g, "")}`}
+              target="_blank"
+              rel="noreferrer"
+              class="text-ink">{dictionary.contactPage.details.whatsapp}</a
+            >
             <p>{dictionary.contactPage.details.address}</p>
           </div>
 

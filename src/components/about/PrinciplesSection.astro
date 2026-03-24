@@ -1,0 +1,23 @@
+---
+interface Props {
+  dictionary: import("@/lib/site").SiteDictionary;
+}
+
+const { dictionary } = Astro.props;
+---
+
+<section class="pb-24">
+  <div class="section-shell">
+    <h2 class="text-4xl font-semibold text-ink md:text-6xl">{dictionary.aboutPage.principles.title}</h2>
+    <div class="mt-12 grid gap-4 md:grid-cols-3">
+      {
+        dictionary.aboutPage.principles.items.map((item) => (
+          <article class="surface-card p-6">
+            <p class="text-2xl font-semibold text-ink">{item.title}</p>
+            <p class="mt-4 text-base leading-7">{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

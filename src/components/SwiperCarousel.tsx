@@ -13,6 +13,7 @@ export type HeroSlide = {
   description: string;
   ctaLabel: string;
   ctaHref: string;
+  backgroundImage?: string;
   metrics?: Array<{
     label: string;
     value: string;
@@ -50,7 +51,10 @@ const fadeUp = {
   },
 };
 
-function HeroCarousel({ items, ariaLabel = "Hero carousel" }: HeroCarouselProps) {
+function HeroCarousel({
+  items,
+  ariaLabel = "Hero carousel",
+}: HeroCarouselProps) {
   if (items.length === 0) {
     return null;
   }
@@ -65,7 +69,11 @@ function HeroCarousel({ items, ariaLabel = "Hero carousel" }: HeroCarouselProps)
         speed={900}
         autoplay={
           items.length > 1
-            ? { delay: 5600, disableOnInteraction: false, pauseOnMouseEnter: true }
+            ? {
+                delay: 5600,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }
             : false
         }
         pagination={{ clickable: true }}
@@ -73,6 +81,15 @@ function HeroCarousel({ items, ariaLabel = "Hero carousel" }: HeroCarouselProps)
         {items.map((item) => (
           <SwiperSlide key={item.id} className="h-full">
             <article className="grid-frame relative flex h-screen overflow-hidden">
+              {item.backgroundImage ? (
+                <img
+                  src={item.backgroundImage}
+                  alt={item.title}
+                  className="absolute inset-0 h-full w-full object-cover"
+                  loading="eager"
+                />
+              ) : null}
+              <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(13,13,13,0.74),rgba(13,13,13,0.24)_45%,rgba(13,13,13,0.62))]" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(187,79,53,0.16),transparent_34%)]" />
               <div className="section-shell relative flex h-full items-end pb-16 pt-28 md:items-center md:pb-10">
                 <div className="grid w-full gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] md:items-end">
@@ -83,17 +100,19 @@ function HeroCarousel({ items, ariaLabel = "Hero carousel" }: HeroCarouselProps)
                     viewport={{ once: true, amount: 0.4 }}
                     variants={fadeUp}
                   >
-                    <p className="editorial-label eyebrow-rule mb-5">{item.eyebrow}</p>
-                    <h2 className="max-w-4xl text-5xl font-semibold leading-none text-ink md:text-7xl lg:text-[6.5rem]">
+                    <p className="editorial-label eyebrow-rule mb-5">
+                      {item.eyebrow}
+                    </p>
+                    <h2 className="max-w-4xl text-5xl font-semibold leading-none text-canvas md:text-7xl lg:text-[6.5rem]">
                       {item.title}
                     </h2>
-                    <p className="mt-6 max-w-2xl text-base leading-7 md:text-lg">
+                    <p className="mt-6 max-w-2xl text-base leading-7 text-canvas/82 md:text-lg">
                       {item.description}
                     </p>
                     <div className="mt-10 flex flex-wrap gap-4">
                       <a
                         href={item.ctaHref}
-                        className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-canvas transition-transform duration-300 hover:-translate-y-0.5"
+                        className="rounded-full bg-canvas px-6 py-3 text-sm font-semibold text-ink transition-transform duration-300 hover:-translate-y-0.5"
                       >
                         {item.ctaLabel}
                       </a>
@@ -102,7 +121,7 @@ function HeroCarousel({ items, ariaLabel = "Hero carousel" }: HeroCarouselProps)
 
                   {item.metrics && item.metrics.length > 0 ? (
                     <motion.ul
-                      className="glass-panel grid gap-4 rounded-[2rem] border border-line p-6 md:p-8"
+                      className="grid gap-4 rounded-4xl border border-white/12 bg-white/8 p-6 backdrop-blur-md md:p-8"
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.35 }}
@@ -111,12 +130,12 @@ function HeroCarousel({ items, ariaLabel = "Hero carousel" }: HeroCarouselProps)
                       {item.metrics.map((metric) => (
                         <li
                           key={`${item.id}-${metric.label}`}
-                          className="border-b border-line pb-4 last:border-b-0 last:pb-0"
+                          className="border-b border-white/10 pb-4 last:border-b-0 last:pb-0"
                         >
-                          <span className="block text-4xl font-semibold text-ink md:text-5xl">
+                          <span className="block text-4xl font-semibold text-canvas md:text-5xl">
                             {metric.value}
                           </span>
-                          <span className="mt-2 block text-sm uppercase tracking-[0.2em] text-muted">
+                          <span className="mt-2 block text-sm uppercase tracking-[0.2em] text-canvas/64">
                             {metric.label}
                           </span>
                         </li>
@@ -142,7 +161,10 @@ function BannerCarousel({
   }
 
   return (
-    <section className="snap-section flex min-h-screen items-center" aria-label={ariaLabel}>
+    <section
+      className="snap-section flex min-h-screen items-center"
+      aria-label={ariaLabel}
+    >
       <div className="section-shell py-20">
         <Swiper
           className="w-full"
@@ -178,7 +200,9 @@ function BannerCarousel({
                   {item.description ? (
                     <>
                       <span className="h-1 w-1 rounded-full bg-strategic" />
-                      <span className="line-clamp-1 max-w-64">{item.description}</span>
+                      <span className="line-clamp-1 max-w-64">
+                        {item.description}
+                      </span>
                     </>
                   ) : null}
                 </div>

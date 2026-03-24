@@ -1,6 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import PageHero from "@/components/PageHero.astro";
+import StorySection from "@/components/about/StorySection.astro";
+import PrinciplesSection from "@/components/about/PrinciplesSection.astro";
+import TeamSection from "@/components/about/TeamSection.astro";
+import PageHero from "@/components/shared/PageHero.astro";
 import { getDictionary, type Locale } from "@/lib/site";
 
 interface Props {
@@ -9,6 +12,52 @@ interface Props {
 
 const { locale } = Astro.props;
 const dictionary = getDictionary(locale);
+const teamMembers = [
+  {
+    id: "ceo",
+    name: "Leonel Garza",
+    role: locale === "es" ? "Direccion Estrategica" : "Strategic Direction",
+    image: "/images/placeholders/team-1.svg",
+    email: "leonel@optim.mx",
+    socials: [
+      { label: "LinkedIn", href: "https://linkedin.com/company/optim" },
+      { label: "Instagram", href: "https://instagram.com/optim" },
+    ],
+  },
+  {
+    id: "creative",
+    name: locale === "es" ? "Sofia Torres" : "Sofia Torres",
+    role: locale === "es" ? "Direccion Creativa" : "Creative Direction",
+    image: "/images/placeholders/team-2.svg",
+    email: "sofia@optim.mx",
+    socials: [
+      { label: "Behance", href: "https://behance.net/optim" },
+      { label: "Instagram", href: "https://instagram.com/optim" },
+    ],
+  },
+  {
+    id: "performance",
+    name: "Marco Ruiz",
+    role: locale === "es" ? "Performance y Data" : "Performance and Data",
+    image: "/images/placeholders/team-3.svg",
+    email: "marco@optim.mx",
+    socials: [
+      { label: "LinkedIn", href: "https://linkedin.com/company/optim" },
+      { label: "Email", href: "mailto:marco@optim.mx" },
+    ],
+  },
+  {
+    id: "ops",
+    name: "Valeria Nunez",
+    role: locale === "es" ? "Automatizacion y CRM" : "Automation and CRM",
+    image: "/images/placeholders/team-4.svg",
+    email: "valeria@optim.mx",
+    socials: [
+      { label: "LinkedIn", href: "https://linkedin.com/company/optim" },
+      { label: "WhatsApp", href: "https://wa.me/528187654321" },
+    ],
+  },
+];
 ---
 
 <Layout
@@ -22,35 +71,11 @@ const dictionary = getDictionary(locale);
     title={dictionary.aboutPage.hero.title}
     description={dictionary.aboutPage.hero.description}
   />
-
-  <section class="py-20">
-    <div class="section-shell grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
-      <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
-        <p class="editorial-label">{dictionary.aboutPage.story.title}</p>
-        <p class="mt-8 text-3xl font-semibold leading-tight text-ink md:text-4xl">
-          {dictionary.aboutPage.story.description}
-        </p>
-      </article>
-      <article class="rounded-[2rem] border border-line bg-ink p-8 text-canvas md:p-10">
-        <p class="editorial-label !text-canvas/60">{dictionary.aboutPage.branchesTitle}</p>
-        <p class="mt-8 text-xl leading-8 text-canvas/76">{dictionary.aboutPage.teamNote}</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="pb-24">
-    <div class="section-shell">
-      <h2 class="text-4xl font-semibold text-ink md:text-6xl">{dictionary.aboutPage.principles.title}</h2>
-      <div class="mt-12 grid gap-4 md:grid-cols-3">
-        {
-          dictionary.aboutPage.principles.items.map((item) => (
-            <article class="rounded-[1.75rem] border border-line bg-canvas/75 p-6">
-              <p class="text-2xl font-semibold text-ink">{item.title}</p>
-              <p class="mt-4 text-base leading-7">{item.description}</p>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+  <StorySection dictionary={dictionary} />
+  <TeamSection
+    members={teamMembers}
+    eyebrow={locale === "es" ? "Equipo" : "Team"}
+    title={locale === "es" ? "Equipo Optim" : "Optim Team"}
+  />
+  <PrinciplesSection dictionary={dictionary} />
 </Layout>

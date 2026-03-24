@@ -1,7 +1,12 @@
 ---
+import { getCollection } from "astro:content";
+
 import Layout from "@/layouts/Layout.astro";
-import PageHero from "@/components/PageHero.astro";
-import { getDictionary, localizePath, type Locale } from "@/lib/site";
+import PageHero from "@/components/shared/PageHero.astro";
+import CaseStudiesSection from "@/components/services/CaseStudiesSection.astro";
+import ServicesGridSection from "@/components/services/ServicesGridSection.astro";
+import ServicesMethodSection from "@/components/services/ServicesMethodSection.astro";
+import { getDictionary, type Locale } from "@/lib/site";
 
 interface Props {
   locale: Locale;
@@ -9,6 +14,9 @@ interface Props {
 
 const { locale } = Astro.props;
 const dictionary = getDictionary(locale);
+const empresas = (await getCollection("empresas")).sort(
+  (left, right) => left.data.order - right.data.order,
+);
 ---
 
 <Layout
@@ -22,52 +30,7 @@ const dictionary = getDictionary(locale);
     title={dictionary.servicesPage.hero.title}
     description={dictionary.servicesPage.hero.description}
   />
-
-  <section class="pb-20">
-    <div class="section-shell">
-      <div class="max-w-3xl">
-        <p class="editorial-label eyebrow-rule">{dictionary.servicesPage.intro.title}</p>
-        <p class="mt-6 text-lg leading-8">{dictionary.servicesPage.intro.description}</p>
-      </div>
-
-      <div class="mt-12 grid gap-5 lg:grid-cols-2">
-        {
-          dictionary.servicesPage.services.map((service) => (
-            <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
-              <p class="text-3xl font-semibold text-ink">{service.title}</p>
-              <p class="mt-4 text-base leading-7">{service.summary}</p>
-              <ul class="mt-8 space-y-3 text-sm leading-7 text-muted">
-                {service.how.map((item) => <li class="border-t border-line pt-3">{item}</li>)}
-              </ul>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="pb-24">
-    <div class="section-shell">
-      <article class="rounded-[2.5rem] border border-line bg-ink p-8 text-canvas md:p-12">
-        <p class="editorial-label !text-canvas/60">{dictionary.servicesPage.method.title}</p>
-        <div class="mt-10 grid gap-4 md:grid-cols-5">
-          {
-            dictionary.servicesPage.method.items.map((item, index) => (
-              <div class="rounded-[1.5rem] border border-canvas/12 p-5">
-                <p class="text-sm uppercase tracking-[0.22em] text-canvas/50">0{index + 1}</p>
-                <p class="mt-5 text-base leading-7 text-canvas/76">{item}</p>
-              </div>
-            ))
-          }
-        </div>
-
-        <a
-          href={localizePath(locale, "contact")}
-          class="mt-10 inline-flex rounded-full bg-canvas px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-ink transition-transform duration-300 hover:-translate-y-0.5"
-        >
-          {dictionary.navigation.cta}
-        </a>
-      </article>
-    </div>
-  </section>
+  <ServicesGridSection dictionary={dictionary} />
+  <CaseStudiesSection dictionary={dictionary} empresas={empresas} />
+  <ServicesMethodSection dictionary={dictionary} locale={locale} />
 </Layout>

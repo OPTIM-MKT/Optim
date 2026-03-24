@@ -1,0 +1,30 @@
+---
+interface Props {
+  dictionary: import("@/lib/site").SiteDictionary;
+}
+
+const { dictionary } = Astro.props;
+---
+
+<section class="pb-20">
+  <div class="section-shell">
+    <div class="max-w-3xl">
+      <p class="editorial-label eyebrow-rule">{dictionary.servicesPage.intro.title}</p>
+      <p class="mt-6 text-lg leading-8">{dictionary.servicesPage.intro.description}</p>
+    </div>
+
+    <div class="mt-12 grid gap-5 lg:grid-cols-2">
+      {
+        dictionary.servicesPage.services.map((service) => (
+          <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
+            <p class="text-3xl font-semibold text-ink">{service.title}</p>
+            <p class="mt-4 text-base leading-7">{service.summary}</p>
+            <ul class="mt-8 space-y-3 text-sm leading-7 text-muted">
+              {service.how.map((item) => <li class="border-t border-line pt-3">{item}</li>)}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

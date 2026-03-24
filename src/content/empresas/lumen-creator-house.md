@@ -10,7 +10,9 @@ servicesProvided:
 isLandingPage: true
 isComprehensiveStrategy: true
 results: Mayor consistencia de marca y crecimiento sostenido en solicitudes comerciales.
-image: /images/empresas/lumen-creator-house.svg
+featuredImage: /images/empresas/lumen-creator-house.svg
+logoUrl: /images/empresas/lumen-creator-house.svg
+order: 4
 ---
 
 Caso de referencia para creators que necesitan pasar de publicaciones aisladas a una operación de marca con narrativa, piezas premium y vías claras de monetización.

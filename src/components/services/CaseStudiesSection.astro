@@ -1,0 +1,60 @@
+---
+import { DEFAULT_MEDIA_IMAGE } from "@/lib/site";
+
+interface Props {
+  dictionary: import("@/lib/site").SiteDictionary;
+  empresas: import("astro:content").CollectionEntry<"empresas">[];
+}
+
+const { dictionary, empresas } = Astro.props;
+---
+
+<section class="pb-24">
+  <div class="section-shell">
+    <div class="max-w-3xl">
+      <p class="editorial-label eyebrow-rule">{dictionary.home.companies.eyebrow}</p>
+      <h2 class="mt-6 text-4xl font-semibold text-ink md:text-6xl">{dictionary.home.companies.title}</h2>
+      <p class="mt-6 text-lg leading-8">{dictionary.home.companies.description}</p>
+    </div>
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-2">
+      {
+        empresas.map((empresa) => (
+          <article id={empresa.id} class="media-frame overflow-hidden">
+            <div class="grid gap-0 lg:grid-cols-[minmax(260px,0.85fr)_minmax(0,1fr)]">
+              <img
+                src={empresa.data.featuredImage ?? DEFAULT_MEDIA_IMAGE}
+                alt={empresa.data.name}
+                class="h-full min-h-72 w-full object-cover"
+                loading="lazy"
+                transition:name={`empresa-image-${empresa.id}`}
+              />
+
+              <div class="p-8 md:p-10">
+                <p class="editorial-label">{empresa.data.industry}</p>
+                <h3 class="mt-6 text-3xl font-semibold text-ink" transition:name={`empresa-title-${empresa.id}`}>
+                  {empresa.data.name}
+                </h3>
+                <p class="mt-5 text-base leading-7">{empresa.data.description}</p>
+
+                <div class="mt-8 flex flex-wrap gap-2">
+                  {empresa.data.servicesProvided.map((service) => (
+                    <span class="rounded-full border border-line px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+                      {service}
+                    </span>
+                  ))}
+                </div>
+
+                {empresa.data.results ? (
+                  <p class="mt-8 border-t border-line pt-6 text-sm leading-7 text-muted">
+                    {empresa.data.results}
+                  </p>
+                ) : null}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

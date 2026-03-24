@@ -1,0 +1,22 @@
+---
+interface Props {
+  dictionary: import("@/lib/site").SiteDictionary;
+}
+
+const { dictionary } = Astro.props;
+---
+
+<section class="py-20">
+  <div class="section-shell grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+    <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
+      <p class="editorial-label">{dictionary.aboutPage.story.title}</p>
+      <p class="mt-8 text-3xl font-semibold leading-tight text-ink md:text-4xl">
+        {dictionary.aboutPage.story.description}
+      </p>
+    </article>
+    <article class="rounded-[2rem] border border-line bg-ink p-8 text-canvas md:p-10">
+      <p class="editorial-label !text-canvas/60">{dictionary.aboutPage.branchesTitle}</p>
+      <p class="mt-8 text-xl leading-8 text-canvas/76">{dictionary.aboutPage.teamNote}</p>
+    </article>
+  </div>
+</section>

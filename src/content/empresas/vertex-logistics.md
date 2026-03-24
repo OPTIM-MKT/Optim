@@ -10,7 +10,9 @@ servicesProvided:
 isLandingPage: false
 isComprehensiveStrategy: true
 results: Pipeline comercial con seguimiento centralizado y mejora en la calidad de lead.
-image: /images/empresas/vertex-logistics.svg
+featuredImage: /images/empresas/vertex-logistics.svg
+logoUrl: /images/empresas/vertex-logistics.svg
+order: 3
 ---
 
 Entrada placeholder pensada para compañías B2B donde la claridad del mensaje, la seriedad de la marca y la conexión con ventas son más importantes que la mera generación de alcance.

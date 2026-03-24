@@ -1,0 +1,24 @@
+---
+import SwiperCarousel, { type BannerSlide } from "@/components/SwiperCarousel";
+
+interface Props {
+  slides: BannerSlide[];
+  dictionary: import("@/lib/site").SiteDictionary;
+}
+
+const { slides, dictionary } = Astro.props;
+---
+
+{
+  slides.length > 0 ? (
+    <SwiperCarousel client:visible variant="banner" items={slides} ariaLabel={dictionary.home.companies.title} />
+  ) : (
+    <section class="snap-section flex items-center">
+      <div class="section-shell py-20">
+        <p class="editorial-label eyebrow-rule">{dictionary.home.companies.eyebrow}</p>
+        <h2 class="mt-6 max-w-3xl text-4xl font-semibold text-ink md:text-6xl">{dictionary.home.companies.title}</h2>
+        <p class="mt-6 max-w-2xl text-lg leading-8">{dictionary.home.companies.description}</p>
+      </div>
+    </section>
+  )
+}

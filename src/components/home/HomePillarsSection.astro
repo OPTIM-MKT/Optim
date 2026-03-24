@@ -1,0 +1,27 @@
+---
+interface Props {
+  dictionary: import("@/lib/site").SiteDictionary;
+}
+
+const { dictionary } = Astro.props;
+---
+
+<section class="snap-section flex items-center">
+  <div class="section-shell py-20">
+    <div class="max-w-3xl">
+      <p class="editorial-label eyebrow-rule">{dictionary.home.pillars.eyebrow}</p>
+      <h2 class="mt-6 text-4xl font-semibold text-ink md:text-6xl">{dictionary.home.pillars.title}</h2>
+      <p class="mt-6 text-lg leading-8">{dictionary.home.pillars.description}</p>
+    </div>
+    <div class="mt-12 grid gap-6 md:grid-cols-2">
+      {
+        dictionary.home.pillars.items.map((pillar) => (
+          <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
+            <p class="editorial-label">{pillar.title}</p>
+            <p class="mt-8 text-3xl font-semibold leading-tight text-ink md:text-4xl">{pillar.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

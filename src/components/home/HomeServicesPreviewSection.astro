@@ -1,0 +1,52 @@
+---
+import { localizePath, type Locale } from "@/lib/site";
+
+interface Props {
+  dictionary: import("@/lib/site").SiteDictionary;
+  locale: Locale;
+}
+
+const { dictionary, locale } = Astro.props;
+---
+
+<section class="snap-section flex items-center">
+  <div class="section-shell py-20">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+      <div class="space-y-6">
+        <p class="editorial-label eyebrow-rule">{dictionary.home.servicesPreview.eyebrow}</p>
+        <h2 class="max-w-4xl text-5xl font-semibold text-ink md:text-7xl lg:text-[7rem]">
+          {dictionary.home.hero.headline}
+          <span class="block text-strategic">{dictionary.home.hero.headlineAccent}</span>
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <p class="max-w-2xl text-lg leading-8">{dictionary.home.hero.subheadline}</p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href={localizePath(locale, "contact")}
+            class="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-canvas transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            {dictionary.home.hero.ctaPrimary}
+          </a>
+          <a
+            href={localizePath(locale, "services")}
+            class="rounded-full border border-line px-6 py-3 text-sm font-semibold text-ink transition-colors duration-300 hover:bg-panel"
+          >
+            {dictionary.home.hero.ctaSecondary}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {
+        dictionary.home.servicesPreview.items.map((service) => (
+          <article class="surface-card p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-strategic">
+            <p class="text-2xl font-semibold text-ink">{service}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

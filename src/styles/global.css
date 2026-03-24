@@ -74,6 +74,13 @@
     text-decoration: none;
   }
 
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
   img {
     display: block;
     max-width: 100%;
@@ -134,10 +141,21 @@
     backdrop-filter: blur(14px);
   }
 
+  .media-frame {
+    @apply overflow-hidden rounded-[2rem] border border-line;
+    background: color-mix(in srgb, var(--color-panel) 68%, transparent);
+    box-shadow: var(--shadow-card);
+  }
+
   .grid-frame {
     background-image:
       linear-gradient(to right, var(--color-line) 1px, transparent 1px),
       linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
     background-size: 3rem 3rem;
+  }
+
+  .surface-card {
+    @apply rounded-[1.75rem] border border-line;
+    background: color-mix(in srgb, var(--color-canvas) 78%, transparent);
   }
 }

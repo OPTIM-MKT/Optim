@@ -10,7 +10,9 @@ servicesProvided:
 isLandingPage: true
 isComprehensiveStrategy: true
 results: CPL reducido 31% durante la primera fase de captación.
-image: /images/empresas/aurora-residences.svg
+featuredImage: /images/empresas/aurora-residences.svg
+logoUrl: /images/empresas/aurora-residences.svg
+order: 1
 ---
 
 Caso placeholder para desarrollos inmobiliarios que requieren una experiencia de marca más sólida, un funnel de captación más claro y mejor trazabilidad del lead hasta la cita comercial.

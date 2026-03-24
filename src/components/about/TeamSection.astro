@@ -1,0 +1,13 @@
+---
+import TeamGrid, { type TeamMember } from "@/components/about/TeamGrid";
+
+interface Props {
+  members: TeamMember[];
+  title: string;
+  eyebrow: string;
+}
+
+const { members, title, eyebrow } = Astro.props;
+---
+
+<TeamGrid client:visible members={members} title={title} eyebrow={eyebrow} />

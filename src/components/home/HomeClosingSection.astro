@@ -1,0 +1,31 @@
+---
+import { localizePath, type Locale } from "@/lib/site";
+
+interface Props {
+  dictionary: import("@/lib/site").SiteDictionary;
+  locale: Locale;
+}
+
+const { dictionary, locale } = Astro.props;
+---
+
+<section class="snap-section flex items-center">
+  <div class="section-shell py-20">
+    <article class="glass-panel overflow-hidden rounded-[2.5rem] border border-line">
+      <div class="grid gap-8 p-8 md:p-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+        <div>
+          <p class="editorial-label eyebrow-rule">{dictionary.navigation.contact}</p>
+          <h2 class="mt-6 max-w-4xl text-4xl font-semibold text-ink md:text-6xl">{dictionary.home.closing.title}</h2>
+          <p class="mt-6 max-w-2xl text-lg leading-8">{dictionary.home.closing.description}</p>
+        </div>
+
+        <a
+          href={localizePath(locale, "contact")}
+          class="inline-flex h-fit rounded-full bg-strategic px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5"
+        >
+          {dictionary.home.closing.cta}
+        </a>
+      </div>
+    </article>
+  </div>
+</section>

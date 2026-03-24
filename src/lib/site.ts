@@ -2,6 +2,8 @@ import enDictionary from "@/constants/en.json";
 import esDictionary from "@/constants/es.json";
 
 export const locales = ["es", "en"] as const;
+export const DEFAULT_MEDIA_IMAGE = "/images/placeholders/default-media.svg";
+export const DEFAULT_OG_IMAGE = "/images/placeholders/optim-og.svg";
 
 export type Locale = (typeof locales)[number];
 export type SiteDictionary = typeof esDictionary;

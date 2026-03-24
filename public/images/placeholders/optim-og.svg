@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Optim social card</title>
+  <desc id="desc">Social preview image for Optim website.</desc>
+  <rect width="1200" height="630" fill="#111111"/>
+  <circle cx="960" cy="120" r="180" fill="#bb4f35" fill-opacity="0.8"/>
+  <rect x="70" y="70" width="1060" height="490" rx="40" fill="#f7f3ec"/>
+  <text x="130" y="275" fill="#111111" font-family="Arial, sans-serif" font-size="92" font-weight="700">Optim</text>
+  <text x="130" y="360" fill="#bb4f35" font-family="Arial, sans-serif" font-size="54">Creatividad que captura.</text>
+  <text x="130" y="430" fill="#111111" font-family="Arial, sans-serif" font-size="54">Calculo que convierte.</text>
+</svg>

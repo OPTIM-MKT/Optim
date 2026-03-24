@@ -1,9 +1,16 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
-import Footer from "@/components/Footer.astro";
-import Header from "@/components/Header.astro";
-import { getDictionary, type Locale, type PageKey } from "@/lib/site";
+import Footer from "@/components/shared/Footer.astro";
+import Header from "@/components/shared/Header.astro";
+import {
+  DEFAULT_OG_IMAGE,
+  getDictionary,
+  localizePath,
+  type Locale,
+  type PageKey,
+} from "@/lib/site";
+import { SEO } from "astro-seo";
 
 interface Props {
   locale: Locale;
@@ -18,36 +25,89 @@ const dictionary = getDictionary(locale);
 const seoTitle = title ?? dictionary.seo.defaultTitle;
 const seoDescription = description ?? dictionary.seo.defaultDescription;
 const canonicalUrl = Astro.url.href;
+const currentPathWithoutLocale = Astro.url.pathname.startsWith("/en/")
+  ? Astro.url.pathname.slice(4)
+  : Astro.url.pathname === "/en"
+    ? ""
+    : Astro.url.pathname.slice(1);
+const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
 ---
 
 <!doctype html>
 <html lang={locale}>
   <head>
+    <script is:inline>
+      (() => {
+        const storageKey = "optim-theme";
+        const storedTheme = window.localStorage.getItem(storageKey);
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = storedTheme ?? (systemDark ? "dark" : "light");
+        document.documentElement.classList.toggle("dark", theme === "dark");
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={seoDescription} />
-    <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content={locale === "en" ? "en_US" : "es_MX"} />
-    <meta property="og:title" content={seoTitle} />
-    <meta property="og:description" content={seoDescription} />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={seoTitle} />
-    <meta name="twitter:description" content={seoDescription} />
+    <SEO
+      title={seoTitle}
+      description={seoDescription}
+      canonical={canonicalUrl}
+      languageAlternates={[
+        {
+          href: new URL(localizePath("es", currentPathWithoutLocale), Astro.url).href,
+          hrefLang: "es",
+        },
+        {
+          href: new URL(localizePath("en", currentPathWithoutLocale), Astro.url).href,
+          hrefLang: "en",
+        },
+      ]}
+      openGraph={{
+        basic: {
+          title: seoTitle,
+          type: "website",
+          image: seoImage,
+          url: canonicalUrl,
+        },
+        optional: {
+          description: seoDescription,
+          locale: locale === "en" ? "en_US" : "es_MX",
+          localeAlternate: [locale === "en" ? "es_MX" : "en_US"],
+          siteName: "Optim",
+        },
+        image: {
+          alt: seoTitle,
+          width: 1200,
+          height: 630,
+          type: "image/svg+xml",
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        title: seoTitle,
+        description: seoDescription,
+        image: seoImage,
+        imageAlt: seoTitle,
+      }}
+      extend={{
+        link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+        meta: [{ name: "generator", content: Astro.generator }],
+      }}
+    />
     <ClientRouter />
     <title>{seoTitle}</title>
   </head>
   <body>
-    <Header locale={locale} dictionary={dictionary} currentPath={Astro.url.pathname} />
+    <Header
+      locale={locale}
+      dictionary={dictionary}
+      currentPath={Astro.url.pathname}
+    />
     <main
       data-lenis-prevent
       class:list={[
-        snap
-          ? "h-screen snap-y snap-mandatory overflow-y-scroll overscroll-y-none"
-          : "min-h-[calc(100vh-5rem)] overflow-visible",
+        "min-h-[calc(100vh-5rem)]",
+        snap ? "snap-y snap-mandatory" : "",
       ]}
     >
       <slot />
@@ -56,7 +116,9 @@ const canonicalUrl = Astro.url.href;
     <script>
       import Lenis from "lenis";
 
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      );
 
       if (!prefersReducedMotion.matches) {
         const lenis = new Lenis({
@@ -83,6 +145,36 @@ const canonicalUrl = Astro.url.href;
           { once: true },
         );
       }
+
+      const storageKey = "optim-theme";
+      const updateThemeUi = (theme: string) => {
+        document.querySelectorAll("[data-theme-label]").forEach((label) => {
+          label.textContent = theme === "dark" ? "Light" : "Dark";
+        });
+      };
+
+      const applyTheme = (theme: string) => {
+        document.documentElement.classList.toggle("dark", theme === "dark");
+        document.documentElement.dataset.theme = theme;
+        window.localStorage.setItem(storageKey, theme);
+        updateThemeUi(theme);
+      };
+
+      updateThemeUi(document.documentElement.dataset.theme ?? "light");
+
+      document.addEventListener("click", (event) => {
+        const toggle = event.target instanceof Element
+          ? event.target.closest("[data-theme-toggle]")
+          : null;
+
+        if (!toggle) {
+          return;
+        }
+
+        const nextTheme =
+          document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme);
+      });
     </script>
   </body>
 </html>

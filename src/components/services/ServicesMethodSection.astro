@@ -1,0 +1,35 @@
+---
+import { localizePath, type Locale } from "@/lib/site";
+
+interface Props {
+  dictionary: import("@/lib/site").SiteDictionary;
+  locale: Locale;
+}
+
+const { dictionary, locale } = Astro.props;
+---
+
+<section class="pb-24">
+  <div class="section-shell">
+    <article class="rounded-[2.5rem] border border-line bg-ink p-8 text-canvas md:p-12">
+      <p class="editorial-label !text-canvas/60">{dictionary.servicesPage.method.title}</p>
+      <div class="mt-10 grid gap-4 md:grid-cols-5">
+        {
+          dictionary.servicesPage.method.items.map((item, index) => (
+            <div class="rounded-[1.5rem] border border-canvas/12 p-5">
+              <p class="text-sm uppercase tracking-[0.22em] text-canvas/50">0{index + 1}</p>
+              <p class="mt-5 text-base leading-7 text-canvas/76">{item}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <a
+        href={localizePath(locale, "contact")}
+        class="mt-10 inline-flex rounded-full bg-canvas px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-ink transition-transform duration-300 hover:-translate-y-0.5"
+      >
+        {dictionary.navigation.cta}
+      </a>
+    </article>
+  </div>
+</section>
