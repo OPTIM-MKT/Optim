@@ -1,0 +1,84 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import { getDictionary, localizePath, type Locale } from "@/lib/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dictionary = getDictionary(locale);
+---
+
+<Layout
+  locale={locale}
+  title={dictionary.seo.pages.pricing.title}
+  description={dictionary.seo.pages.pricing.description}
+  pageKey="pricing"
+>
+  <PageHero
+    eyebrow={dictionary.pricingPage.hero.eyebrow}
+    title={dictionary.pricingPage.hero.title}
+    description={dictionary.pricingPage.hero.description}
+  />
+
+  <section class="pb-20">
+    <div class="section-shell grid gap-5 xl:grid-cols-3">
+      {
+        dictionary.pricingPage.plans.map((plan) => (
+          <article
+            class:list={[
+              "rounded-[2rem] border p-8 md:p-10",
+              plan.highlighted
+                ? "border-strategic bg-ink text-canvas"
+                : "glass-panel border-line",
+            ]}
+          >
+            <p class:list={["text-sm font-semibold uppercase tracking-[0.22em]", plan.highlighted ? "text-canvas/60" : "text-strategic"]}>
+              {plan.name}
+            </p>
+            <div class="mt-8 flex items-end gap-2">
+              <span class:list={["text-5xl font-semibold", plan.highlighted ? "text-canvas" : "text-ink"]}>
+                {plan.price}
+              </span>
+              <span class:list={["pb-2 text-sm", plan.highlighted ? "text-canvas/70" : "text-muted"]}>
+                {dictionary.common.month}
+              </span>
+            </div>
+            <p class:list={["mt-6 text-base leading-7", plan.highlighted ? "text-canvas/76" : "text-muted"]}>
+              {plan.description}
+            </p>
+            <ul class:list={["mt-8 space-y-3 text-sm leading-7", plan.highlighted ? "text-canvas/76" : "text-muted"]}>
+              {plan.features.map((feature) => <li class:list={[plan.highlighted ? "border-canvas/12" : "border-line", "border-t pt-3"]}>{feature}</li>)}
+            </ul>
+            <a
+              href={localizePath(locale, "contact")}
+              class:list={[
+                "mt-8 inline-flex rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] transition-transform duration-300 hover:-translate-y-0.5",
+                plan.highlighted ? "bg-canvas text-ink" : "bg-ink text-canvas",
+              ]}
+            >
+              {dictionary.common.quoteCta}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="section-shell grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)]">
+      <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
+        <p class="editorial-label">{dictionary.pricingPage.custom.title}</p>
+        <p class="mt-8 text-3xl font-semibold leading-tight text-ink md:text-4xl">
+          {dictionary.pricingPage.custom.description}
+        </p>
+      </article>
+      <article class="rounded-[2rem] border border-line bg-canvas p-8 md:p-10">
+        <p class="text-sm uppercase tracking-[0.22em] text-strategic">{dictionary.navigation.pricing}</p>
+        <p class="mt-6 text-base leading-8">{dictionary.pricingPage.note}</p>
+      </article>
+    </div>
+  </section>
+</Layout>

@@ -1,94 +1,373 @@
 {
   "seo": {
-    "title": "Optim | Marketing That Converts Attention Into Real Results",
-    "description": "A performance marketing agency focused on capturing attention and driving tangible outcomes. We build strategies merging creativity and data calculation."
-  },
-  "navigation": {
-    "home": "Home",
-    "services": "What We Do",
-    "process": "How We Work",
-    "cases": "Case Studies",
-    "contact": "Book a Consultation"
-  },
-  "hero": {
-    "headline": "Marketing that converts attention into real results",
-    "subheadline": "We engineer strategies, highly engaging content, and ad campaigns focused on measurable growth. We build digital ecosystems.",
-    "cta_primary": "Book a consultation",
-    "cta_secondary": "Explore our methodology"
-  },
-  "pillars": {
-    "section_title": "Our Core Pillars",
-    "creativity_title": "Creativity that captures",
-    "creativity_desc": "Content meticulously designed to steal and hold attention. We leverage strong hooks, dynamic storytelling, and compelling visuals that resonate deeply.",
-    "calculation_title": "Calculation that converts",
-    "calculation_desc": "Attention requires direction. We utilize advanced technological tools and behavioral data analysis to ensure your content reaches the exact right audience."
-  },
-  "services": {
-    "section_title": "Our Solutions",
-    "marketing_strategy": {
-      "title": "Marketing Strategy",
-      "description": "Comprehensive digital blueprints based on core business goals, customer psychology, and untapped market opportunities."
-    },
-    "content_creation": {
-      "title": "Strategic Content Creation",
-      "description": "Production of reels, short-form videos, and carousels engineered with a narrative focus to capture massive attention."
-    },
-    "digital_ads": {
-      "title": "Digital Advertising",
-      "description": "Precision design and management of high-ROI campaigns across Meta Ads, Google Ads, LinkedIn, and YouTube."
-    },
-    "branding": {
-      "title": "Branding & Positioning",
-      "description": "Development of robust visual identities, logo design, and aesthetic guidelines to elevate market perception."
-    },
-    "web_dev": {
-      "title": "Web & Landing Pages",
-      "description": "Creation of high-performance websites and conversion funnels optimized to transform cold traffic into qualified leads."
-    },
-    "crm_integration": {
-      "title": "CRM Integration",
-      "description": "Deployment of automated management systems and sales pipelines to maximize your lead-to-close ratio."
-    }
-  },
-  "branches": {
-    "section_title": "Industry Specialization",
-    "digital": "Optim MKT Digital: Growth solutions for traditional and digital-first businesses.",
-    "real_estate": "Optim MKT Inmobiliario: Lead generation strategies tailored for real estate developers and agencies.",
-    "creators": "Optim Creator Studios: Reach and monetization expansion for influencers and streamers.",
-    "productions": "Optim Productions: Cinema-quality professional audiovisual production."
-  },
-  "methodology": {
-    "section_title": "Our Workflow",
-    "steps":{
-      "discovery":{
-        "title":"Discovery",
-        "description":"We analyze your business, your market, and your goals to understand where the real opportunities lie."
+    "defaultTitle": "Optim | Creativity that captures. Calculation that converts.",
+    "defaultDescription": "Optim builds strategic marketing systems powered by creativity that captures and calculation that converts: strategy, content, paid media, branding, web and CRM aligned for growth.",
+    "pages": {
+      "home": {
+        "title": "Optim | Strategic marketing agency",
+        "description": "Optim home page: strategy, creativity, performance media, branding, web and CRM connected in one growth system."
       },
-      "strategy":{
-        "title":"Strategy",
-        "description":"We design a clear, measurable action plan focused on tangible results."
+      "about": {
+        "title": "About Optim | Strategy, clarity and execution",
+        "description": "Learn about Optim's philosophy, method and business branches for brands that need commercial structure."
       },
-      "execution":{
-        "title":"Execution",
-        "description":"We create optimized content, campaigns, and systems designed to capture attention and generate conversions."
+      "services": {
+        "title": "Services | What we do and how we do it",
+        "description": "Strategic marketing, content, paid media, branding, web and CRM services explained through a business lens."
       },
-      "optimization":{
-        "title":"Continuous Optimization",
-        "description":"We measure, analyze, and adjust constantly to ensure sustainable growth."
+      "pricing": {
+        "title": "Pricing | Packages and operating models",
+        "description": "Explore Optim's base plans and pricing for strategy, content, performance and commercial systems."
+      },
+      "contact": {
+        "title": "Contact | Book a diagnostic with Optim",
+        "description": "Form, map, phone numbers and social links to get in touch with Optim and start a strategic diagnostic."
       }
     }
   },
-  "contact": {
-    "title": "Conversion System",
-    "subtitle": "We aren't looking for contacts; we are looking for strategic partners.",
-    "form": {
-      "name": "Full Name",
-      "company": "Company Name",
-      "business_type": "Industry or Business Type",
-      "objective": "Primary Objective",
-      "budget": "Estimated Monthly Budget",
-      "past_actions": "What marketing strategies have you tried?",
-      "submit": "Request Analysis"
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "cta": "Book a diagnostic"
+  },
+  "common": {
+    "scrollLabel": "Scroll",
+    "statsLabel": "Indicators",
+    "startingAt": "Starting at",
+    "month": "/month",
+    "quoteCta": "Request a proposal"
+  },
+  "home": {
+    "hero": {
+      "kicker": "Strategic marketing agency",
+      "headline": "We do not build generic marketing.",
+      "headlineAccent": "We engineer attention with direction.",
+      "subheadline": "Optim creates growth systems where each idea captures and every decision converts. Strategy, content, media, branding, web and CRM working as one mechanism.",
+      "ctaPrimary": "Book a diagnostic",
+      "ctaSecondary": "See services",
+      "slides": [
+        {
+          "eyebrow": "Creativity that captures",
+          "title": "Messaging that stops the scroll and sharpens brand perception.",
+          "description": "Concept, narrative and production built to make a brand feel premium, memorable and hard to ignore."
+        },
+        {
+          "eyebrow": "Calculation that converts",
+          "title": "Decisions backed by intent, data and disciplined optimization.",
+          "description": "We plan media, measure signals and adjust with rigor so attention turns into real commercial opportunities."
+        },
+        {
+          "eyebrow": "Complete system",
+          "title": "From strategy to CRM, without disconnected pieces.",
+          "description": "We connect positioning, funnels, sites, campaigns and automation so the business scales with coherence."
+        }
+      ],
+      "stats": [
+        {
+          "value": "2",
+          "label": "Strategic pillars"
+        },
+        {
+          "value": "6",
+          "label": "Integrated services"
+        },
+        {
+          "value": "5",
+          "label": "Execution stages"
+        }
+      ]
+    },
+    "pillars": {
+      "eyebrow": "Pillars",
+      "title": "Two forces working in the same direction.",
+      "description": "Creativity without structure only entertains. Calculation without narrative goes cold. Optim works where both forces coordinate to move business.",
+      "items": [
+        {
+          "title": "Creativity that captures",
+          "description": "We build concepts, assets and experiences that feel native to the context and difficult to forget. Every format is made to earn the right attention."
+        },
+        {
+          "title": "Calculation that converts",
+          "description": "We define hypotheses, measure signals and optimize distribution so investment moves closer to the result. We do not chase vanity metrics."
+        }
+      ]
+    },
+    "servicesPreview": {
+      "eyebrow": "Services",
+      "title": "A marketing system, not a list of deliverables.",
+      "items": [
+        "Marketing Strategy",
+        "Content Creation",
+        "Digital Advertising",
+        "Branding",
+        "Websites and Landing Pages",
+        "CRM Integration"
+      ]
+    },
+    "process": {
+      "eyebrow": "Process",
+      "title": "Five steps to move from improvisation to structure.",
+      "steps": [
+        {
+          "title": "Diagnostic",
+          "description": "We read the starting point, detect friction and define where the real opportunity sits."
+        },
+        {
+          "title": "Strategy",
+          "description": "We translate business into messaging, channels, offer and a measurable priority system."
+        },
+        {
+          "title": "Production",
+          "description": "We develop assets and experiences with visual consistency and commercial intent."
+        },
+        {
+          "title": "Distribution",
+          "description": "We activate paid and organic channels to place the right message in front of the right audience."
+        },
+        {
+          "title": "Optimization",
+          "description": "We adjust creative, targeting, funnels and automation to sustain performance."
+        }
+      ]
+    },
+    "branches": {
+      "eyebrow": "Branches",
+      "title": "A group specialized for different contexts.",
+      "items": [
+        {
+          "name": "Optim MKT Digital",
+          "description": "Growth systems for brands that need commercial clarity, content and performance under one operating logic."
+        },
+        {
+          "name": "Optim MKT Inmobiliario",
+          "description": "Lead generation, follow-up and conversion for developments, brokers and real estate firms competing for qualified attention."
+        },
+        {
+          "name": "Optim Creator Studios",
+          "description": "Positioning, narrative and monetization for creators ready to operate like a serious brand."
+        },
+        {
+          "name": "Optim Productions",
+          "description": "Premium audiovisual production for campaigns, commercial assets and high-impact brand pieces."
+        }
+      ]
+    },
+    "companies": {
+      "eyebrow": "Companies",
+      "title": "The company collection powers living social proof.",
+      "description": "Case entries, industries and results loaded from content so the landing does not depend on hardcoded proof."
+    },
+    "closing": {
+      "title": "If the business needs structure, it starts here.",
+      "description": "We schedule a diagnostic to identify critical fronts, conversion opportunities and the system worth building first.",
+      "cta": "Go to contact"
     }
+  },
+  "aboutPage": {
+    "hero": {
+      "eyebrow": "About",
+      "title": "Optim is an agency built to connect perception with results.",
+      "description": "We combine creative direction, strategic thinking and commercial operations to build brands with clear presence and measurable conversion."
+    },
+    "story": {
+      "title": "The idea behind Optim",
+      "description": "We were built to solve a recurring friction: brands with real ambition but fragmented execution. Optim turns that energy into a system where the brand looks solid, media serves the business and follow-up stops slipping through loose spreadsheets."
+    },
+    "principles": {
+      "title": "Operating principles",
+      "items": [
+        {
+          "title": "Clarity over volume",
+          "description": "We prefer precise messaging, clear priorities and decisions that can be justified."
+        },
+        {
+          "title": "System over improvisation",
+          "description": "Every campaign, site or asset should connect to an operating structure that can sustain it."
+        },
+        {
+          "title": "Aesthetics with function",
+          "description": "Form matters when it improves perception, comprehension and conversion."
+        }
+      ]
+    },
+    "branchesTitle": "Optim branches",
+    "teamNote": "We work as a strategic cell: strategy, creativity, production, media and automation aligned around one reading of the business."
+  },
+  "servicesPage": {
+    "hero": {
+      "eyebrow": "Services",
+      "title": "What we do and how we do it.",
+      "description": "We optimize perception, acquisition and follow-up inside one system. Each service has a clear function within the commercial architecture."
+    },
+    "intro": {
+      "title": "We do not sell isolated pieces.",
+      "description": "Our services can operate independently, but they perform best when integrated. The goal is to build a growth system where narrative, channels and follow-up stay connected."
+    },
+    "services": [
+      {
+        "title": "Marketing Strategy",
+        "summary": "We define the commercial and creative map before production starts.",
+        "how": [
+          "Business, offer and market diagnostic.",
+          "Audience, messaging and channel definition.",
+          "Roadmap with priorities, KPIs and operating rhythm."
+        ]
+      },
+      {
+        "title": "Content Creation",
+        "summary": "We create assets with narrative intent and distribution value.",
+        "how": [
+          "Creative concept and scripting.",
+          "Audiovisual production and editing.",
+          "Adaptations by format and channel."
+        ]
+      },
+      {
+        "title": "Digital Advertising",
+        "summary": "We manage Meta Ads and Google Ads with business focus and fast learning loops.",
+        "how": [
+          "Campaign and audience architecture.",
+          "Controlled creative and messaging tests.",
+          "Performance optimization based on real signals."
+        ]
+      },
+      {
+        "title": "Branding",
+        "summary": "We organize perception so the brand feels consistent and strategic.",
+        "how": [
+          "Visual and verbal system.",
+          "Message hierarchy and tone.",
+          "Core applications for content and web."
+        ]
+      },
+      {
+        "title": "Websites and Landing Pages",
+        "summary": "We create fast, clear experiences designed for the next decision.",
+        "how": [
+          "Content architecture and UX.",
+          "Visual design aligned to conversion.",
+          "Implementation and initial measurement."
+        ]
+      },
+      {
+        "title": "CRM Integration",
+        "summary": "We connect marketing with follow-up so opportunities are not lost.",
+        "how": [
+          "Pipeline and stage mapping.",
+          "Basic automations and forms.",
+          "Traceability between lead, follow-up and closing."
+        ]
+      }
+    ],
+    "method": {
+      "title": "How we operate",
+      "items": [
+        "We listen to the commercial context before proposing deliverables.",
+        "We design a concrete implementation route.",
+        "We produce assets with strategic intent.",
+        "We distribute and measure to learn fast.",
+        "We iterate on signals, not assumptions."
+      ]
+    }
+  },
+  "pricingPage": {
+    "hero": {
+      "eyebrow": "Pricing",
+      "title": "Clear packages for different levels of need.",
+      "description": "Base pricing to help you evaluate the level of system you need. Every final proposal adjusts to scope, volume and industry."
+    },
+    "plans": [
+      {
+        "name": "Base",
+        "price": "$12,900",
+        "description": "For brands that need to organize messaging, presence and a first acquisition structure.",
+        "features": [
+          "Initial strategic diagnostic",
+          "Monthly content direction",
+          "1 conversion landing page",
+          "Base analytics setup"
+        ]
+      },
+      {
+        "name": "Growth",
+        "price": "$24,900",
+        "description": "For businesses already selling and ready for a more serious content, media and follow-up system.",
+        "features": [
+          "Monthly strategy",
+          "Recurring content production",
+          "Meta Ads and Google Ads management",
+          "Funnel and CRM optimization"
+        ],
+        "highlighted": true
+      },
+      {
+        "name": "Scale",
+        "price": "$44,900",
+        "description": "For brands or developments that need integral operation, speed and higher iteration capacity.",
+        "features": [
+          "Dedicated strategic cell",
+          "Multichannel campaign system",
+          "Premium branding and assets",
+          "Extended commercial automation"
+        ]
+      }
+    ],
+    "custom": {
+      "title": "Need a custom proposal?",
+      "description": "We also take project-based work: branding, sites, launch campaigns, audiovisual production or focused CRM implementation."
+    },
+    "note": "Prices in MXN. Ad spend and advanced third-party production costs are not included."
+  },
+  "contactPage": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Book a diagnostic and let’s talk with context.",
+      "description": "Tell us what you are building, what you already tried and where the main friction lives. We design the conversation to be useful from the first touchpoint."
+    },
+    "details": {
+      "title": "Contact channels",
+      "email": "hello@optim.mx",
+      "phone": "+52 81 1234 5678",
+      "whatsapp": "+52 81 8765 4321",
+      "address": "San Pedro Garza García, Nuevo León, Mexico",
+      "mapLabel": "Open reference location"
+    },
+    "socials": [
+      {
+        "label": "Instagram",
+        "href": "https://instagram.com/optim"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://linkedin.com/company/optim"
+      },
+      {
+        "label": "Behance",
+        "href": "https://behance.net/optim"
+      }
+    ],
+    "form": {
+      "title": "Tell us about the project",
+      "description": "Placeholder form ready to connect later to your CRM or backend.",
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "phone": "Phone",
+      "service": "Service of interest",
+      "budget": "Estimated budget",
+      "message": "Project context",
+      "submit": "Send request"
+    }
+  },
+  "footer": {
+    "tagline": "Creativity that captures. Calculation that converts.",
+    "description": "Optim builds strategic marketing systems for brands that need commercial structure and execution with intent.",
+    "navigationTitle": "Navigation",
+    "contactTitle": "Contact",
+    "socialTitle": "Social",
+    "copyright": "Optim. All rights reserved."
   }
 }

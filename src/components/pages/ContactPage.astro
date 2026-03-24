@@ -1,0 +1,62 @@
+---
+import ContactForm from "@/components/ContactForm.astro";
+import Layout from "@/layouts/Layout.astro";
+import MapCard from "@/components/MapCard.astro";
+import PageHero from "@/components/PageHero.astro";
+import { getDictionary, type Locale } from "@/lib/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dictionary = getDictionary(locale);
+---
+
+<Layout
+  locale={locale}
+  title={dictionary.seo.pages.contact.title}
+  description={dictionary.seo.pages.contact.description}
+  pageKey="contact"
+>
+  <PageHero
+    eyebrow={dictionary.contactPage.hero.eyebrow}
+    title={dictionary.contactPage.hero.title}
+    description={dictionary.contactPage.hero.description}
+  />
+
+  <section class="pb-24">
+    <div class="section-shell grid gap-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+      <ContactForm dictionary={dictionary} />
+
+      <div class="grid gap-6">
+        <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
+          <p class="editorial-label">{dictionary.contactPage.details.title}</p>
+          <div class="mt-8 grid gap-4 text-base text-muted">
+            <a href={`mailto:${dictionary.contactPage.details.email}`} class="text-ink">{dictionary.contactPage.details.email}</a>
+            <a href={`tel:${dictionary.contactPage.details.phone.replaceAll(" ", "")}`} class="text-ink">{dictionary.contactPage.details.phone}</a>
+            <a href={`https://wa.me/${dictionary.contactPage.details.whatsapp.replaceAll(/\D/g, "")}`} target="_blank" rel="noreferrer" class="text-ink">{dictionary.contactPage.details.whatsapp}</a>
+            <p>{dictionary.contactPage.details.address}</p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            {
+              dictionary.contactPage.socials.map((social) => (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="rounded-full border border-line px-4 py-2 text-sm font-semibold text-ink transition-colors duration-300 hover:bg-panel"
+                >
+                  {social.label}
+                </a>
+              ))
+            }
+          </div>
+        </article>
+
+        <MapCard dictionary={dictionary} />
+      </div>
+    </div>
+  </section>
+</Layout>
