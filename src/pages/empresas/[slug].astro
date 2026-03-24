@@ -1,0 +1,43 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const empresas = await getCollection("empresas");
+  return empresas.map((empresa) => ({
+    params: { slug: empresa.id },
+    props: { empresa },
+  }));
+}
+
+const { empresa } = Astro.props;
+const { Content } = await render(empresa);
+---
+
+<Layout
+  locale="es"
+  title={empresa.data.name}
+  description={empresa.data.description || empresa.data.industry}
+  pageKey="home"
+>
+  <div class="section-shell min-h-[70vh] py-32">
+    <div class="mb-12 max-w-3xl">
+      <h1 class="text-5xl font-bold text-ink md:text-7xl">{empresa.data.name}</h1>
+      <p class="mt-4 text-xl tracking-wide uppercase text-strategic">{empresa.data.industry}</p>
+    </div>
+
+    {empresa.data.logoUrl || empresa.data.featuredImage ? (
+      <div class="mb-16 max-w-2xl overflow-hidden rounded-3xl border border-line bg-panel p-8">
+        <img
+          src={empresa.data.logoUrl || empresa.data.featuredImage}
+          alt={empresa.data.name}
+          class="h-auto w-full object-contain"
+        />
+      </div>
+    ) : null}
+
+    <div class="prose prose-lg dark:prose-invert max-w-none text-ink/80">
+      <Content />
+    </div>
+  </div>
+</Layout>

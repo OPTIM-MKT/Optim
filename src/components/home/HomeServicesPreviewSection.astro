@@ -1,5 +1,6 @@
 ---
 import { localizePath, type Locale } from "@/lib/site";
+import SwiperCarousel from "@/components/SwiperCarousel";
 
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
@@ -14,7 +15,7 @@ const { dictionary, locale } = Astro.props;
     <div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
       <div class="space-y-6">
         <p class="editorial-label eyebrow-rule">{dictionary.home.servicesPreview.eyebrow}</p>
-        <h2 class="max-w-4xl text-5xl font-semibold text-ink md:text-7xl lg:text-[7rem]">
+        <h2 class="max-w-4xl text-5xl font-semibold text-ink md:text-6xl lg:text-[5rem]">
           {dictionary.home.hero.headline}
           <span class="block text-strategic">{dictionary.home.hero.headlineAccent}</span>
         </h2>

@@ -8,7 +8,10 @@ import HomeHeroSection from "@/components/home/HomeHeroSection.astro";
 import HomePillarsSection from "@/components/home/HomePillarsSection.astro";
 import HomeProcessSection from "@/components/home/HomeProcessSection.astro";
 import HomeServicesPreviewSection from "@/components/home/HomeServicesPreviewSection.astro";
+import HomeTestimonialsSection from "@/components/home/HomeTestimonialsSection.astro";
 import ParallaxMedia from "@/components/shared/ParallaxMedia.astro";
+import ImageTextSection from "@/components/shared/ImageTextSection.astro";
+
 import Layout from "@/layouts/Layout.astro";
 import { DEFAULT_MEDIA_IMAGE, getDictionary, localizePath, type Locale } from "@/lib/site";
 
@@ -22,9 +25,9 @@ const empresas = (await getCollection("empresas")).sort(
   (left, right) => left.data.order - right.data.order,
 );
 const heroBackgrounds = [
-  "/images/placeholders/home-hero-1.svg",
-  "/images/placeholders/home-hero-2.svg",
-  "/images/placeholders/home-hero-3.svg",
+  "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2850&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2850&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2850&auto=format&fit=crop",
 ];
 
 const heroSlides: HeroSlide[] = dictionary.home.hero.slides.map(
@@ -58,6 +61,7 @@ const companySlides: BannerSlide[] = empresas.map((empresa) => ({
 >
   <HomeHeroSection slides={heroSlides} ariaLabel={dictionary.home.hero.kicker} />
   <HomeServicesPreviewSection dictionary={dictionary} locale={locale} />
+  <ImageTextSection />
   <HomePillarsSection dictionary={dictionary} />
   <ParallaxMedia
     eyebrow={dictionary.home.companies.eyebrow}
@@ -68,6 +72,7 @@ const companySlides: BannerSlide[] = empresas.map((empresa) => ({
   />
   <HomeProcessSection dictionary={dictionary} />
   <HomeCompaniesSection slides={companySlides} dictionary={dictionary} />
+  <HomeTestimonialsSection />
   <HomeBranchesSection dictionary={dictionary} />
   <HomeClosingSection dictionary={dictionary} locale={locale} />
 </Layout>

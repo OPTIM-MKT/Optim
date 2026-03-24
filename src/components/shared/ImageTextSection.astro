@@ -1,0 +1,55 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imagePosition?: "left" | "right";
+}
+
+const {
+  title = "Lorem ipsum dolor sit amet",
+  description = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+  image = "/images/placeholders/default-media.svg",
+  imagePosition = "right",
+} = Astro.props;
+
+const paragraphs = description.split("\n\n");
+---
+
+<section class="snap-section flex items-center py-24">
+  <div class="section-shell">
+    <div
+      class:list={[
+        "grid items-center gap-16 lg:grid-cols-2 lg:gap-24",
+      ]}
+    >
+      <div
+        class:list={[
+          "space-y-8",
+          imagePosition === "left" ? "lg:order-2" : "lg:order-1",
+        ]}
+      >
+        <h2 class="text-4xl font-semibold text-ink md:text-5xl lg:text-6xl">
+          {title}
+        </h2>
+        <div class="space-y-6 text-lg leading-relaxed text-muted">
+          {paragraphs.map((para) => <p>{para}</p>)}
+        </div>
+      </div>
+
+      <div
+        class:list={[
+          "relative overflow-hidden rounded-4xl border border-line bg-panel p-2 shadow-sm",
+          imagePosition === "left" ? "lg:order-1" : "lg:order-2",
+        ]}
+      >
+        <img
+          src={image}
+          alt={title}
+          class="w-full h-auto rounded-3xl object-cover"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>

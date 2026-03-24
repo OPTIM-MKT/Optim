@@ -62,7 +62,7 @@ export default function TeamGrid({ members, title, eyebrow }: TeamGridProps) {
             </div>
 
             <div className="absolute inset-x-0 bottom-0 translate-y-8 bg-[linear-gradient(180deg,transparent,rgba(13,13,13,0.92)_30%)] p-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-              <a href={`mailto:${member.email}`} className="text-sm font-semibold uppercase tracking-[0.18em] text-canvas/86">
+              <a href={`mailto:${member.email}`} className="text-sm font-semibold uppercase tracking-[0.18em] text-white/86">
                 {member.email}
               </a>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -72,7 +72,7 @@ export default function TeamGrid({ members, title, eyebrow }: TeamGridProps) {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full border border-white/12 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-canvas"
+                    className="rounded-full border border-white/12 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white"
                   >
                     {social.label}
                   </a>

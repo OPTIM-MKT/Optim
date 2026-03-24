@@ -11,7 +11,7 @@ const { slides, dictionary } = Astro.props;
 
 {
   slides.length > 0 ? (
-    <SwiperCarousel client:visible variant="banner" items={slides} ariaLabel={dictionary.home.companies.title} />
+    <SwiperCarousel client:visible variant="companies" items={slides} ariaLabel={dictionary.home.companies.title} />
   ) : (
     <section class="snap-section flex items-center">
       <div class="section-shell py-20">
