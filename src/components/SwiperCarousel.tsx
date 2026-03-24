@@ -178,7 +178,7 @@ function HeroCarousel({
 
                   {item.metrics && item.metrics.length > 0 ? (
                     <motion.ul
-                      className="grid gap-4 rounded-4xl border border-white/12 bg-white/8 p-6 backdrop-blur-md md:p-8"
+                      className="hidden md:grid gap-4 rounded-4xl border border-white/12 bg-white/8 p-6 backdrop-blur-md md:p-8"
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true, amount: 0.35 }}

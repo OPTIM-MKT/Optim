@@ -24,13 +24,14 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
 ---
 
 <header class="sticky top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur-xl">
-  <div class="section-shell !py-4">
+  <div class="section-shell !py-4 relative">
     <div class="flex items-center justify-between gap-6">
-      <a href={localizePath(locale)} class="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-ink">
+      <a href={localizePath(locale)} class="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-ink z-50">
         <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-ink text-canvas">O</span>
         <span>Optim</span>
       </a>
 
+      {/* Desktop Navigation */}
       <nav class="hidden items-center gap-6 lg:flex">
         {
           navigationSlugs.map((slug, index) => {
@@ -54,8 +55,14 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
         }
       </nav>
 
-      <div class="flex items-center gap-3">
-        <ThemeToggle />
+      {/* Desktop Right Actions & Mobile Toggle */}
+      <div class="flex items-center gap-3 z-50">
+        {/* ThemeToggle & CTA are hidden on mobile */}
+        <div class="hidden items-center gap-3 lg:flex">
+          <ThemeToggle />
+        </div>
+        
+        {/* Language switch is always visible */}
         <a
           href={alternatePath}
           class="rounded-full border border-line px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-panel"
@@ -63,13 +70,140 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
         >
           {alternateLocale.toUpperCase()}
         </a>
-        <a
-          href={localizePath(locale, "contact")}
-          class="rounded-full bg-ink px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5"
+
+        <div class="hidden lg:block">
+          <a
+            href={localizePath(locale, "contact")}
+            class="rounded-full bg-ink px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            {dictionary.navigation.cta}
+          </a>
+        </div>
+
+        {/* Hamburger Button (Mobile Only) */}
+        <button
+          id="mobile-menu-toggle"
+          class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-line bg-canvas text-ink transition-colors hover:bg-panel lg:hidden"
+          aria-label="Abrir menú"
+          aria-expanded="false"
         >
-          {dictionary.navigation.cta}
-        </a>
+          <span class="h-0.5 w-4 rounded-full bg-current transition-transform duration-300 origin-center"></span>
+          <span class="h-0.5 w-4 rounded-full bg-current transition-transform duration-300 origin-center"></span>
+        </button>
       </div>
     </div>
   </div>
+
+  {/* Mobile Drawer Overlay */}
+  <div
+    id="mobile-menu-drawer"
+    class="fixed inset-0 top-0 left-0 z-40 flex h-dvh w-full flex-col bg-canvas px-6 pt-24 pb-8 transition-transform duration-500 ease-fluid lg:hidden translate-x-full"
+    aria-hidden="true"
+  >
+    <nav class="flex flex-col gap-6 text-2xl font-semibold tracking-tight text-ink mt-8">
+      {
+        navigationSlugs.map((slug, index) => {
+          const href = localizePath(locale, slug);
+          const isActive =
+            normalizedCurrentPath === href ||
+            (slug === "" && normalizedCurrentPath === localizePath(locale));
+
+          return (
+            <a
+              href={href}
+              class:list={[
+                "transition-colors duration-300 mobile-nav-link",
+                isActive ? "text-strategic" : "text-muted hover:text-ink",
+              ]}
+            >
+              {labels[index]}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="mt-auto flex flex-col gap-6 border-t border-line pt-8">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-muted">Tema</span>
+        <ThemeToggle />
+      </div>
+      <a
+        href={localizePath(locale, "contact")}
+        class="flex w-full items-center justify-center rounded-full bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5 mobile-nav-link"
+      >
+        {dictionary.navigation.cta}
+      </a>
+    </div>
+  </div>
 </header>
+
+<script>
+  function initMobileMenu() {
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const drawer = document.getElementById("mobile-menu-drawer");
+    const navLinks = document.querySelectorAll(".mobile-nav-link");
+    const lines = toggleBtn?.querySelectorAll("span");
+
+    if (!toggleBtn || !drawer || !lines || lines.length !== 2) return;
+
+    // TypeScript strict-null narrowing for the closure
+    const btn = toggleBtn as HTMLButtonElement;
+    const drw = drawer as HTMLElement;
+    const line1 = lines[0] as HTMLElement;
+    const line2 = lines[1] as HTMLElement;
+
+    let isOpen = false;
+
+    function toggleMenu() {
+      isOpen = !isOpen;
+      
+      btn.setAttribute("aria-expanded", isOpen.toString());
+      drw.setAttribute("aria-hidden", (!isOpen).toString());
+      
+      if (isOpen) {
+        drw.classList.remove("translate-x-full");
+        drw.classList.add("translate-x-0");
+        document.body.style.overflow = "hidden";
+        
+        // Animate burger to X
+        line1.style.transform = "translateY(4px) rotate(45deg)";
+        line2.style.transform = "translateY(-4px) rotate(-45deg)";
+      } else {
+        drw.classList.remove("translate-x-0");
+        drw.classList.add("translate-x-full");
+        document.body.style.overflow = "";
+        
+        // Reset burger
+        line1.style.transform = "translateY(0) rotate(0)";
+        line2.style.transform = "translateY(0) rotate(0)";
+      }
+    }
+
+    btn.addEventListener("click", toggleMenu);
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (isOpen) toggleMenu();
+      });
+    });
+
+    // Handle escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen) {
+        toggleMenu();
+      }
+    });
+
+    // Handle resize
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024 && isOpen) {
+        toggleMenu();
+      }
+    });
+  }
+
+  // Run on first load and after Astro view transitions
+  initMobileMenu();
+  document.addEventListener("astro:after-swap", initMobileMenu);
+</script>
