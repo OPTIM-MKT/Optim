@@ -159,3 +159,19 @@
     background: color-mix(in srgb, var(--color-canvas) 78%, transparent);
   }
 }
+
+/* ─── Swiper custom pagination ─────────────────── */
+.swiper-optim .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: var(--color-panel-strong);
+  opacity: 1;
+  border-radius: 999px;
+  transition: width 0.3s var(--ease-fluid), background 0.3s;
+}
+
+.swiper-optim .swiper-pagination-bullet-active {
+  width: 20px;
+  background: var(--color-strategic);
+}
+

@@ -9,4 +9,9 @@ interface Props {
 const { slides, ariaLabel } = Astro.props;
 ---
 
-<SwiperCarousel client:load variant="hero" items={slides} ariaLabel={ariaLabel} />
+<SwiperCarousel
+  client:load
+  variant="hero"
+  items={slides}
+  ariaLabel={ariaLabel}
+/>

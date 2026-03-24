@@ -13,7 +13,12 @@ import ParallaxMedia from "@/components/shared/ParallaxMedia.astro";
 import ImageTextSection from "@/components/shared/ImageTextSection.astro";
 
 import Layout from "@/layouts/Layout.astro";
-import { DEFAULT_MEDIA_IMAGE, getDictionary, localizePath, type Locale } from "@/lib/site";
+import {
+  DEFAULT_MEDIA_IMAGE,
+  getDictionary,
+  localizePath,
+  type Locale,
+} from "@/lib/site";
 
 interface Props {
   locale: Locale;
@@ -48,7 +53,8 @@ const companySlides: BannerSlide[] = empresas.map((empresa) => ({
   name: empresa.data.name,
   industry: empresa.data.industry,
   description: empresa.data.results ?? empresa.data.description,
-  image: empresa.data.logoUrl ?? empresa.data.featuredImage ?? DEFAULT_MEDIA_IMAGE,
+  image:
+    empresa.data.logoUrl ?? empresa.data.featuredImage ?? DEFAULT_MEDIA_IMAGE,
 }));
 ---
 
@@ -59,7 +65,10 @@ const companySlides: BannerSlide[] = empresas.map((empresa) => ({
   pageKey="home"
   snap
 >
-  <HomeHeroSection slides={heroSlides} ariaLabel={dictionary.home.hero.kicker} />
+  <HomeHeroSection
+    slides={heroSlides}
+    ariaLabel={dictionary.home.hero.kicker}
+  />
   <HomeServicesPreviewSection dictionary={dictionary} locale={locale} />
   <ImageTextSection />
   <HomePillarsSection dictionary={dictionary} />
@@ -71,8 +80,8 @@ const companySlides: BannerSlide[] = empresas.map((empresa) => ({
     bottomImage="/images/placeholders/parallax-bottom.svg"
   />
   <HomeProcessSection dictionary={dictionary} />
-  <HomeCompaniesSection slides={companySlides} dictionary={dictionary} />
-  <HomeTestimonialsSection />
+  <!-- <HomeCompaniesSection slides={companySlides} dictionary={dictionary} /> -->
+  <HomeTestimonialsSection dictionary={dictionary} />
   <HomeBranchesSection dictionary={dictionary} />
   <HomeClosingSection dictionary={dictionary} locale={locale} />
 </Layout>

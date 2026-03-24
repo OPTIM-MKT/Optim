@@ -1,44 +1,29 @@
 ---
 import SwiperCarousel from "@/components/SwiperCarousel";
+import type { SiteDictionary } from "@/lib/site";
 
-// A small local component array of testimonials to simulate satisfied clients 
-// You could also extract these to Spanish/English dictionaries later.
-const testimonials = [
-  {
-    id: "t1",
-    name: "Juan Pérez",
-    industry: "Director de Marketing",
-    description: "\"Gracias a Optim logramos consolidar nuestro mensaje y las ventas aumentaron un 150% en el primer trimestre. Un equipo altamente estratégico y capaz.\"",
-  },
-  {
-    id: "t2",
-    name: "Ana Rodríguez",
-    industry: "CEO, Tech Solutions",
-    description: "\"No solo diseñaron un sitio hermoso, sino que armaron un sistema comercial que realmente nos trae oportunidades de negocio cualificadas todos los días.\"",
-  },
-  {
-    id: "t3",
-    name: "Carlos Gómez",
-    industry: "Fundador, Inmobiliaria",
-    description: "\"Antes teníamos la pauta y la creatividad desconectadas. Optim unió todo en un sistema que funciona perfectamente desde el clic hasta la venta.\"",
-  },
-  {
-    id: "t4",
-    name: "María Fernández",
-    industry: "CMO, StartupHub",
-    description: "\"Entendieron nuestra visión a la perfección y la tradujeron en una narrativa de marca y una landing page que no paraba de convertir.\"",
-  }
-];
+interface Props {
+  dictionary: SiteDictionary;
+}
+
+const { dictionary } = Astro.props;
+const t = dictionary.home.testimonials;
 ---
 
-<!-- Reusing the CompaniesCarousel variant for the testimonials to show cards, or we can use banner. -->
 <section class="snap-section flex flex-col justify-center py-20 min-h-[70vh]">
   <div class="section-shell">
-    <p class="editorial-label eyebrow-rule">Testimonios</p>
-    <h2 class="mt-6 max-w-3xl text-4xl font-semibold text-ink md:text-6xl">Clientes Satisfechos</h2>
+    <p class="editorial-label eyebrow-rule">{t.eyebrow}</p>
+    <h2 class="mt-6 max-w-3xl text-4xl font-semibold text-ink md:text-6xl">
+      {t.title}
+    </h2>
   </div>
-  
-  <div class="mt-12 w-full px-4 overflow-hidden">
-    <SwiperCarousel client:visible variant="testimonials" items={testimonials} ariaLabel="Testimonios de Clientes" />
+
+  <div class="mt-12 w-full overflow-hidden">
+    <SwiperCarousel
+      client:visible
+      variant="testimonials"
+      items={t.items}
+      ariaLabel={t.ariaLabel}
+    />
   </div>
 </section>

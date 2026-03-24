@@ -160,6 +160,37 @@
       "title": "La colección de empresas alimenta prueba social viva.",
       "description": "Casos, industrias y resultados cargados desde content para que la landing no dependa de contenido hardcodeado."
     },
+    "testimonials": {
+      "eyebrow": "Testimonios",
+      "title": "Clientes Satisfechos",
+      "ariaLabel": "Testimonios de Clientes",
+      "items": [
+        {
+          "id": "t1",
+          "name": "Juan Pérez",
+          "industry": "Director de Marketing",
+          "description": "Gracias a Optim logramos consolidar nuestro mensaje y las ventas aumentaron un 150% en el primer trimestre. Un equipo altamente estratégico y capaz."
+        },
+        {
+          "id": "t2",
+          "name": "Ana Rodríguez",
+          "industry": "CEO, Tech Solutions",
+          "description": "No solo diseñaron un sitio hermoso, sino que armaron un sistema comercial que realmente nos trae oportunidades de negocio cualificadas todos los días."
+        },
+        {
+          "id": "t3",
+          "name": "Carlos Gómez",
+          "industry": "Fundador, Inmobiliaria",
+          "description": "Antes teníamos la pauta y la creatividad desconectadas. Optim unió todo en un sistema que funciona perfectamente desde el clic hasta la venta."
+        },
+        {
+          "id": "t4",
+          "name": "María Fernández",
+          "industry": "CMO, StartupHub",
+          "description": "Entendieron nuestra visión a la perfección y la tradujeron en una narrativa de marca y una landing page que no paraba de convertir."
+        }
+      ]
+    },
     "closing": {
       "title": "Si el negocio necesita estructura, aquí empieza.",
       "description": "Agendamos un diagnóstico para identificar frentes críticos, oportunidades de conversión y el sistema que conviene construir primero.",

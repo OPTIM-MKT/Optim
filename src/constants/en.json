@@ -160,6 +160,37 @@
       "title": "The company collection powers living social proof.",
       "description": "Case entries, industries and results loaded from content so the landing does not depend on hardcoded proof."
     },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "Satisfied Clients",
+      "ariaLabel": "Client Testimonials",
+      "items": [
+        {
+          "id": "t1",
+          "name": "Juan Pérez",
+          "industry": "Marketing Director",
+          "description": "Thanks to Optim we consolidated our message and sales increased 150% in the first quarter. A highly strategic and capable team."
+        },
+        {
+          "id": "t2",
+          "name": "Ana Rodríguez",
+          "industry": "CEO, Tech Solutions",
+          "description": "They did not just design a beautiful site — they built a commercial system that brings us qualified business opportunities every single day."
+        },
+        {
+          "id": "t3",
+          "name": "Carlos Gómez",
+          "industry": "Founder, Real Estate",
+          "description": "Before, our media and creative were disconnected. Optim unified everything into a system that works perfectly from the click to the close."
+        },
+        {
+          "id": "t4",
+          "name": "María Fernández",
+          "industry": "CMO, StartupHub",
+          "description": "They understood our vision perfectly and translated it into a brand narrative and a landing page that never stopped converting."
+        }
+      ]
+    },
     "closing": {
       "title": "If the business needs structure, it starts here.",
       "description": "We schedule a diagnostic to identify critical fronts, conversion opportunities and the system worth building first.",
