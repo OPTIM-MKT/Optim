@@ -48,6 +48,8 @@
   html {
     scroll-behavior: auto;
     background: var(--color-canvas);
+    scroll-behavior: auto; /* Lenis handles smooth scroll */
+
   }
 
   body {

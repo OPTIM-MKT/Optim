@@ -1,75 +1,151 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useRef, useState } from "react";
 import {
-  FaUtensils,
-  FaCoffee,
-  FaShoppingBag,
-  FaCapsules,
-  FaCut,
-  FaSpa,
-  FaLaptop,
+  FaLightbulb,
+  FaCameraRetro,
+  FaBullhorn,
+  FaPalette,
+  FaLaptopCode,
+  FaNetworkWired,
 } from "react-icons/fa";
-import ScrollReveal from "./ScrollReveal";
+import SmoothScroll from "./SmothScroll";
+
+export type ServiceItem = {
+  title: string;
+  summary: string;
+  how: string[];
+};
 
 interface ScrollCarouselProps {
-  eyebrow: string;
-  title: string;
-  items: string[];
-  headline: string;
-  tagline: string;
+  items: ServiceItem[];
+  ariaLabel?: string;
 }
 
-const icons = [FaUtensils, FaCoffee, FaShoppingBag, FaCapsules, FaCut, FaSpa, FaLaptop];
+const getIconForService = (title: string, index: number) => {
+  const t = title.toLowerCase();
+  if (t.includes("estrategia")) return FaLightbulb;
+  if (t.includes("contenido")) return FaCameraRetro;
+  if (t.includes("publicidad") || t.includes("ads")) return FaBullhorn;
+  if (t.includes("branding")) return FaPalette;
+  if (t.includes("sitio") || t.includes("web") || t.includes("landing")) return FaLaptopCode;
+  if (t.includes("crm")) return FaNetworkWired;
+  
+  const fallbackIcons = [FaLightbulb, FaCameraRetro, FaBullhorn, FaPalette, FaLaptopCode, FaNetworkWired];
+  return fallbackIcons[index % fallbackIcons.length];
+};
 
-export default function ScrollCarousel({ eyebrow, title, items, headline, tagline }: ScrollCarouselProps) {
+const IMAGE_URL = "https://images.unsplash.com/photo-1653435682730-7a2f1ccbcbd2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+export default function ScrollCarousel({ items, ariaLabel = "Servicios" }: ScrollCarouselProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    // Start animation when top of container hits top of viewport
+    // End when bottom of container hits bottom of viewport
+    offset: ["start start", "end end"]
+  });
+
+  const numItems = items?.length || 0;
+  
+  // Transform scroll progress to horizontal translation
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", `-${(100 / numItems) * (numItems - 1)}%`]);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (numItems <= 1) return;
+    const index = Math.round(latest * (numItems - 1));
+    setActiveIndex(index);
+  });
+
+  if (!items || numItems === 0) return null;
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-indigo-400/8 dark:bg-indigo-600/8 rounded-full blur-3xl" />
-      </div>
+    <div 
+      ref={containerRef} 
+      className="relative w-full"
+      aria-label={ariaLabel}
+      // The height is roughly 100vh for the initial view + 100vh for each subsequent item
+      style={{ height: `${numItems * 100}vh` }}
+    >
+      <SmoothScroll />
 
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <ScrollReveal className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 mb-6">
-            {tagline}
-          </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-neutral-900 dark:text-white leading-[0.95]">
-            {title}
-          </h2>
-        </ScrollReveal>
-
-        {/* Marquee-style grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {items.map((item: string, i: number) => {
-            const Icon = icons[i % icons.length];
-            return (
-              <ScrollReveal key={item} delay={i * 0.08}>
-                <motion.div
-                  className="flex items-center gap-3 px-5 py-4 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/60 dark:bg-neutral-900/40 backdrop-blur-sm"
-                  whileHover={{
-                    scale: 1.05,
-                    borderColor: "rgb(124, 58, 237)",
-                  }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
-                    <Icon className="text-indigo-600 dark:text-indigo-400 text-lg" />
-                  </div>
-                  <span className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
-                    {item}
-                  </span>
-                </motion.div>
-              </ScrollReveal>
-            );
-          })}
+      {/* Sticky container that pins to the screen during scroll */}
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-center overflow-hidden bg-canvas">
+        
+        {/* Pagination Dots Top Center */}
+        <div className="absolute top-[10vh] left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+           {items.map((_, i) => (
+             <motion.div
+               key={i}
+               initial={false}
+               animate={{ 
+                 width: activeIndex === i ? 28 : 6,
+                 backgroundColor: activeIndex === i ? 'rgb(124, 58, 237)' : 'rgba(156, 163, 175, 0.4)'
+               }}
+               className="h-1.5 rounded-full transition-all duration-300"
+             />
+           ))}
         </div>
 
-        <ScrollReveal delay={0.6}>
-          <p className="mt-14 text-center text-3xl sm:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-400 bg-clip-text text-transparent">
-            {headline}
-          </p>
-        </ScrollReveal>
+        {/* Horizontal Track Slider */}
+        <motion.div 
+          style={{ x, width: `${numItems * 100}%` }} 
+          className="flex h-full items-center"
+        >
+          {items.map((service, index) => {
+            const Icon = getIconForService(service.title, index);
+            
+            return (
+              <div 
+                key={`sc-${index}`} 
+                style={{ width: `${100 / numItems}%` }}
+                className="h-full flex items-center justify-center px-6 md:px-12 lg:px-20"
+              >
+                <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-24 items-center h-auto py-10">
+                  
+                  {/* Left: Image / Media Block */}
+                  <div className="relative aspect-video lg:aspect-square lg:max-h-[70vh] w-full bg-neutral-100 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center p-6 border border-neutral-100 dark:border-neutral-800">
+                     <img 
+                       src={IMAGE_URL} 
+                       alt={service.title} 
+                       className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[2s] hover:scale-105"
+                       loading="lazy"
+                     />
+                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+                  </div>
+
+                  {/* Right: Text Block */}
+                  <div className="flex flex-col pt-4 lg:pt-0">
+                    <div className="w-14 h-14 bg-strategic rounded-2xl flex items-center justify-center shadow-lg mb-8">
+                       <Icon className="text-2xl text-white" />
+                    </div>
+                    
+                    <h2 className="text-4xl lg:text-[3.25rem] font-extrabold text-ink tracking-tight leading-[1.05] text-balance">
+                      {service.title}
+                    </h2>
+                    
+                    <p className="mt-6 text-xl lg:text-2xl text-muted font-medium leading-relaxed">
+                      {service.summary}
+                    </p>
+
+                    <ul className="mt-10 space-y-4 text-muted text-base lg:text-lg">
+                      {service.how.map((item, i) => (
+                        <li key={i} className="flex items-start gap-4">
+                           <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-strategic shrink-0 opacity-80" />
+                           <span className="leading-relaxed">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            );
+          })}
+        </motion.div>
+        
       </div>
-    </section>
+    </div>
   );
 }

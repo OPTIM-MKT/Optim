@@ -23,7 +23,14 @@ interface Props {
   hideFooter?: boolean;
 }
 
-const { locale, title, description, snap = false, hideHeader = false, hideFooter = false } = Astro.props;
+const {
+  locale,
+  title,
+  description,
+  snap = false,
+  hideHeader = false,
+  hideFooter = false,
+} = Astro.props;
 const dictionary = getDictionary(locale);
 const seoTitle = title ?? dictionary.seo.defaultTitle;
 const seoDescription = description ?? dictionary.seo.defaultDescription;
@@ -43,7 +50,9 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
       const setDarkMode = () => {
         const storageKey = "optim-theme";
         const storedTheme = window.localStorage.getItem(storageKey);
-        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const systemDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
         const theme = storedTheme ?? (systemDark ? "dark" : "light");
         document.documentElement.classList.toggle("dark", theme === "dark");
         document.documentElement.dataset.theme = theme;
@@ -59,11 +68,13 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
       canonical={canonicalUrl}
       languageAlternates={[
         {
-          href: new URL(localizePath("es", currentPathWithoutLocale), Astro.url).href,
+          href: new URL(localizePath("es", currentPathWithoutLocale), Astro.url)
+            .href,
           hrefLang: "es",
         },
         {
-          href: new URL(localizePath("en", currentPathWithoutLocale), Astro.url).href,
+          href: new URL(localizePath("en", currentPathWithoutLocale), Astro.url)
+            .href,
           hrefLang: "en",
         },
       ]}
@@ -103,13 +114,15 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
     <title>{seoTitle}</title>
   </head>
   <body>
-    {!hideHeader && (
-      <Header
-        locale={locale}
-        dictionary={dictionary}
-        currentPath={Astro.url.pathname}
-      />
-    )}
+    {
+      !hideHeader && (
+        <Header
+          locale={locale}
+          dictionary={dictionary}
+          currentPath={Astro.url.pathname}
+        />
+      )
+    }
     <main class="min-h-[calc(100vh-5rem)]">
       <slot />
     </main>
@@ -176,9 +189,10 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
 
       // The module script runs once per session, which is fine for document listeners
       document.addEventListener("click", (event) => {
-        const toggle = event.target instanceof Element
-          ? event.target.closest("[data-theme-toggle]")
-          : null;
+        const toggle =
+          event.target instanceof Element
+            ? event.target.closest("[data-theme-toggle]")
+            : null;
 
         if (!toggle) {
           return;
@@ -192,10 +206,10 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
   </body>
 </html>
 
-<style>
+<!-- <style>
   html,
   body {
     width: 100%;
     height: 100%;
   }
-</style>
+</style> -->
