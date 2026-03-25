@@ -43,26 +43,26 @@
   "home": {
     "hero": {
       "kicker": "Strategic marketing agency",
-      "headline": "We do not build generic marketing.",
-      "headlineAccent": "We engineer attention with direction.",
-      "subheadline": "Optim creates growth systems where each idea captures and every decision converts. Strategy, content, media, branding, web and CRM working as one mechanism.",
-      "ctaPrimary": "Book a diagnostic",
+      "headline": "Your brand deserves more than likes.",
+      "headlineAccent": "It deserves results.",
+      "subheadline": "Scroll-stopping creativity + sales-closing strategy. Everything connected in one system.",
+      "ctaPrimary": "Book your diagnostic",
       "ctaSecondary": "See services",
       "slides": [
         {
           "eyebrow": "Creativity that captures",
-          "title": "Messaging that stops the scroll and sharpens brand perception.",
-          "description": "Concept, narrative and production built to make a brand feel premium, memorable and hard to ignore."
+          "title": "We make them stop scrolling.",
+          "description": "Premium content that positions your brand and makes it impossible to ignore."
         },
         {
           "eyebrow": "Calculation that converts",
-          "title": "Decisions backed by intent, data and disciplined optimization.",
-          "description": "We plan media, measure signals and adjust with rigor so attention turns into real commercial opportunities."
+          "title": "Every dollar spent, tracked.",
+          "description": "Data, optimization and discipline to turn attention into real sales."
         },
         {
           "eyebrow": "Complete system",
-          "title": "From strategy to CRM, without disconnected pieces.",
-          "description": "We connect positioning, funnels, sites, campaigns and automation so the business scales with coherence."
+          "title": "From idea to CRM. No gaps.",
+          "description": "Strategy, content, ads, web and follow-up connected as one engine."
         }
       ],
       "stats": [
@@ -82,16 +82,16 @@
     },
     "pillars": {
       "eyebrow": "Pillars",
-      "title": "Two forces working in the same direction.",
-      "description": "Creativity without structure only entertains. Calculation without narrative goes cold. Optim works where both forces coordinate to move business.",
+      "title": "Creativity + Strategy. One without the other fails.",
+      "description": "Pretty without strategy just entertains. Numbers without narrative bore. We merge both forces to move business.",
       "items": [
         {
           "title": "Creativity that captures",
-          "description": "We build concepts, assets and experiences that feel native to the context and difficult to forget. Every format is made to earn the right attention."
+          "description": "Concepts and assets that feel native, get shared organically and elevate your brand perception."
         },
         {
           "title": "Calculation that converts",
-          "description": "We define hypotheses, measure signals and optimize distribution so investment moves closer to the result. We do not chase vanity metrics."
+          "description": "Clear hypotheses, real metrics and constant optimization. Zero vanity metrics."
         }
       ]
     },
@@ -109,60 +109,60 @@
     },
     "process": {
       "eyebrow": "Process",
-      "title": "Five steps to move from improvisation to structure.",
+      "title": "5 steps. From winging it to a growth machine.",
       "steps": [
         {
           "title": "Diagnostic",
-          "description": "We read the starting point, detect friction and define where the real opportunity sits."
+          "description": "X-ray of your business: where you are, what's broken and where the opportunity lives."
         },
         {
           "title": "Strategy",
-          "description": "We translate business into messaging, channels, offer and a measurable priority system."
+          "description": "Messaging, channels and clear priorities. A map before we execute."
         },
         {
           "title": "Production",
-          "description": "We develop assets and experiences with visual consistency and commercial intent."
+          "description": "Content, assets and experiences with commercial intent. Nothing decorative."
         },
         {
           "title": "Distribution",
-          "description": "We activate paid and organic channels to place the right message in front of the right audience."
+          "description": "Organic + paid. Right message, right audience, right moment."
         },
         {
           "title": "Optimization",
-          "description": "We adjust creative, targeting, funnels and automation to sustain performance."
+          "description": "We iterate on real data. Adjust, scale and double down on what works."
         }
       ]
     },
     "branches": {
       "eyebrow": "Branches",
-      "title": "A group specialized for different contexts.",
+      "title": "Industry specialists. Not generalists.",
       "items": [
         {
           "name": "Optim MKT Digital",
-          "description": "Growth systems for brands that need commercial clarity, content and performance under one operating logic."
+          "description": "Growth for brands that need clarity, content and performance under one logic."
         },
         {
           "name": "Optim MKT Inmobiliario",
-          "description": "Lead generation, follow-up and conversion for developments, brokers and real estate firms competing for qualified attention."
+          "description": "Qualified leads for developers, brokers and real estate firms. From click to close."
         },
         {
           "name": "Optim Creator Studios",
-          "description": "Positioning, narrative and monetization for creators ready to operate like a serious brand."
+          "description": "Positioning and monetization for creators ready to operate as a brand."
         },
         {
           "name": "Optim Productions",
-          "description": "Premium audiovisual production for campaigns, commercial assets and high-impact brand pieces."
+          "description": "Premium audiovisual production: campaigns, commercials and high-impact brand assets."
         }
       ]
     },
     "companies": {
       "eyebrow": "Companies",
-      "title": "The company collection powers living social proof.",
-      "description": "Case entries, industries and results loaded from content so the landing does not depend on hardcoded proof."
+      "title": "Real results. Not promises.",
+      "description": "Success stories, real industries and metrics that speak for themselves."
     },
     "testimonials": {
       "eyebrow": "Testimonials",
-      "title": "Satisfied Clients",
+      "title": "What our clients say",
       "ariaLabel": "Client Testimonials",
       "items": [
         {
@@ -171,7 +171,7 @@
           "role": "Marketing Director",
           "company": "Optima Client Corp",
           "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
-          "description": "Thanks to Optim we consolidated our message and sales increased 150% in the first quarter. A highly strategic and capable team."
+          "description": "Message consolidated, +150% sales in Q1. Optim understands business, not just marketing."
         },
         {
           "id": "t2",
@@ -179,7 +179,7 @@
           "role": "CEO",
           "company": "Tech Solutions",
           "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
-          "description": "They did not just design a beautiful site — they built a commercial system that brings us qualified business opportunities every single day."
+          "description": "It wasn't just a pretty site. They built a system that generates business opportunities every single day."
         },
         {
           "id": "t3",
@@ -187,7 +187,7 @@
           "role": "Founder",
           "company": "Real Estate Plus",
           "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
-          "description": "Before, our media and creative were disconnected. Optim unified everything into a system that works perfectly from the click to the close."
+          "description": "Ads and creative were disconnected. Optim unified them into a system that converts from click to signed deal."
         },
         {
           "id": "t4",
@@ -195,69 +195,69 @@
           "role": "CMO",
           "company": "StartupHub",
           "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=faces",
-          "description": "They understood our vision perfectly and translated it into a brand narrative and a landing page that never stopped converting."
+          "description": "They captured our vision and turned it into a landing page that won't stop converting. Simple as that."
         }
       ]
     },
     "closing": {
-      "title": "If the business needs structure, it starts here.",
-      "description": "We schedule a diagnostic to identify critical fronts, conversion opportunities and the system worth building first.",
-      "cta": "Go to contact"
+      "title": "Stop winging it. Start scaling.",
+      "description": "Book a free diagnostic. We identify your critical gaps and design the system your business needs.",
+      "cta": "Book now"
     }
   },
   "aboutPage": {
     "hero": {
       "eyebrow": "About",
-      "title": "Optim is an agency built to connect perception with results.",
-      "description": "We combine creative direction, strategic thinking and commercial operations to build brands with clear presence and measurable conversion."
+      "title": "We connect perception with results. Period.",
+      "description": "Creative direction + strategic thinking + commercial ops. Brands that look great and sell better."
     },
     "story": {
-      "title": "The idea behind Optim",
-      "description": "We were built to solve a recurring friction: brands with real ambition but fragmented execution. Optim turns that energy into a system where the brand looks solid, media serves the business and follow-up stops slipping through loose spreadsheets."
+      "title": "Why we exist",
+      "description": "We saw the same problem over and over: talented brands with fragmented execution. Optim was born to connect the dots — solid branding, performing media and zero lost leads."
     },
     "principles": {
-      "title": "Operating principles",
+      "title": "How we work",
       "items": [
         {
-          "title": "Clarity over volume",
-          "description": "We prefer precise messaging, clear priorities and decisions that can be justified."
+          "title": "Clarity > Volume",
+          "description": "Less noise, more impact. Precise messaging and grounded decisions."
         },
         {
-          "title": "System over improvisation",
-          "description": "Every campaign, site or asset should connect to an operating structure that can sustain it."
+          "title": "System > Improvisation",
+          "description": "Every piece connects to a structure that sustains and scales it."
         },
         {
-          "title": "Aesthetics with function",
-          "description": "Form matters when it improves perception, comprehension and conversion."
+          "title": "Aesthetics with purpose",
+          "description": "If it doesn't strengthen perception or conversion, it doesn't belong."
         }
       ]
     },
     "branchesTitle": "Optim branches",
-    "teamNote": "We work as a strategic cell: strategy, creativity, production, media and automation aligned around one reading of the business."
+    "teamNote": "One strategic cell: strategy, creativity, production, media and automation. One team, one vision."
   },
   "servicesPage": {
     "hero": {
       "eyebrow": "Services",
-      "title": "What we do and how we do it.",
-      "description": "We optimize perception, acquisition and follow-up inside one system. Each service has a clear function within the commercial architecture."
+      "title": "What we do. No fluff.",
+      "description": "Perception, acquisition and follow-up in one system. Every service has a clear role in growing your business."
     },
     "intro": {
-      "title": "We do not sell isolated pieces.",
-      "description": "Our services can operate independently, but they perform best when integrated. The goal is to build a growth system where narrative, channels and follow-up stay connected."
+      "title": "We don't sell loose pieces.",
+      "description": "Each service works standalone, but they perform twice as well when integrated. The goal: a growth system where everything connects."
     },
     "services": [
       {
         "title": "Marketing Strategy",
-        "summary": "We define the commercial and creative map before production starts.",
+        "summary": "The map before the action. Think first, execute second.",
         "how": [
-          "Business, offer and market diagnostic.",
-          "Audience, messaging and channel definition.",
-          "Roadmap with priorities, KPIs and operating rhythm."
+          "Business and market diagnostic.",
+          "Audiences, messaging and channels defined.",
+          "Roadmap with KPIs and operating rhythm."
         ]
       },
       {
         "title": "Content Creation",
-        "summary": "We create assets with narrative intent and distribution value.",
+        "summary": "Assets with narrative and intent. Not filler content.",
         "how": [
           "Creative concept and scripting.",
           "Audiovisual production and editing.",
@@ -266,49 +266,49 @@
       },
       {
         "title": "Digital Advertising",
-        "summary": "We manage Meta Ads and Google Ads with business focus and fast learning loops.",
+        "summary": "Meta Ads + Google Ads focused on ROI, not vanity.",
         "how": [
-          "Campaign and audience architecture.",
-          "Controlled creative and messaging tests.",
-          "Performance optimization based on real signals."
+          "Smart campaign architecture.",
+          "Creative and messaging testing.",
+          "Optimization based on real signals."
         ]
       },
       {
         "title": "Branding",
-        "summary": "We organize perception so the brand feels consistent and strategic.",
+        "summary": "Make your brand look like what it's worth.",
         "how": [
-          "Visual and verbal system.",
+          "Full visual and verbal system.",
           "Message hierarchy and tone.",
-          "Core applications for content and web."
+          "Applications for content and web."
         ]
       },
       {
         "title": "Websites and Landing Pages",
-        "summary": "We create fast, clear experiences designed for the next decision.",
+        "summary": "Fast, clear and built to convert.",
         "how": [
           "Content architecture and UX.",
-          "Visual design aligned to conversion.",
-          "Implementation and initial measurement."
+          "Design aligned to conversion.",
+          "Implementation and measurement."
         ]
       },
       {
         "title": "CRM Integration",
-        "summary": "We connect marketing with follow-up so opportunities are not lost.",
+        "summary": "No lead left behind. From form to close.",
         "how": [
           "Pipeline and stage mapping.",
-          "Basic automations and forms.",
-          "Traceability between lead, follow-up and closing."
+          "Automations and forms.",
+          "Traceability: lead → follow-up → close."
         ]
       }
     ],
     "method": {
       "title": "How we operate",
       "items": [
-        "We listen to the commercial context before proposing deliverables.",
-        "We design a concrete implementation route.",
-        "We produce assets with strategic intent.",
-        "We distribute and measure to learn fast.",
-        "We iterate on signals, not assumptions."
+        "First, we listen to your business.",
+        "We design a concrete route.",
+        "We produce with strategic intent.",
+        "We distribute and measure fast.",
+        "We iterate on data, not assumptions."
       ]
     }
   },
@@ -363,8 +363,8 @@
   "contactPage": {
     "hero": {
       "eyebrow": "Contact",
-      "title": "Book a diagnostic and let’s talk with context.",
-      "description": "Tell us what you are building, what you already tried and where the main friction lives. We design the conversation to be useful from the first touchpoint."
+      "title": "Let’s talk. No strings, just context.",
+      "description": "Tell us what you’re building, what you’ve tried and where the friction lives. We add value from the first touchpoint."
     },
     "details": {
       "title": "Contact channels",
@@ -403,7 +403,7 @@
   },
   "footer": {
     "tagline": "Creativity that captures. Calculation that converts.",
-    "description": "Optim builds strategic marketing systems for brands that need commercial structure and execution with intent.",
+    "description": "Marketing systems for brands ready to stop winging it and start scaling with intent.",
     "navigationTitle": "Navigation",
     "contactTitle": "Contact",
     "socialTitle": "Social",

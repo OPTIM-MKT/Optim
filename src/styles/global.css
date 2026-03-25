@@ -162,6 +162,13 @@
   }
 }
 
+/* ─── Parallax wrapper — iOS fallback ─────────── */
+@supports (-webkit-touch-callout: none) {
+  .pillars-process-wrapper > div:first-child {
+    background-attachment: scroll;
+  }
+}
+
 /* ─── Swiper custom pagination ─────────────────── */
 .swiper-optim .swiper-pagination-bullet {
   width: 6px;

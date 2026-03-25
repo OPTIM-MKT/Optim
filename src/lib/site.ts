@@ -50,7 +50,7 @@ export const navigationSlugs = [
   "",
   "about",
   "services",
-  "pricing",
+  // "pricing", // Hidden for now — activate when pricing page is ready
   "contact",
 ] as const;
 

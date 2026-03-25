@@ -19,6 +19,8 @@ export type ServiceItem = {
 interface ScrollCarouselProps {
   items: ServiceItem[];
   ariaLabel?: string;
+  contactHref?: string;
+  contactLabel?: string;
 }
 
 const getIconForService = (title: string, index: number) => {
@@ -36,7 +38,7 @@ const getIconForService = (title: string, index: number) => {
 
 const IMAGE_URL = "https://images.unsplash.com/photo-1653435682730-7a2f1ccbcbd2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
-export default function ScrollCarousel({ items, ariaLabel = "Servicios" }: ScrollCarouselProps) {
+export default function ScrollCarousel({ items, ariaLabel = "Servicios", contactHref = "/contact", contactLabel = "Agendar diagnóstico" }: ScrollCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -137,6 +139,13 @@ export default function ScrollCarousel({ items, ariaLabel = "Servicios" }: Scrol
                         </li>
                       ))}
                     </ul>
+
+                    <a
+                      href={contactHref}
+                      className="mt-10 inline-flex w-fit rounded-full bg-ink px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5"
+                    >
+                      {contactLabel}
+                    </a>
                   </div>
 
                 </div>

@@ -1,12 +1,15 @@
 ---
 import ScrollCarousel from "@/components/shared/ScrollCarousel";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import { localizePath, type Locale } from "@/lib/site";
 
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
+  locale: Locale;
 }
 
-const { dictionary } = Astro.props;
+const { dictionary, locale } = Astro.props;
+const contactHref = localizePath(locale, "contact");
 ---
 
 <section class="relative pt-12">
@@ -20,6 +23,12 @@ const { dictionary } = Astro.props;
   </div>
 
   <div class="mt-16 w-full">
-    <ScrollCarousel client:load items={dictionary.servicesPage.services} ariaLabel={dictionary.servicesPage.intro.title} />
+    <ScrollCarousel
+      client:load
+      items={dictionary.servicesPage.services}
+      ariaLabel={dictionary.servicesPage.intro.title}
+      contactHref={contactHref}
+      contactLabel={dictionary.navigation.cta}
+    />
   </div>
 </section>

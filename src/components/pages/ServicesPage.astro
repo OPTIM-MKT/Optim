@@ -30,7 +30,7 @@ const empresas = (await getCollection("empresas"))
     title={dictionary.servicesPage.hero.title}
     description={dictionary.servicesPage.hero.description}
   />
-  <ServicesGridSection dictionary={dictionary} />
+  <ServicesGridSection dictionary={dictionary} locale={locale} />
   <CaseStudiesSection dictionary={dictionary} empresas={empresas} />
   <ServicesMethodSection dictionary={dictionary} locale={locale} />
 </Layout>
