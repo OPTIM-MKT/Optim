@@ -39,7 +39,7 @@ export default function TeamGrid({ members, title, eyebrow }: TeamGridProps) {
         <h2 className="mt-6 text-4xl font-semibold text-ink md:text-6xl">{title}</h2>
       </div>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <div className="mt-12 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {members.map((member, index) => (
           <motion.article
             key={member.id}

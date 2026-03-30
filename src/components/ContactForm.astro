@@ -1,4 +1,6 @@
 ---
+import { Button } from "@/components/ui/Button";
+import { FiSend } from "react-icons/fi";
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
 }
@@ -103,12 +105,14 @@ const serviceOptions = [
     </label>
 
     <div class="md:col-span-2">
-      <button
-        class="rounded-full bg-ink px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5"
+      <Button
+        variant="primary"
         type="submit"
+        className="px-7 py-3"
       >
+        <span class="shrink-0 text-lg"><FiSend /></span>
         {dictionary.contactPage.form.submit}
-      </button>
+      </Button>
     </div>
   </form>
 </article>

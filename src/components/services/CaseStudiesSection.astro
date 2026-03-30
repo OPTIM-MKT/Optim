@@ -23,49 +23,46 @@ const { dictionary, empresas } = Astro.props;
       </p>
     </div>
 
-    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-12 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       {
         empresas.map((empresa) => {
           const isEn = empresa.id.startsWith("en/");
           const slug = empresa.id.replace(/^(es|en)\//, "");
           const href = isEn ? `/en/empresas/${slug}` : `/empresas/${slug}`;
           return (
-          <a
-            href={href}
-            class="group block h-full"
-          >
-            <article class="glass-panel flex h-full flex-col rounded-3xl border border-line p-6 transition-colors duration-300 group-hover:border-strategic">
-              {empresa.data.featuredImage || empresa.data.logoUrl ? (
-                <div class="mb-6 flex h-48 w-full items-center justify-center overflow-hidden rounded-2xl bg-panel p-6">
-                  <img
-                    src={
-                      empresa.data.featuredImage ??
-                      empresa.data.logoUrl ??
-                      DEFAULT_MEDIA_IMAGE
-                    }
-                    alt={empresa.data.name}
-                    class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 rounded"
-                    loading="lazy"
-                    transition:name={`hero-image-${empresa.id}`}
-                  />
+            <a href={href} class="group block h-full">
+              <article class="glass-panel flex h-full flex-col rounded-3xl border border-line p-6 transition-colors duration-300 group-hover:border-strategic">
+                {empresa.data.featuredImage || empresa.data.logoUrl ? (
+                  <div class="mb-6 flex h-48 w-full items-center justify-center overflow-hidden rounded-2xl bg-panel p-6">
+                    <img
+                      src={
+                        empresa.data.featuredImage ??
+                        empresa.data.logoUrl ??
+                        DEFAULT_MEDIA_IMAGE
+                      }
+                      alt={empresa.data.name}
+                      class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 rounded"
+                      loading="lazy"
+                      transition:name={`hero-image-${empresa.id}`}
+                    />
+                  </div>
+                ) : (
+                  <div class="mb-6 h-48 w-full rounded-2xl bg-panel" />
+                )}
+                <h3
+                  class="text-2xl font-semibold text-ink"
+                  transition:name={`title-${empresa.id}`}
+                >
+                  {empresa.data.name}
+                </h3>
+                <div class="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-strategic">
+                  {empresa.data.industry}
                 </div>
-              ) : (
-                <div class="mb-6 h-48 w-full rounded-2xl bg-panel" />
-              )}
-              <h3
-                class="text-2xl font-semibold text-ink"
-                transition:name={`title-${empresa.id}`}
-              >
-                {empresa.data.name}
-              </h3>
-              <div class="mt-3 text-xs font-medium uppercase tracking-[0.2em] text-strategic">
-                {empresa.data.industry}
-              </div>
-              <p class="mt-4 text-sm leading-relaxed text-muted line-clamp-3">
-                {empresa.data.description}
-              </p>
-            </article>
-          </a>
+                <p class="mt-4 text-sm leading-relaxed text-muted line-clamp-3">
+                  {empresa.data.description}
+                </p>
+              </article>
+            </a>
           );
         })
       }

@@ -3,6 +3,8 @@ import { useRef } from "react";
 import { Autoplay, FreeMode, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
+import { Button } from "@/components/ui/Button";
+import { FiCalendar, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -167,12 +169,14 @@ function HeroCarousel({
                       {item.description}
                     </p>
                     <div className="mt-10 flex flex-wrap gap-4">
-                      <a
+                      <Button
+                        variant="black&white"
                         href={item.ctaHref}
-                        className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0d0d0d] transition-transform duration-300 hover:-translate-y-0.5 hover:bg-white/90"
+                        icon={<FiCalendar />}
+                        isImage={true}
                       >
                         {item.ctaLabel}
-                      </a>
+                      </Button>
                     </div>
                   </motion.div>
 
@@ -209,24 +213,20 @@ function HeroCarousel({
       {/* Custom navigation — only rendered when there is more than one slide */}
       {canNav ? (
         <div className="pointer-events-none absolute inset-x-0 bottom-12 z-10 flex justify-end gap-2 px-6 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:justify-between md:px-6">
-          <button
+          <Button
+            variant="glass"
             aria-label="Slide anterior"
             onClick={() => swiperRef.current?.slidePrev()}
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/20 md:h-12 md:w-12"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <button
+            className="pointer-events-auto"
+            icon={<FiChevronLeft />}
+          />
+          <Button
+            variant="glass"
             aria-label="Slide siguiente"
             onClick={() => swiperRef.current?.slideNext()}
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/20 md:h-12 md:w-12"
-          >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+            className="pointer-events-auto"
+            icon={<FiChevronRight />}
+          />
         </div>
       ) : null}
     </section>
