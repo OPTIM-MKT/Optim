@@ -1,8 +1,8 @@
 ---
 import { localizePath, type Locale } from "@/lib/site";
-import SwiperCarousel from "@/components/SwiperCarousel";
 import { Button } from "@/components/ui/Button";
 import { FiCalendar, FiGrid } from "react-icons/fi";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
@@ -10,33 +10,45 @@ interface Props {
 }
 
 const { dictionary, locale } = Astro.props;
+
+// Iconos sólidos y llamativos para cada servicio
+const serviceIcons = [
+  "fa6-solid/bullseye",           // Estrategia
+  "fa6-solid/pen-nib",            // Contenido
+  "fa6-solid/magnifying-glass-chart", // Pauta / Publicidad
+  "fa6-solid/fingerprint",        // Branding
+  "fa6-solid/laptop-code",        // Web
+  "fa6-solid/users-gear",          // CRM
+];
 ---
 
 <section class="snap-section flex items-center">
   <div class="section-shell py-20">
-    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+    <div
+      class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end"
+    >
       <div class="space-y-6">
-        <p class="editorial-label eyebrow-rule">{dictionary.home.servicesPreview.eyebrow}</p>
-        <h2 class="max-w-4xl text-5xl font-semibold text-ink md:text-6xl lg:text-[5rem]">
+        <p class="editorial-label eyebrow-rule">
+          {dictionary.home.servicesPreview.eyebrow}
+        </p>
+        <h2 class="max-w-4xl text-5xl font-semibold text-ink md:text-6xl">
           {dictionary.home.hero.headline}
-          <span class="block text-strategic">{dictionary.home.hero.headlineAccent}</span>
+          <span class="block text-strategic"
+            >{dictionary.home.hero.headlineAccent}</span
+          >
         </h2>
       </div>
 
       <div class="space-y-6">
-        <p class="max-w-2xl text-lg leading-8">{dictionary.home.hero.subheadline}</p>
+        <p class="max-w-2xl text-lg leading-8">
+          {dictionary.home.hero.subheadline}
+        </p>
         <div class="flex flex-wrap gap-4">
-          <Button
-            variant="primary"
-            href={localizePath(locale, "contact")}
-          >
+          <Button variant="primary" href={localizePath(locale, "contact")}>
             <span class="shrink-0 text-lg"><FiCalendar /></span>
             {dictionary.home.hero.ctaPrimary}
           </Button>
-          <Button
-            variant="simple"
-            href={localizePath(locale, "services")}
-          >
+          <Button variant="simple" href={localizePath(locale, "services")}>
             <span class="shrink-0 text-lg"><FiGrid /></span>
             {dictionary.home.hero.ctaSecondary}
           </Button>
@@ -44,13 +56,47 @@ const { dictionary, locale } = Astro.props;
       </div>
     </div>
 
+    <!-- 6 Elementos -->
     <div class="mt-16 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       {
-        dictionary.home.servicesPreview.items.map((service) => (
-          <article class="surface-card p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-strategic">
-            <p class="text-2xl font-semibold text-ink">{service}</p>
-          </article>
-        ))
+        dictionary.home.servicesPreview.items.map((service, index) => {
+          const iconName = serviceIcons[index % serviceIcons.length];
+          return (
+            <article class="surface-card group relative overflow-hidden p-6 transition-all duration-500 hover:-translate-y-2 hover:border-strategic hover:shadow-2xl hover:shadow-strategic/20 cursor-pointer min-h-[180px] flex items-end">
+              <a
+                href={localizePath(locale, "services")}
+                class="absolute inset-0 flex flex-col justify-between p-6 focus:outline-none"
+              >
+                <!-- Indicador de número o elemento decorativo superior -->
+                <div class="flex justify-between items-start">
+                   <span class="text-xs font-bold tracking-widest text-ink/30 transition-colors duration-300 group-hover:text-strategic/50">
+                    0{index + 1}
+                  </span>
+                  
+                  <!-- Icono pequeño que aparece suavemente -->
+                  <div class="text-2xl text-strategic opacity-0 -translate-y-4 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0">
+                    <Icon name={iconName} />
+                  </div>
+                </div>
+
+                <div class="relative z-10">
+                  <span class="text-2xl font-semibold text-ink transition-colors duration-300 group-hover:text-strategic">
+                    {service}
+                  </span>
+                  <div class="h-0.5 w-0 bg-strategic mt-2 transition-all duration-500 group-hover:w-full" />
+                </div>
+                
+                <!-- Icono grande decorativo de fondo -->
+                <div class="absolute -bottom-6 -right-6 text-9xl text-strategic opacity-0 translate-y-10 rotate-12 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:opacity-[0.07] group-hover:translate-y-0 group-hover:rotate-0 pointer-events-none">
+                  <Icon name={iconName} />
+                </div>
+
+                <!-- Efecto de brillo/glow que sigue al icono -->
+                <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-strategic/0 rounded-full blur-3xl transition-all duration-700 group-hover:bg-strategic/10 pointer-events-none" />
+              </a>
+            </article>
+          );
+        })
       }
     </div>
   </div>
