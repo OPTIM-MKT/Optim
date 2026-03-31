@@ -184,3 +184,291 @@
   background: var(--color-strategic);
 }
 
+
+/* ─── WorksSlider ────────────────────────────────────────────────────────────── */
+
+/* Shell override — full bleed padding control */
+.works-slider-shell {
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .works-slider-shell {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Header */
+.works-slider-header {
+  margin-bottom: 3rem;
+}
+
+.works-slider-heading {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--color-ink);
+  max-width: 36ch;
+}
+
+/* Layout: indicators + swiper side-by-side */
+.works-slider-layout {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+/* ── Side Indicators ──────────────────────────────────────────────────────── */
+.works-slider-indicators {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+  padding: 0.5rem 0;
+}
+
+.works-indicator-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+/* Vertical track */
+.works-indicator-track {
+  position: relative;
+  width: 2px;
+  height: 2.75rem;
+  background: var(--color-panel-strong);
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.works-indicator-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-strategic);
+  border-radius: 999px;
+  box-shadow:
+    0 0 8px 2px rgba(79, 70, 229, 0.55),
+    0 0 18px 4px rgba(79, 70, 229, 0.3);
+}
+
+/* Glow dot to the left of the label */
+.works-indicator-dot {
+  position: absolute;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-strategic);
+  box-shadow:
+    0 0 10px 3px rgba(79, 70, 229, 0.7),
+    0 0 24px 6px rgba(79, 70, 229, 0.35);
+}
+
+/* Number label */
+.works-indicator-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+  transition: color 0.25s ease;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.works-indicator-label--active {
+  color: var(--color-strategic);
+  text-shadow:
+    0 0 10px rgba(79, 70, 229, 0.6),
+    0 0 24px rgba(79, 70, 229, 0.3);
+}
+
+/* ── Swiper wrapper ───────────────────────────────────────────────────────── */
+.works-slider-swiper-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.works-swiper {
+  width: 100%;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  box-shadow:
+    0 24px 80px rgba(13, 13, 13, 0.12),
+    0 0 0 1px var(--color-line);
+}
+
+/* ── Slide ────────────────────────────────────────────────────────────────── */
+.works-slide {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--color-panel);
+}
+
+@media (max-width: 640px) {
+  .works-slide {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.works-slide-image-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.works-slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 6s ease;
+  transform: scale(1.04);
+}
+
+.works-swiper .swiper-slide-active .works-slide-image {
+  transform: scale(1);
+}
+
+/* Gradient overlay */
+.works-slide-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(9, 9, 9, 0.72) 0%,
+    rgba(9, 9, 9, 0.22) 45%,
+    transparent 80%
+  );
+}
+
+/* Caption */
+.works-slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 2.25rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+.works-slide-number {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--color-strategic);
+  text-shadow:
+    0 0 12px rgba(79, 70, 229, 0.8),
+    0 0 28px rgba(79, 70, 229, 0.45);
+  margin-bottom: 0.35rem;
+}
+
+.works-slide-title {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* Strategic corner glow */
+.works-slide-glow {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(79, 70, 229, 0.28) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: works-pulse 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes works-pulse {
+  from {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* ── Progress bar ─────────────────────────────────────────────────────────── */
+.works-progress-bar {
+  height: 2px;
+  background: var(--color-panel-strong);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.works-progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-strategic),
+    #818cf8
+  );
+  box-shadow: 0 0 8px 2px rgba(79, 70, 229, 0.5);
+  border-radius: 999px;
+}
+
+/* ── Dark mode tweaks ─────────────────────────────────────────────────────── */
+.dark .works-swiper {
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.4),
+    0 0 0 1px var(--color-line);
+}
+
+.dark .works-slide-gradient {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.3) 45%,
+    transparent 80%
+  );
+}
+
+/* ── Responsive: hide indicators on very small screens ─────────────────────── */
+@media (max-width: 420px) {
+  .works-slider-indicators {
+    display: none;
+  }
+}
+
+@media (min-width: 421px) and (max-width: 640px) {
+  .works-indicator-label {
+    display: none;
+  }
+  .works-indicator-track {
+    height: 2rem;
+  }
+}

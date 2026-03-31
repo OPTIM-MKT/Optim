@@ -203,6 +203,10 @@
       "title": "Deja de improvisar. Empieza a escalar.",
       "description": "Agenda un diagnóstico gratuito. Identificamos tus frentes críticos y diseñamos el sistema que tu negocio necesita.",
       "cta": "Agendar ahora"
+    },
+    "worksSlider": {
+      "headline": "Nuestros Trabajos",
+      "title": "Lo que construimos para nuestros clientes"
     }
   },
   "aboutPage": {

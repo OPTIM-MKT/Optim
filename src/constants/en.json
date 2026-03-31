@@ -203,6 +203,10 @@
       "title": "Stop winging it. Start scaling.",
       "description": "Book a free diagnostic. We identify your critical gaps and design the system your business needs.",
       "cta": "Book now"
+    },
+    "worksSlider":{
+      "headline":"Our Works",
+      "title":"What we build for our clients"
     }
   },
   "aboutPage": {
