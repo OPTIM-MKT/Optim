@@ -14,9 +14,11 @@ interface Props {
   locale: Locale;
   dictionary: import("@/lib/site").SiteDictionary;
   currentPath: string;
+  /** When true the header becomes position:sticky. Default: false. */
+  sticky?: boolean;
 }
 
-const { locale, dictionary, currentPath } = Astro.props;
+const { locale, dictionary, currentPath, sticky = false } = Astro.props;
 
 const labels = [
   dictionary.navigation.home,
@@ -32,9 +34,12 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
 ---
 
 <header
-  class="sticky top-0 z-50 border-b border-line bg-canvas/85 backdrop-blur-xl"
+  class:list={[
+    "z-50 border-b border-line bg-canvas/85 backdrop-blur-xl",
+    sticky ? "sticky top-0" : "relative",
+  ]}
 >
-  <div class="section-shell !py-4 relative">
+  <div class="section-shell py-4! relative">
     <div class="flex items-center justify-between gap-6">
       <a
         href={localizePath(locale)}

@@ -21,6 +21,8 @@ interface Props {
   snap?: boolean;
   hideHeader?: boolean;
   hideFooter?: boolean;
+  /** When true the header is position:sticky. Default: false. */
+  stickyHeader?: boolean;
 }
 
 const {
@@ -30,6 +32,7 @@ const {
   snap = false,
   hideHeader = false,
   hideFooter = false,
+  stickyHeader = false,
 } = Astro.props;
 const dictionary = getDictionary(locale);
 const seoTitle = title ?? dictionary.seo.defaultTitle;
@@ -40,7 +43,7 @@ const currentPathWithoutLocale = Astro.url.pathname.startsWith("/en/")
   : Astro.url.pathname === "/en"
     ? ""
     : Astro.url.pathname.slice(1);
-const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
+const seoImage = new URL("/images/logo.webp", Astro.url).href;
 ---
 
 <!doctype html>
@@ -95,7 +98,7 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
           alt: seoTitle,
           width: 1200,
           height: 630,
-          type: "image/svg+xml",
+          type: "image/webp",
         },
       }}
       twitter={{
@@ -106,7 +109,7 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
         imageAlt: seoTitle,
       }}
       extend={{
-        link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+        link: [{ rel: "icon", type: "image/webp", href: "/images/icon.webp" }],
         meta: [{ name: "generator", content: Astro.generator }],
       }}
     />
@@ -120,6 +123,7 @@ const seoImage = new URL(DEFAULT_OG_IMAGE, Astro.url).href;
           locale={locale}
           dictionary={dictionary}
           currentPath={Astro.url.pathname}
+          sticky={stickyHeader}
         />
       )
     }
