@@ -10,6 +10,8 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
+import logo from "@/assets/images/logo.webp";
+
 export type HeroSlide = {
   id: string;
   eyebrow: string;
@@ -89,7 +91,6 @@ export type SwiperCarouselProps =
   | TestimonialsCarouselProps
   | CompaniesCarouselProps;
 
-
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: {
@@ -129,9 +130,11 @@ function HeroCarousel({
             : false
         }
         pagination={{ clickable: true }}
-        onSwiper={(swiper) => { swiperRef.current = swiper; }}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
       >
-        {items.map((item) => (
+        {items.map((item, index) => (
           <SwiperSlide key={item.id} className="h-full">
             <article className="grid-frame relative flex h-screen overflow-hidden">
               {item.backgroundImage ? (
@@ -146,6 +149,32 @@ function HeroCarousel({
               <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(13,13,13,0.78),rgba(13,13,13,0.28)_45%,rgba(13,13,13,0.66))]" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(187,79,53,0.18),transparent_34%)]" />
 
+              {/* Logo animado SOLO en el primer slide — Branding Intro Limpio y Llamativo */}
+              {index === 0 && (
+                <div className="absolute inset-0 flex flex-col items-center justify-start pt-10 md:pt-12 pointer-events-none">
+                  <motion.div
+                    className="flex flex-col items-center gap-4 p-5 md:p-6"
+                    initial={{ opacity: 0, scale: 1.1, y: -20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{
+                      duration: 1.2,
+                      delay: 0.3,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    <img
+                      src={logo.src}
+                      alt="Optim Logo Branding"
+                      className="w-40 md:w-56 brightness-0 invert shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-transform duration-700"
+                    />
+                    <div className="h-px w-24 bg-strategic/80" />
+                    <span className="text-[0.7rem] font-bold uppercase tracking-[0.5em] text-white transition-opacity duration-700 group-hover:opacity-100">
+                      Marketing Estratégico
+                    </span>
+                  </motion.div>
+                </div>
+              )}
+
               <div className="section-shell relative flex h-full items-end pb-16 pt-28 md:items-center md:pb-10">
                 <div className="grid w-full gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] md:items-end">
                   <motion.div
@@ -156,10 +185,7 @@ function HeroCarousel({
                     variants={fadeUp}
                   >
                     {/* Eyebrow — white-safe, not CSS-var dependent */}
-                    <p
-                      className="eyebrow-rule mb-5 text-[0.7rem] font-semibold uppercase tracking-[0.26em]"
-                      style={{ color: "rgba(209,112,82,1)" }}
-                    >
+                    <p className="eyebrow-rule mb-5 text-[0.7rem] text-indigo-400 font-semibold uppercase tracking-[0.26em]">
                       {item.eyebrow}
                     </p>
                     <h2 className="max-w-4xl text-4xl font-semibold leading-none text-white md:text-7xl">
@@ -171,6 +197,7 @@ function HeroCarousel({
                     <div className="mt-10 flex flex-wrap gap-4">
                       <Button
                         variant="black&white"
+                        size="lg"
                         href={item.ctaHref}
                         icon={<FiCalendar />}
                         isImage={true}
@@ -357,35 +384,35 @@ function CompaniesCarousel({
             const slug = item.id.replace(/^(es|en)\//, "");
             const href = isEn ? `/en/empresas/${slug}` : `/empresas/${slug}`;
             return (
-            <SwiperSlide key={item.id} className="h-auto!">
-              <a href={href} className="group block h-full">
-                <article className="glass-panel group flex h-full flex-col rounded-3xl border border-line p-6 transition-colors duration-300 hover:border-strategic">
-                  <div className="mb-6 flex h-[220px] w-full items-center justify-center overflow-hidden rounded-2xl bg-panel">
-                    <img
-                      src="https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop"
-                      alt={item.name}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                      style={{ viewTransitionName: `hero-image-${item.id}` }}
-                    />
-                  </div>
-                  <h3 
-                    className="text-2xl font-semibold text-ink"
-                    style={{ viewTransitionName: `title-${item.id}` }}
-                  >
-                    {item.name}
-                  </h3>
-                  <div className="mt-3 text-xs uppercase tracking-[0.2em] font-medium text-strategic">
-                    {item.industry}
-                  </div>
-                  {item.description ? (
-                    <p className="mt-4 text-sm leading-relaxed text-muted line-clamp-3">
-                      {item.description}
-                    </p>
-                  ) : null}
-                </article>
-              </a>
-            </SwiperSlide>
+              <SwiperSlide key={item.id} className="h-auto!">
+                <a href={href} className="group block h-full">
+                  <article className="glass-panel group flex h-full flex-col rounded-3xl border border-line p-6 transition-colors duration-300 hover:border-strategic">
+                    <div className="mb-6 flex h-[220px] w-full items-center justify-center overflow-hidden rounded-2xl bg-panel">
+                      <img
+                        src="https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop"
+                        alt={item.name}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        style={{ viewTransitionName: `hero-image-${item.id}` }}
+                      />
+                    </div>
+                    <h3
+                      className="text-2xl font-semibold text-ink"
+                      style={{ viewTransitionName: `title-${item.id}` }}
+                    >
+                      {item.name}
+                    </h3>
+                    <div className="mt-3 text-xs uppercase tracking-[0.2em] font-medium text-strategic">
+                      {item.industry}
+                    </div>
+                    {item.description ? (
+                      <p className="mt-4 text-sm leading-relaxed text-muted line-clamp-3">
+                        {item.description}
+                      </p>
+                    ) : null}
+                  </article>
+                </a>
+              </SwiperSlide>
             );
           })}
         </Swiper>
@@ -429,7 +456,9 @@ function ServicesPageCarousel({
               <p className="text-2xl font-semibold leading-tight text-ink md:text-3xl">
                 {service.title}
               </p>
-              <p className="mt-4 text-sm leading-7 text-muted">{service.summary}</p>
+              <p className="mt-4 text-sm leading-7 text-muted">
+                {service.summary}
+              </p>
               <ul className="mt-8 grow space-y-0 text-sm leading-7">
                 {service.how.map((item, i) => (
                   <li
@@ -459,7 +488,10 @@ function TestimonialsCarousel({
   if (items.length === 0) return null;
 
   return (
-    <div className="section-shell mt-0 w-full px-6 md:px-10" aria-label={ariaLabel}>
+    <div
+      className="section-shell mt-0 w-full px-6 md:px-10"
+      aria-label={ariaLabel}
+    >
       <Swiper
         className="swiper-optim w-full pb-14"
         modules={[Autoplay, Pagination]}
@@ -470,7 +502,11 @@ function TestimonialsCarousel({
           1024: { slidesPerView: 3, spaceBetween: 36 },
         }}
         loop={true}
-        autoplay={{ delay: 5200, disableOnInteraction: false, pauseOnMouseEnter: true }}
+        autoplay={{
+          delay: 5200,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
         pagination={{ clickable: true }}
         grabCursor={true}
       >
