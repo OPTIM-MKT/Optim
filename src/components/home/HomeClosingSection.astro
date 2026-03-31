@@ -1,5 +1,7 @@
 ---
 import { localizePath, type Locale } from "@/lib/site";
+import { Button } from "@/components/ui/Button";
+import { FiCalendar } from "react-icons/fi";
 
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
@@ -14,32 +16,49 @@ const bgImage =
 
 <section class="snap-section flex items-center">
   <div class="section-shell py-20">
-    <article
-      class="relative overflow-hidden rounded-[2.5rem]"
-    >
+    <article class="relative overflow-hidden rounded-[2.5rem]">
       {/* Background image */}
       <div
         class="absolute inset-0 bg-cover bg-center"
         style={`background-image: url('${bgImage}');`}
-      ></div>
+      >
+      </div>
 
       {/* Dark gradient overlay */}
-      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/50"
+      >
+      </div>
 
       {/* Content */}
-      <div class="relative z-10 grid gap-8 p-8 md:p-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
+      <div
+        class="relative z-10 grid gap-8 p-8 md:p-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end"
+      >
         <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.22em] text-white/60">{dictionary.navigation.contact}</p>
-          <h2 class="mt-6 max-w-4xl text-4xl font-semibold text-white md:text-6xl">{dictionary.home.closing.title}</h2>
-          <p class="mt-6 max-w-2xl text-lg leading-8 text-white/80">{dictionary.home.closing.description}</p>
+          <p
+            class="text-sm font-semibold uppercase tracking-[0.22em] text-white/60"
+          >
+            {dictionary.navigation.contact}
+          </p>
+          <h2
+            class="mt-6 max-w-4xl text-4xl font-semibold text-white md:text-6xl"
+          >
+            {dictionary.home.closing.title}
+          </h2>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-white/80">
+            {dictionary.home.closing.description}
+          </p>
         </div>
 
-        <a
+        <Button
+          variant="primary"
           href={localizePath(locale, "contact")}
-          class="inline-flex h-fit rounded-full bg-strategic px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-strategic/30"
+          isFalse={true}
+          className="h-fit bg-strategic text-white px-8 py-4 hover:shadow-lg hover:shadow-strategic/30 hover:animate-none delay-700"
         >
+          <span class="shrink-0 text-lg"><FiCalendar /></span>
           {dictionary.home.closing.cta}
-        </a>
+        </Button>
       </div>
     </article>
   </div>

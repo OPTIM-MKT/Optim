@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectFade, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
-import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { Button } from "@/components/ui/Button";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -108,19 +109,19 @@ const TestimonioSlider = ({ items, ariaLabel }: TestimonioSliderProps) => {
         <div className="custom-pagination flex gap-2" />
 
         <div className="flex gap-4">
-          <button
-            className="custom-prev w-12 h-12 rounded-full border border-line flex items-center justify-center hover:bg-panel-strong hover:text-ink transition-all text-muted cursor-pointer"
+          <Button
+            variant="simple"
+            className="custom-prev cursor-pointer w-12 h-12"
             aria-label="Testimonio anterior"
-          >
-            <HiArrowLeft size={20} />
-          </button>
-          <button
-            className="cursor-pointer custom-next w-12 h-12 rounded-full flex items-center justify-center hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:scale-105"
+            icon={<FiArrowLeft size={20} />}
+          />
+          <Button
+            variant="primary"
+            className="custom-next cursor-pointer w-12 h-12 shadow-lg hover:shadow-xl hover:scale-105"
             style={{ backgroundColor: "var(--color-strategic)", color: "var(--color-canvas)" }}
             aria-label="Siguiente testimonio"
-          >
-            <HiArrowRight size={20} />
-          </button>
+            icon={<FiArrowRight size={20} />}
+          />
         </div>
       </div>
     </div>

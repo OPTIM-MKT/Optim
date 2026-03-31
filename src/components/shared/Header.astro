@@ -7,6 +7,8 @@ import {
   switchLocalePath,
   type Locale,
 } from "@/lib/site";
+import { Button } from "@/components/ui/Button";
+import { FiGlobe, FiCalendar } from "react-icons/fi";
 
 interface Props {
   locale: Locale;
@@ -77,23 +79,25 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
         </div>
 
         {/* Language switch is always visible */}
-        <a
+        <Button
+          variant="simple"
           href={alternatePath}
-          class="rounded-full border border-line px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink transition-colors duration-300 hover:bg-panel"
-          aria-label={locale === "es"
-            ? "Switch to English"
-            : "Cambiar a español"}
+          aria-label={
+            locale === "es" ? "Switch to English" : "Cambiar a español"
+          }
         >
+          <span class="shrink-0 text-lg"><FiGlobe /></span>
           {alternateLocale.toUpperCase()}
-        </a>
+        </Button>
 
         <div class="hidden lg:block">
-          <a
+          <Button
+            variant="primary"
             href={localizePath(locale, "contact")}
-            class="rounded-full bg-ink px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5"
           >
+            <span class="shrink-0 text-lg"><FiCalendar /></span>
             {dictionary.navigation.cta}
-          </a>
+          </Button>
         </div>
 
         {/* Hamburger Button (Mobile Only) */}
@@ -153,12 +157,14 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
         >
         <ThemeToggle />
       </div>
-      <a
+      <Button
+        variant="primary"
         href={localizePath(locale, "contact")}
-        class="flex w-full items-center justify-center rounded-full bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5 mobile-nav-link"
+        className="w-full py-4 px-6 text-sm flex mobile-nav-link"
       >
+        <span class="shrink-0 text-lg"><FiCalendar /></span>
         {dictionary.navigation.cta}
-      </a>
+      </Button>
     </div>
   </div>
 </header>

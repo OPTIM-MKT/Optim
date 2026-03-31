@@ -1,5 +1,7 @@
 ---
 import { localizePath, type Locale } from "@/lib/site";
+import { Button } from "@/components/ui/Button";
+import { FiCalendar } from "react-icons/fi";
 
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
@@ -24,12 +26,14 @@ const { dictionary, locale } = Astro.props;
         }
       </div>
 
-      <a
+      <Button
+        variant="black&white"
         href={localizePath(locale, "contact")}
-        class="mt-10 inline-flex rounded-full bg-canvas px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-ink transition-transform duration-300 hover:-translate-y-0.5"
+        className="mt-10"
       >
+        <span class="shrink-0 text-lg"><FiCalendar /></span>
         {dictionary.navigation.cta}
-      </a>
+      </Button>
     </article>
   </div>
 </section>

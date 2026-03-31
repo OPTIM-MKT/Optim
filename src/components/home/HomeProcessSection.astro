@@ -1,26 +1,58 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
 }
 
 const { dictionary } = Astro.props;
+
+const processIcons = [
+  "fa6-solid/magnifying-glass-chart",
+  "fa6-solid/bullseye",
+  "fa6-solid/film",
+  "fa6-solid/rocket",
+  "fa6-solid/users-gear",
+];
 ---
 
 <section class="snap-section flex items-center">
   <div class="section-shell py-20">
     <div class="max-w-3xl">
-      <p class="text-sm font-semibold uppercase tracking-[0.22em] text-white/60">{dictionary.home.process.eyebrow}</p>
-      <h2 class="mt-6 text-4xl font-semibold text-white md:text-6xl">{dictionary.home.process.title}</h2>
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.22em] text-white/60"
+      >
+        {dictionary.home.process.eyebrow}
+      </p>
+      <h2 class="mt-6 text-4xl font-semibold text-white md:text-6xl">
+        {dictionary.home.process.title}
+      </h2>
     </div>
-    <div class="mt-12 grid gap-4 md:grid-cols-5">
+
+    <!-- Sección  -->
+    <div class="mt-12 grid gap-4 md:grid-cols-5 group/process">
       {
-        dictionary.home.process.steps.map((step, index) => (
-          <article class="rounded-[1.75rem] border border-white/10 bg-white/5 backdrop-blur-sm p-6">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-strategic">0{index + 1}</p>
-            <h3 class="mt-8 text-2xl font-semibold text-white">{step.title}</h3>
-            <p class="mt-4 text-sm leading-7 text-white/70">{step.description}</p>
-          </article>
-        ))
+        dictionary.home.process.steps.map((step, index) => {
+          const iconName = processIcons[index % processIcons.length];
+          return (
+            <article class="rounded-4xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all duration-500 hover:scale-110 hover:border-strategic group-hover/process:opacity-40 group-hover/process:blur-[2px] hover:opacity-100! hover:blur-none! cursor-default">
+              <div class="flex items-start justify-between">
+                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-strategic">
+                  0{index + 1}
+                </p>
+                <div class="text-2xl text-strategic/80 transition-transform duration-500 group-hover:scale-110">
+                  <Icon name={iconName} />
+                </div>
+              </div>
+              <h3 class="mt-8 text-2xl font-semibold text-white">
+                {step.title}
+              </h3>
+              <p class="mt-4 text-sm leading-7 text-white/70">
+                {step.description}
+              </p>
+            </article>
+          );
+        })
       }
     </div>
   </div>

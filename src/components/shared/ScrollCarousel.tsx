@@ -44,8 +44,6 @@ export default function ScrollCarousel({ items, ariaLabel = "Servicios", contact
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    // Start animation when top of container hits top of viewport
-    // End when bottom of container hits bottom of viewport
     offset: ["start start", "end end"]
   });
 
@@ -107,7 +105,7 @@ export default function ScrollCarousel({ items, ariaLabel = "Servicios", contact
                 <div className="w-full max-w-7xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-24 items-center h-auto py-10">
                   
                   {/* Left: Image / Media Block */}
-                  <div className="relative aspect-video lg:aspect-square lg:max-h-[70vh] w-full bg-neutral-100 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center p-6 border border-neutral-100 dark:border-neutral-800">
+                  <div className="relative aspect-video lg:aspect-square lg:max-h-[60vh] w-full bg-neutral-100 rounded-4xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center p-6 border border-neutral-100 dark:border-neutral-800">
                      <img 
                        src={IMAGE_URL} 
                        alt={service.title} 
@@ -119,19 +117,19 @@ export default function ScrollCarousel({ items, ariaLabel = "Servicios", contact
 
                   {/* Right: Text Block */}
                   <div className="flex flex-col pt-4 lg:pt-0">
-                    <div className="w-14 h-14 bg-strategic rounded-2xl flex items-center justify-center shadow-lg mb-8">
+                    <div className="w-14 h-14 hidden md:flex bg-strategic rounded-2xl items-center justify-center shadow-lg mb-8">
                        <Icon className="text-2xl text-white" />
                     </div>
                     
-                    <h2 className="text-4xl lg:text-[3.25rem] font-extrabold text-ink tracking-tight leading-[1.05] text-balance">
+                    <h2 className="text-3xl lg:text-5xl font-semibold text-ink tracking-tight leading-[1.05] text-balance">
                       {service.title}
                     </h2>
                     
-                    <p className="mt-6 text-xl lg:text-2xl text-muted font-medium leading-relaxed">
+                    <p className="mt-6 text-lg text-muted font-medium leading-relaxed">
                       {service.summary}
                     </p>
 
-                    <ul className="mt-10 space-y-4 text-muted text-base lg:text-lg">
+                    <ul className="mt-6 space-y-2 text-muted text-base">
                       {service.how.map((item, i) => (
                         <li key={i} className="flex items-start gap-4">
                            <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-strategic shrink-0 opacity-80" />

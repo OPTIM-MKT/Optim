@@ -1,4 +1,6 @@
 ---
+import { Button } from "@/components/ui/Button";
+import { FiSend } from "react-icons/fi";
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
 }
@@ -17,32 +19,63 @@ const serviceOptions = [
 
 <article class="glass-panel rounded-[2rem] border border-line p-8 md:p-10">
   <p class="editorial-label">{dictionary.contactPage.form.title}</p>
-  <p class="mt-4 max-w-xl text-base leading-7">{dictionary.contactPage.form.description}</p>
+  <p class="mt-4 max-w-xl text-base leading-7">
+    {dictionary.contactPage.form.description}
+  </p>
 
   <form class="mt-8 grid gap-4 md:grid-cols-2">
     <label class="grid gap-2">
-      <span class="text-sm font-medium text-ink">{dictionary.contactPage.form.name}</span>
-      <input class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic" type="text" name="name" />
+      <span class="text-sm font-medium text-ink"
+        >{dictionary.contactPage.form.name}</span
+      >
+      <input
+        class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic"
+        type="text"
+        name="name"
+      />
     </label>
 
     <label class="grid gap-2">
-      <span class="text-sm font-medium text-ink">{dictionary.contactPage.form.email}</span>
-      <input class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic" type="email" name="email" />
+      <span class="text-sm font-medium text-ink"
+        >{dictionary.contactPage.form.email}</span
+      >
+      <input
+        class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic"
+        type="email"
+        name="email"
+      />
     </label>
 
     <label class="grid gap-2">
-      <span class="text-sm font-medium text-ink">{dictionary.contactPage.form.company}</span>
-      <input class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic" type="text" name="company" />
+      <span class="text-sm font-medium text-ink"
+        >{dictionary.contactPage.form.company}</span
+      >
+      <input
+        class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic"
+        type="text"
+        name="company"
+      />
     </label>
 
     <label class="grid gap-2">
-      <span class="text-sm font-medium text-ink">{dictionary.contactPage.form.phone}</span>
-      <input class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic" type="tel" name="phone" />
+      <span class="text-sm font-medium text-ink"
+        >{dictionary.contactPage.form.phone}</span
+      >
+      <input
+        class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic"
+        type="tel"
+        name="phone"
+      />
     </label>
 
     <label class="grid gap-2">
-      <span class="text-sm font-medium text-ink">{dictionary.contactPage.form.service}</span>
-      <select class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic" name="service">
+      <span class="text-sm font-medium text-ink"
+        >{dictionary.contactPage.form.service}</span
+      >
+      <select
+        class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic"
+        name="service"
+      >
         {
           serviceOptions.map((option) => (
             <option value={option}>{option}</option>
@@ -52,19 +85,34 @@ const serviceOptions = [
     </label>
 
     <label class="grid gap-2">
-      <span class="text-sm font-medium text-ink">{dictionary.contactPage.form.budget}</span>
-      <input class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic" type="text" name="budget" />
+      <span class="text-sm font-medium text-ink"
+        >{dictionary.contactPage.form.budget}</span
+      >
+      <input
+        class="rounded-2xl border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic"
+        type="text"
+        name="budget"
+      />
     </label>
 
     <label class="grid gap-2 md:col-span-2">
-      <span class="text-sm font-medium text-ink">{dictionary.contactPage.form.message}</span>
-      <textarea class="min-h-36 rounded-[1.5rem] border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic" name="message"></textarea>
+      <span class="text-sm font-medium text-ink"
+        >{dictionary.contactPage.form.message}</span
+      >
+      <textarea
+        class="min-h-36 rounded-[1.5rem] border border-line bg-canvas px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-strategic"
+        name="message"></textarea>
     </label>
 
     <div class="md:col-span-2">
-      <button class="rounded-full bg-ink px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-canvas transition-transform duration-300 hover:-translate-y-0.5" type="submit">
+      <Button
+        variant="primary"
+        type="submit"
+        className="px-7 py-3 cursor-pointer"
+      >
+        <span class="shrink-0 text-lg"><FiSend /></span>
         {dictionary.contactPage.form.submit}
-      </button>
+      </Button>
     </div>
   </form>
 </article>
