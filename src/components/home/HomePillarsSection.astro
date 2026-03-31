@@ -1,9 +1,16 @@
 ---
+import { Icon } from "astro-icon/components";
+
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
 }
 
 const { dictionary } = Astro.props;
+
+const pillarIcons = [
+  "fa6-solid/pen-nib",
+  "fa6-solid/magnifying-glass-chart",
+];
 ---
 
 <section class="snap-section flex items-center">
@@ -21,18 +28,28 @@ const { dictionary } = Astro.props;
         {dictionary.home.pillars.description}
       </p>
     </div>
-    <div class="mt-12 grid gap-6 md:grid-cols-2">
+
+    <!-- Sección  -->
+    <div class="mt-12 grid gap-6 md:grid-cols-2 group/pillars">
       {
-        dictionary.home.pillars.items.map((pillar) => (
-          <article class="rounded-[2rem] border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-strategic">
-              {pillar.title}
-            </p>
-            <p class="mt-8 text-3xl font-semibold leading-tight text-white md:text-4xl">
-              {pillar.description}
-            </p>
-          </article>
-        ))
+        dictionary.home.pillars.items.map((pillar, index) => {
+          const iconName = pillarIcons[index % pillarIcons.length];
+          return (
+            <article class="rounded-4xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10 transition-all duration-500 hover:scale-[1.03] hover:border-strategic group-hover/pillars:opacity-40 group-hover/pillars:blur-[2px] hover:opacity-100! hover:blur-none! cursor-default">
+              <div class="flex items-start justify-between">
+                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-strategic">
+                  {pillar.title}
+                </p>
+                <div class="text-3xl text-strategic/80">
+                  <Icon name={iconName} />
+                </div>
+              </div>
+              <p class="mt-8 text-3xl font-semibold leading-tight text-white md:text-4xl">
+                {pillar.description}
+              </p>
+            </article>
+          );
+        })
       }
     </div>
   </div>
