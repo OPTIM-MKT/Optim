@@ -1,8 +1,8 @@
 ---
-import ContactForm from "@/components/shared/ContactForm.astro";
 import Layout from "@/layouts/Layout.astro";
 import MapCard from "@/components/shared/MapCard.astro";
 import PageHero from "@/components/shared/PageHero.astro";
+import ContactFormReact from "@/components/contact/ContactForm";
 import { getDictionary, type Locale } from "@/lib/site";
 
 interface Props {
@@ -30,7 +30,7 @@ const dictionary = getDictionary(locale);
     <div
       class="section-shell grid gap-8 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]"
     >
-      <ContactForm dictionary={dictionary} />
+      <ContactFormReact client:visible dictionary={dictionary} />
 
       <div class="grid gap-6">
         <article class="glass-panel rounded-4xl border border-line p-8 md:p-10">

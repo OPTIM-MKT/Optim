@@ -386,15 +386,11 @@
       {
         "label": "LinkedIn",
         "href": "https://linkedin.com/company/optim"
-      },
-      {
-        "label": "Behance",
-        "href": "https://behance.net/optim"
       }
     ],
     "form": {
       "title": "Cuéntanos del proyecto",
-      "description": "Formulario placeholder listo para conectarse después a tu CRM o backend.",
+      "description": "Contactanos y hablemos de lo que necesitas. ",
       "name": "Nombre",
       "email": "Correo",
       "company": "Empresa",

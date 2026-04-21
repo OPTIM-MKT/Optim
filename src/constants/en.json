@@ -386,10 +386,6 @@
       {
         "label": "LinkedIn",
         "href": "https://linkedin.com/company/optim"
-      },
-      {
-        "label": "Behance",
-        "href": "https://behance.net/optim"
       }
     ],
     "form": {
@@ -407,7 +403,7 @@
   },
   "footer": {
     "tagline": "Creativity that captures. Calculation that converts.",
-    "description": "Marketing systems for brands ready to stop winging it and start scaling with intent.",
+    "description": "Let’s talk. No strings, just context.",
     "navigationTitle": "Navigation",
     "contactTitle": "Contact",
     "socialTitle": "Social",
