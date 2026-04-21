@@ -5,8 +5,8 @@ export type TeamMember = {
   name: string;
   role: string;
   image: string;
-  email: string;
-  socials: Array<{
+  email?: string;
+  socials?: Array<{
     label: string;
     href: string;
   }>;
@@ -36,7 +36,9 @@ export default function TeamGrid({ members, title, eyebrow }: TeamGridProps) {
     <section className="section-shell pb-24">
       <div className="max-w-3xl">
         <p className="editorial-label eyebrow-rule">{eyebrow}</p>
-        <h2 className="mt-6 text-4xl font-semibold text-ink md:text-6xl">{title}</h2>
+        <h2 className="mt-6 text-4xl font-semibold text-ink md:text-6xl">
+          {title}
+        </h2>
       </div>
 
       <div className="mt-12 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
@@ -58,27 +60,40 @@ export default function TeamGrid({ members, title, eyebrow }: TeamGridProps) {
             />
             <div className="p-6">
               <p className="text-2xl font-semibold text-ink">{member.name}</p>
-              <p className="mt-2 text-sm uppercase tracking-[0.2em] text-muted">{member.role}</p>
+              <p className="mt-2 text-sm uppercase tracking-[0.2em] text-muted">
+                {member.role}
+              </p>
             </div>
 
-            <div className="absolute inset-x-0 bottom-0 translate-y-8 bg-[linear-gradient(180deg,transparent,rgba(13,13,13,0.92)_30%)] p-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-              <a href={`mailto:${member.email}`} className="text-sm font-semibold uppercase tracking-[0.18em] text-white/86">
-                {member.email}
-              </a>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {member.socials.map((social) => (
-                  <a
-                    key={social.href}
-                    href={social.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-full border border-white/12 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white"
-                  >
-                    {social.label}
-                  </a>
-                ))}
+            {member.email ? (
+              <div className="absolute inset-x-0 bottom-0 translate-y-8 bg-[linear-gradient(180deg,transparent,rgba(13,13,13,0.92)_30%)] p-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <a
+                  href={`mailto:${member.email}`}
+                  className="text-sm font-semibold uppercase tracking-[0.18em] text-white/86"
+                >
+                  {member.email}
+                </a>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {member.socials?.map((social) => (
+                    <a
+                      key={social.href}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-white/12 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white"
+                    >
+                      {social.label}
+                    </a>
+                  ))}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="absolute inset-x-0 bottom-0 translate-y-8 bg-[linear-gradient(180deg,transparent,rgba(13,13,13,0.92)_30%)] p-6 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/86">
+                  {member.role}
+                </p>
+              </div>
+            )}
           </motion.article>
         ))}
       </div>

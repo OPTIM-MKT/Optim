@@ -29,6 +29,8 @@ const empresas = (await getCollection("empresas"))
     eyebrow={dictionary.servicesPage.hero.eyebrow}
     title={dictionary.servicesPage.hero.title}
     description={dictionary.servicesPage.hero.description}
+    isPrimary={true}
+    isLogo={true}
   />
   <ServicesGridSection dictionary={dictionary} locale={locale} />
   <CaseStudiesSection dictionary={dictionary} empresas={empresas} />

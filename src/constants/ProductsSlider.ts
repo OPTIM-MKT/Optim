@@ -10,9 +10,9 @@ interface ProductsProps {
 }
 
 const products: ProductsProps[] = [
-  { id: 1, image: one, name: "Optimizador de procesos" },
-  { id: 2, image: two, name: "Landing Page" },
-  { id: 3, image: three, name: "Social Media Ads" },
+  { id: 1, image: one, name: "Optimización de procesos" },
+  { id: 2, image: two, name: "Landing Page + Sitio Web Profesional" },
+  { id: 3, image: three, name: "Social Media Ads + Campañas" },
   { id: 4, image: four, name: "Marketing Digital" },
 ];
 
