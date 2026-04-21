@@ -1,6 +1,6 @@
 ---
-name: Aurora Residences
-industry: Real Estate
+name: Punta del Huajuco
+industry: Real Estate Marketing
 description: Premium residential development focused on qualified lead generation and high-value perception.
 servicesProvided:
   - Marketing Strategy

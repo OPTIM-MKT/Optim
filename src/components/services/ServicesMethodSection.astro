@@ -13,14 +13,22 @@ const { dictionary, locale } = Astro.props;
 
 <section class="pb-24">
   <div class="section-shell">
-    <article class="rounded-[2.5rem] border border-line bg-ink p-8 text-canvas md:p-12">
-      <p class="editorial-label !text-canvas/60">{dictionary.servicesPage.method.title}</p>
+    <article
+      class="rounded-[2.5rem] border border-line bg-ink p-8 text-canvas md:p-12"
+    >
+      <p class="editorial-label !text-canvas/60">
+        {dictionary.servicesPage.method.title}
+      </p>
       <div class="mt-10 grid gap-4 md:grid-cols-5">
         {
           dictionary.servicesPage.method.items.map((item, index) => (
-            <div class="rounded-[1.5rem] border border-canvas/12 p-5">
-              <p class="text-sm uppercase tracking-[0.22em] text-canvas/50">0{index + 1}</p>
-              <p class="mt-5 text-base leading-7 text-canvas/76">{item}</p>
+            <div class="rounded-[1.5rem] border border-canvas/12 p-5 group hover:-translate-y-2 transition-all duration-500 hover:border-strategic ">
+              <p class="text-sm uppercase tracking-[0.22em] text-canvas/50 group-hover:text-strategic">
+                0{index + 1}
+              </p>
+              <p class="mt-5 text-base leading-7 text-canvas/76 group-hover:text-strategic">
+                {item}
+              </p>
             </div>
           ))
         }

@@ -1,7 +1,7 @@
 ---
-name: Nova Skin Lab
-industry: Beauty & Wellness
-description: Marca de skincare con enfoque premium que buscaba aumentar conversión desde pauta y landing pages.
+name: Padel Capital
+industry: MKT Digital
+description: Agencia de marketing digital enfocada en el sector inmobiliario.
 servicesProvided:
   - Branding
   - Creación de Contenido

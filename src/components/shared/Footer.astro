@@ -19,21 +19,41 @@ const labels = [
 
 <footer class="border-t border-line bg-ink text-canvas">
   <div class="section-shell py-16">
-    <div class="grid gap-12 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,0.8fr))]">
+    <div
+      class="grid gap-12 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,0.8fr))]"
+    >
       <div class="space-y-5">
-        <p class="text-sm font-semibold uppercase tracking-[0.24em] text-canvas/72">Optim</p>
-        <h2 class="max-w-md text-4xl font-semibold">{dictionary.footer.tagline}</h2>
-        <p class="max-w-md text-base leading-7 text-canvas/72">{dictionary.footer.description}</p>
+        <a
+          href={localizePath(locale)}
+          class="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-white dark:text-black z-50"
+        >
+          <span
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white dark:bg-black text-black dark:text-white"
+            >O</span
+          >
+          <span>Optim</span>
+        </a>
+        <h2 class="max-w-md text-4xl font-semibold">
+          {dictionary.footer.tagline}
+        </h2>
+        <p class="max-w-md text-base leading-7 text-canvas/72">
+          {dictionary.footer.description}
+        </p>
       </div>
 
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-canvas/50">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.2em] text-canvas/50"
+        >
           {dictionary.footer.navigationTitle}
         </p>
         <div class="mt-5 flex flex-col gap-3">
           {
             navigationSlugs.map((slug, index) => (
-              <a href={localizePath(locale, slug)} class="text-base text-canvas/78 transition-colors duration-300 hover:text-canvas">
+              <a
+                href={localizePath(locale, slug)}
+                class="text-base text-canvas/78 transition-colors duration-300 hover:text-canvas"
+              >
                 {labels[index]}
               </a>
             ))
@@ -42,18 +62,27 @@ const labels = [
       </div>
 
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-canvas/50">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.2em] text-canvas/50"
+        >
           {dictionary.footer.contactTitle}
         </p>
         <div class="mt-5 flex flex-col gap-3 text-base text-canvas/78">
-          <a href={`mailto:${dictionary.contactPage.details.email}`}>{dictionary.contactPage.details.email}</a>
-          <a href={`tel:${dictionary.contactPage.details.phone.replaceAll(" ", "")}`}>{dictionary.contactPage.details.phone}</a>
+          <a href={`mailto:${dictionary.contactPage.details.email}`}
+            >{dictionary.contactPage.details.email}</a
+          >
+          <a
+            href={`tel:${dictionary.contactPage.details.phone.replaceAll(" ", "")}`}
+            >{dictionary.contactPage.details.phone}</a
+          >
           <p>{dictionary.contactPage.details.address}</p>
         </div>
       </div>
 
       <div>
-        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-canvas/50">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.2em] text-canvas/50"
+        >
           {dictionary.footer.socialTitle}
         </p>
         <div class="mt-5 flex flex-col gap-3">

@@ -1,7 +1,7 @@
 ---
-name: Aurora Residences
-industry: Real Estate
-description: Desarrollo residencial premium orientado a captación de leads calificados y percepción de alto valor.
+name: Punta del Huajuco
+industry: MKT Inmobiliario
+description: Desarrollo de casas premium con alto valor, ubicado en exclusiva zona de Nuevo León.
 servicesProvided:
   - Estrategia de Marketing
   - Publicidad Digital

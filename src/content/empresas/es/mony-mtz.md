@@ -1,6 +1,6 @@
 ---
-name: Lumen Creator House
-industry: Creator Economy
+name: ⁠Mony Martínez
+industry: Creator Studios
 description: Colectivo de creadores que buscaba estructurar narrativa, monetización y presencia visual.
 servicesProvided:
   - Creación de Contenido
