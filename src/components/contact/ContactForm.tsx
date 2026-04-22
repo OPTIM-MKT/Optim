@@ -218,7 +218,7 @@ export default function ContactForm() {
         onSubmit={handleSubmit(onSubmit)}
         noValidate
         aria-label="Formulario de contacto"
-        className="w-full space-y-5"
+        className="w-full flex flex-col space-y-5 glass-panel rounded-4xl border border-line p-8 md:p-10"
       >
         <div className="text-center pb-2">
           <h2 className="text-2xl font-bold tracking-tight text-[var(--fg)]">
@@ -229,13 +229,13 @@ export default function ContactForm() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 mt-8 gap-4">
           <InputField
             label="Nombre"
             fieldId="cf-name"
             required
             icon={FiUser}
-            placeholder="Juan Pérez"
+            placeholder="Marcelo Figueroa"
             autoComplete="name"
             error={errors.name?.message}
             {...register("name")}
@@ -321,36 +321,38 @@ export default function ContactForm() {
           {...register("message")}
         />
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className={
-            "w-full inline-flex items-center justify-center gap-2 " +
-            "rounded-full h-13 px-7 text-sm font-semibold text-white " +
-            "bg-[#4f46e5] hover:bg-[#4338ca] " +
-            "shadow-[0_10px_30px_-10px_rgba(79,70,229,0.55)] " +
-            "transition-all duration-200 active:scale-[0.98] " +
-            "disabled:opacity-60 disabled:pointer-events-none " +
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4f46e5]/50"
-          }
-        >
-          {isSubmitting ? (
-            <>
-              <FiLoader size={16} className="animate-spin shrink-0" />
-              Enviando...
-            </>
-          ) : (
-            <>
-              <FiSend size={16} className="shrink-0" />
-              ENVIAR SOLICITUD
-            </>
-          )}
-        </button>
+        <div className="mt-auto pt-2 space-y-5">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className={
+              "w-full cursor-pointer inline-flex items-center justify-center gap-2 " +
+              "rounded-full h-13 px-7 text-sm font-semibold text-white " +
+              "bg-[#4f46e5] hover:bg-[#4338ca] " +
+              "shadow-[0_10px_30px_-10px_rgba(79,70,229,0.55)] " +
+              "transition-all duration-200 active:scale-[0.98] " +
+              "disabled:opacity-60 disabled:pointer-events-none " +
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4f46e5]/50"
+            }
+          >
+            {isSubmitting ? (
+              <>
+                <FiLoader size={16} className="animate-spin shrink-0" />
+                Enviando...
+              </>
+            ) : (
+              <>
+                <FiSend size={16} className="shrink-0" />
+                ENVIAR SOLICITUD
+              </>
+            )}
+          </button>
 
-        <p className="text-center text-xs text-[var(--muted)] leading-relaxed">
-          Al enviar este formulario aceptas que nos pongamos en contacto contigo
-          para responder tu solicitud.
-        </p>
+          <p className="text-center text-xs text-[var(--muted)] leading-relaxed">
+            Al enviar este formulario aceptas que nos pongamos en contacto
+            contigo para responder tu solicitud.
+          </p>
+        </div>
       </form>
     </>
   );
