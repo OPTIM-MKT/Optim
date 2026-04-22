@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { useRef } from "react";
+import { motion, animate, useMotionValue, useTransform } from "framer-motion";
+import { useRef, useEffect } from "react";
 import { Autoplay, FreeMode, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
@@ -100,6 +100,39 @@ const fadeUp = {
   },
 };
 
+function AnimatedMetric({ value }: { value: string }) {
+  const match = value.match(/^([\D]*)(\d+(?:[.,]\d+)?)([\D]*)$/);
+  
+  if (!match) return <span>{value}</span>;
+
+  const prefix = match[1];
+  const numberStr = match[2].replace(/,/g, "");
+  const suffix = match[3];
+  const targetNumber = parseFloat(numberStr);
+
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => {
+    if (match[2].includes(".")) {
+      return `${prefix}${latest.toFixed(1)}${suffix}`;
+    }
+    const formatted = match[2].includes(",")
+      ? Math.round(latest).toLocaleString("en-US")
+      : Math.round(latest);
+    return `${prefix}${formatted}${suffix}`;
+  });
+
+  useEffect(() => {
+    const controls = animate(count, targetNumber, {
+      duration: 2.5,
+      ease: "easeOut",
+      delay: 0.5,
+    });
+    return controls.stop;
+  }, [targetNumber, count]);
+
+  return <motion.span>{rounded}</motion.span>;
+}
+
 function HeroCarousel({
   items,
   ariaLabel = "Hero carousel",
@@ -162,10 +195,23 @@ function HeroCarousel({
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
-                    <img
+                    <motion.img
                       src={logo.src}
                       alt="Optim Logo Branding"
-                      className="w-40 md:w-56 brightness-0 invert shadow-[0_0_40px_rgba(255,255,255,0.1)] transition-transform duration-700"
+                      className="w-40 md:w-56 brightness-0 invert"
+                      animate={{
+                        scale: [1, 1.05, 1],
+                        filter: [
+                          "drop-shadow(0 0 20px rgba(255,255,255,0.1))",
+                          "drop-shadow(0 0 35px rgba(255,255,255,0.5))",
+                          "drop-shadow(0 0 20px rgba(255,255,255,0.1))"
+                        ],
+                      }}
+                      transition={{
+                        duration: 3,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                      }}
                     />
                     <div className="h-px w-24 bg-strategic/80" />
                     <span className="text-[0.7rem] font-bold uppercase tracking-[0.5em] text-white transition-opacity duration-700 group-hover:opacity-100">
@@ -221,7 +267,7 @@ function HeroCarousel({
                           className="border-b border-white/10 pb-4 last:border-b-0 last:pb-0"
                         >
                           <span className="block text-4xl font-semibold text-white md:text-5xl">
-                            {metric.value}
+                            {index === 0 ? <AnimatedMetric value={metric.value} /> : metric.value}
                           </span>
                           <span className="mt-2 block text-sm uppercase tracking-[0.2em] text-white/60">
                             {metric.label}
