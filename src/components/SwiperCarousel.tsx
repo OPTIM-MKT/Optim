@@ -122,12 +122,33 @@ function AnimatedMetric({ value }: { value: string }) {
   });
 
   useEffect(() => {
-    const controls = animate(count, targetNumber, {
+    let intervalId: NodeJS.Timeout;
+
+    const initialAnimation = animate(count, targetNumber, {
       duration: 2.5,
       ease: "easeOut",
       delay: 0.5,
+      onComplete: () => {
+        // Continuamos aumentando el número de forma lenta y aleatoria
+        intervalId = setInterval(() => {
+          const current = count.get();
+          
+          // Calculamos un incremento proporcional al tamaño del número
+          const tick = 
+            targetNumber >= 1000 ? Math.floor(Math.random() * 4) + 1 : // +1 a 4
+            targetNumber >= 100 ? Math.floor(Math.random() * 2) + 1 :  // +1 a 2
+            targetNumber >= 10 ? Math.random() * 0.3 :                 // +0.0 a 0.3
+            0.05;                                                      // +0.05
+
+          count.set(current + tick);
+        }, 3000); // Cada 3 segundos da un salto
+      }
     });
-    return controls.stop;
+
+    return () => {
+      initialAnimation.stop();
+      if (intervalId) clearInterval(intervalId);
+    };
   }, [targetNumber, count]);
 
   return <motion.span>{rounded}</motion.span>;
