@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/netlify": "^7.0.8",
     "@astrojs/react": "^5.0.1",
+    "@astrojs/sitemap": "^3.7.2",
     "@hookform/resolvers": "^5.2.2",
     "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",

@@ -4,18 +4,17 @@ import type { ContactFormData } from "./contact.schema";
 //  Props
 
 interface EmailTemplateProps extends ContactFormData {
-  interestReasonLabel: string;
-  roleLabel: string;
-  communitySizeLabel: string;
-  preferredContactLabel?: string;
+  serviceLabel: string;
+  budgetLabel: string;
+  branchLabel?: string;
 }
 
-//  Design tokens (mirrors global.css)
+//  Design tokens
 
 const BRAND = {
-  primary: "#09ad05",
-  shade: "#026600",
-  blue: "#0849aa",
+  primary: "#4f46e5",
+  shade: "#4338ca",
+  blue: "#4f46e5",
   mateBlack: "#111315",
   mateWhite: "#f5f6f7",
   surface: "#ffffff",
@@ -225,15 +224,14 @@ function Field({
 export function EmailTemplate({
   name,
   email,
+  company,
   phone,
-  interestReasonLabel,
-  community,
-  roleLabel,
-  communitySizeLabel,
-  preferredContactLabel,
+  serviceLabel,
+  budgetLabel,
+  branchLabel,
   message,
 }: EmailTemplateProps) {
-  const replySubject = encodeURIComponent(`Re: Tu contacto con Homii`);
+  const replySubject = encodeURIComponent(`Re: Tu contacto con Optim`);
   const replyBody = encodeURIComponent(
     `Hola ${name},\n\nGracias por contactarnos...`,
   );
@@ -244,7 +242,7 @@ export function EmailTemplate({
       <div style={s.card}>
         {/* ── Header ── */}
         <div style={s.header}>
-          <div style={s.logoBadge}>Homii</div>
+          <div style={s.logoBadge}>Optim</div>
           <h1 style={s.headerTitle}>Nuevo mensaje de contacto</h1>
           <p style={s.headerSubtitle}>
             {name} ha enviado una solicitud a través del formulario de contacto.
@@ -264,39 +262,34 @@ export function EmailTemplate({
           <p style={s.sectionTitle}>Información de contacto</p>
           <div style={{ ...s.grid, marginBottom: 12 }}>
             <Field label="Nombre completo" value={name} />
-            <Field label="Teléfono" value={phone} />
+            <Field label="Teléfono" value={phone || "No especificado"} />
           </div>
           <div style={s.fieldBoxFull}>
             <span style={s.fieldLabel}>Correo electrónico</span>
             <p style={s.fieldValue}>{email}</p>
           </div>
-          {preferredContactLabel && (
+          {company && (
             <div style={{ ...s.fieldBoxFull, marginBottom: 24 }}>
-              <span style={s.fieldLabel}>Método de contacto preferido</span>
-              <span style={s.badge}>{preferredContactLabel}</span>
+              <span style={s.fieldLabel}>Empresa</span>
+              <p style={s.fieldValue}>{company}</p>
             </div>
           )}
 
           <hr style={s.divider} />
 
-          {/* Community section */}
-          <p style={s.sectionTitle}>Colonia / Residencia</p>
-          <div style={s.fieldBoxFull}>
-            <span style={s.fieldLabel}>Nombre de colonia / residencia</span>
-            <p style={s.fieldValue}>{community}</p>
+          {/* Project Details section */}
+          <p style={s.sectionTitle}>Detalles del proyecto</p>
+          <div style={{ ...s.grid, marginBottom: branchLabel ? 12 : 24 }}>
+            <Field label="Servicio de interés" value={serviceLabel} isBadge />
+            <Field label="Presupuesto" value={budgetLabel} isBadge />
           </div>
-          <div style={{ ...s.grid, marginBottom: 24 }}>
-            <Field label="Rol" value={roleLabel} isBadge />
-            <Field label="Tamaño" value={communitySizeLabel} isBadge />
-          </div>
-
-          <hr style={s.divider} />
-
-          {/* Interest section */}
-          <p style={s.sectionTitle}>Razón de interés</p>
-          <div style={{ ...s.fieldBoxFull, marginBottom: message ? 12 : 24 }}>
-            <span style={s.badge}>{interestReasonLabel}</span>
-          </div>
+          
+          {branchLabel && (
+            <div style={{ ...s.fieldBoxFull, marginBottom: 24 }}>
+              <span style={s.fieldLabel}>Rama de interés</span>
+              <span style={s.badge}>{branchLabel}</span>
+            </div>
+          )}
 
           {/* Optional message */}
           {message && (
@@ -304,7 +297,7 @@ export function EmailTemplate({
               <span
                 style={{ ...s.fieldLabel, color: BRAND.blue, marginBottom: 8 }}
               >
-                Mensaje adicional
+                Contexto del proyecto
               </span>
               <p style={s.messageText}>"{message}"</p>
             </div>
@@ -320,11 +313,11 @@ export function EmailTemplate({
         <div style={s.footer}>
           <p style={s.footerText}>
             Este correo fue generado automáticamente por el formulario de
-            contacto de <strong>homii.net</strong>. Por favor no respondas
+            contacto de <strong>optimmkt.com</strong>. Por favor no respondas
             directamente a este mensaje.
           </p>
           <p style={{ ...s.footerText, marginTop: 8 }}>
-            © {new Date().getFullYear()} Homii · Todos los derechos reservados
+            © {new Date().getFullYear()} Optim MKT · Todos los derechos reservados
           </p>
         </div>
       </div>

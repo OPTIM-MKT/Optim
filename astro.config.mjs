@@ -6,15 +6,30 @@ import tailwindcss from '@tailwindcss/vite';
 import icon from "astro-icon";
 import netlify from "@astrojs/netlify";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://optimmkt.com',
-  integrations: [react(), icon()],
-
   output: "server",
   adapter: netlify({
     imageCDN: false,
   }),
+
+  integrations: [
+    react(),
+    icon(),
+    sitemap({
+      i18n: {
+        defaultLocale: "es",
+        locales: {
+          es: "es-MX",
+          en: "en-US",
+        },
+      },
+    }),
+  ],
+
 
   vite: {
     plugins: [tailwindcss()]
