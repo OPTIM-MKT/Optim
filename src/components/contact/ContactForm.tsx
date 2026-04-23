@@ -42,7 +42,7 @@ function FieldWrapper({
     <div className="flex flex-col gap-1.5">
       <label
         htmlFor={fieldId}
-        className="text-xs font-semibold tracking-widest uppercase text-[var(--muted)] flex items-center gap-1.5"
+        className="text-xs font-semibold tracking-widest uppercase text-(--muted) flex items-center gap-1.5"
       >
         {Icon && <Icon size={12} className="text-primary shrink-0" />}
         {label}
@@ -223,10 +223,10 @@ export default function ContactForm() {
         className="w-full flex flex-col space-y-5 glass-panel rounded-4xl border border-line p-8 md:p-10"
       >
         <div className="text-center pb-2">
-          <h2 className="text-2xl font-bold tracking-tight text-[var(--fg)]">
+          <h2 className="text-2xl font-bold tracking-tight text-(--fg)">
             CUÉNTANOS DEL PROYECTO
           </h2>
-          <p className="text-sm text-[var(--muted)] mt-1">
+          <p className="text-sm text-(--muted) mt-1">
             Contáctanos y hablemos de lo que necesitas.
           </p>
         </div>
@@ -330,11 +330,11 @@ export default function ContactForm() {
             className={
               "w-full cursor-pointer inline-flex items-center justify-center gap-2 " +
               "rounded-full h-13 px-7 text-sm font-semibold text-white " +
-              "bg-[#4f46e5] hover:bg-[#4338ca] " +
+              "bg-strategic hover:bg-[#4338ca] " +
               "shadow-[0_10px_30px_-10px_rgba(79,70,229,0.55)] " +
               "transition-all duration-200 active:scale-[0.98] " +
               "disabled:opacity-60 disabled:pointer-events-none " +
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4f46e5]/50"
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-strategic/50"
             }
           >
             {isSubmitting ? (
@@ -350,7 +350,7 @@ export default function ContactForm() {
             )}
           </button>
 
-          <p className="text-center text-xs text-[var(--muted)] leading-relaxed">
+          <p className="text-center text-xs text-(--muted) leading-relaxed">
             Al enviar este formulario aceptas que nos pongamos en contacto
             contigo para responder tu solicitud.
           </p>

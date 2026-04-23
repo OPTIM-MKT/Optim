@@ -144,7 +144,7 @@
   }
 
   .media-frame {
-    @apply overflow-hidden rounded-[2rem] border border-line;
+    @apply overflow-hidden rounded-4xl border border-line;
     background: color-mix(in srgb, var(--color-panel) 68%, transparent);
     box-shadow: var(--shadow-card);
   }

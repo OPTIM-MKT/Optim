@@ -102,7 +102,7 @@ const fadeUp = {
 
 function AnimatedMetric({ value }: { value: string }) {
   const match = value.match(/^([\D]*)(\d+(?:[.,]\d+)?)([\D]*)$/);
-  
+
   if (!match) return <span>{value}</span>;
 
   const prefix = match[1];
@@ -132,17 +132,20 @@ function AnimatedMetric({ value }: { value: string }) {
         // Continuamos aumentando el número de forma lenta y aleatoria
         intervalId = setInterval(() => {
           const current = count.get();
-          
+
           // Calculamos un incremento proporcional al tamaño del número
-          const tick = 
-            targetNumber >= 1000 ? Math.floor(Math.random() * 4) + 1 : // +1 a 4
-            targetNumber >= 100 ? Math.floor(Math.random() * 2) + 1 :  // +1 a 2
-            targetNumber >= 10 ? Math.random() * 0.3 :                 // +0.0 a 0.3
-            0.05;                                                      // +0.05
+          const tick =
+            targetNumber >= 1000
+              ? Math.floor(Math.random() * 4) + 1 // +1 a 4
+              : targetNumber >= 100
+                ? Math.floor(Math.random() * 2) + 1 // +1 a 2
+                : targetNumber >= 10
+                  ? Math.random() * 0.3 // +0.0 a 0.3
+                  : 0.05; // +0.05
 
           count.set(current + tick);
         }, 3000); // Cada 3 segundos da un salto
-      }
+      },
     });
 
     return () => {
@@ -225,7 +228,7 @@ function HeroCarousel({
                         filter: [
                           "drop-shadow(0 0 20px rgba(255,255,255,0.1))",
                           "drop-shadow(0 0 35px rgba(255,255,255,0.5))",
-                          "drop-shadow(0 0 20px rgba(255,255,255,0.1))"
+                          "drop-shadow(0 0 20px rgba(255,255,255,0.1))",
                         ],
                       }}
                       transition={{
@@ -288,7 +291,11 @@ function HeroCarousel({
                           className="border-b border-white/10 pb-4 last:border-b-0 last:pb-0"
                         >
                           <span className="block text-4xl font-semibold text-white md:text-5xl">
-                            {index === 0 ? <AnimatedMetric value={metric.value} /> : metric.value}
+                            {index === 0 ? (
+                              <AnimatedMetric value={metric.value} />
+                            ) : (
+                              metric.value
+                            )}
                           </span>
                           <span className="mt-2 block text-sm uppercase tracking-[0.2em] text-white/60">
                             {metric.label}
@@ -357,7 +364,7 @@ function BannerCarousel({
           }}
         >
           {items.map((item) => (
-            <SwiperSlide key={item.id} className="!w-auto">
+            <SwiperSlide key={item.id} className="w-auto">
               <article className="glass-panel min-w-72 rounded-full border border-line px-6 py-4 md:min-w-80 md:px-8">
                 <div className="flex items-center gap-4">
                   {item.image ? (
@@ -509,7 +516,7 @@ function ServicesPageCarousel({
         grabCursor={true}
       >
         {items.map((service, index) => (
-          <SwiperSlide key={`sp-${index}`} className="!h-auto">
+          <SwiperSlide key={`sp-${index}`} className="h-auto">
             <article className="surface-card group relative flex h-full flex-col overflow-hidden p-8 transition-transform duration-300 hover:-translate-y-1 md:p-10">
               {/* Strategic accent bar */}
               <span
@@ -578,7 +585,7 @@ function TestimonialsCarousel({
         grabCursor={true}
       >
         {items.map((item) => (
-          <SwiperSlide key={item.id} className="!h-auto">
+          <SwiperSlide key={item.id} className="h-auto">
             <article className="surface-card group flex h-full flex-col justify-between p-7 transition-transform duration-300 hover:-translate-y-1 md:p-8">
               {/* Decorative quote */}
               <span
