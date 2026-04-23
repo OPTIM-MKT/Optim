@@ -2,6 +2,8 @@
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getCollection, render } from "astro:content";
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const empresas = await getCollection("empresas");
   // Ensure we only build paths for Spanish entries (non-en/ IDs) in this route
