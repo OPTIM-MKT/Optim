@@ -6,6 +6,8 @@ import PageHero from "@/components/shared/PageHero.astro";
 import CaseStudiesSection from "@/components/services/CaseStudiesSection.astro";
 import ServicesGridSection from "@/components/services/ServicesGridSection.astro";
 import ServicesMethodSection from "@/components/services/ServicesMethodSection.astro";
+import WorksSlider from "../home/WorksSlider";
+
 import { getDictionary, type Locale } from "@/lib/site";
 
 interface Props {
@@ -33,6 +35,11 @@ const empresas = (await getCollection("empresas"))
     isLogo={true}
   />
   <ServicesGridSection dictionary={dictionary} locale={locale} />
+  <WorksSlider
+    client:visible
+    headText={dictionary.home.worksSlider.headline}
+    title={dictionary.home.worksSlider.title}
+  />
   <CaseStudiesSection dictionary={dictionary} empresas={empresas} />
   <ServicesMethodSection dictionary={dictionary} locale={locale} />
 </Layout>
