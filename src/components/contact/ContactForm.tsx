@@ -1,3 +1,5 @@
+"use client";
+
 import { actions } from "astro:actions";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

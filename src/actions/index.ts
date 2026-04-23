@@ -30,7 +30,7 @@ export const server = {
 
       // ── 3. Send email via Resend ─────────────────────────────────────────────
       const { data: resendData, error } = await resend.emails.send({
-        from: "Contacto Optim MKT <contacto@optimmkt.com>",
+        from: "Contacto Optim MKT <contacto@send.optimmkt.com>",
         to: ["contacto.negocios@optimmkt.com"],
         replyTo: data.email,
         subject: `Nuevo contacto: ${data.name} — ${serviceLabel}`,
