@@ -164,40 +164,32 @@
       "eyebrow": "Testimonials",
       "title": "What our clients say",
       "ariaLabel": "Client Testimonials",
-      "items": [
-        {
-          "id": "t1",
-          "name": "Marcelo Figueroa",
-          "role": "Marketing Director",
-          "company": "Optima Client Corp",
-          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
-          "description": "Message consolidated, +150% sales in Q1. Optim understands business, not just marketing."
-        },
-        {
-          "id": "t2",
-          "name": "Ana Rodríguez",
-          "role": "CEO",
-          "company": "Tech Solutions",
-          "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
-          "description": "It wasn't just a pretty site. They built a system that generates business opportunities every single day."
-        },
-        {
-          "id": "t3",
-          "name": "Carlos Gómez",
-          "role": "Founder",
-          "company": "Real Estate Plus",
-          "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
-          "description": "Ads and creative were disconnected. Optim unified them into a system that converts from click to signed deal."
-        },
-        {
-          "id": "t4",
-          "name": "María Fernández",
-          "role": "CMO",
-          "company": "StartupHub",
-          "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=faces",
-          "description": "They captured our vision and turned it into a landing page that won't stop converting. Simple as that."
-        }
-      ]
+   "items": [
+    {
+      "id": "t1",
+      "name": "Mónica Martínez",
+      "role": "Content Creator",
+      "company": "Optim Creator Studios",
+      "image": "/images/test/mm.webp",
+      "description": "They take care of EVERYTHING. I went from 4k to over 10k followers with millions of views. They don't just execute; they think through every detail to take my project to the next level."
+    },
+    {
+      "id": "t2",
+      "name": "Punta del Huajuco",
+      "role": "Real Estate Development",
+      "company": "Optim MKT Inmobiliario",
+      "image": "/images/punta.webp",
+      "description": "We achieved 1M+ reach and 300 qualified leads. They gave us total control over our sales without relying on external agencies or sharing commissions."
+    },
+    {
+      "id": "t3",
+      "name": "QRUSH",
+      "role": "Emerging Brand",
+      "company": "Optim MKT Digital",
+      "image": "/images/test/qrush.webp",
+      "description": "They built our brand from scratch with a brutal strategy and creative direction. Everything feels aligned, professional, and ready to compete from day one."
+    }
+  ]
     },
     "closing": {
       "title": "Stop winging it. Start scaling.",

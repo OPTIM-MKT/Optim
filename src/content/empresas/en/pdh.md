@@ -10,7 +10,7 @@ servicesProvided:
 isLandingPage: true
 isComprehensiveStrategy: true
 results: CPL reduced by 31% during the first lead generation phase.
-featuredImage: "https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop"
+featuredImage: "../images/punta.webp"
 logoUrl: /images/empresas/aurora-residences.svg
 links:
   - label: "Visit Landing Page"

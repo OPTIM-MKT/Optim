@@ -1,12 +1,12 @@
 ---
 import ContentLayout from "@/layouts/ContentLayout.astro";
+import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
 
 export const prerender = true;
 
 export async function getStaticPaths() {
   const empresas = await getCollection("empresas");
-  // Ensure we only build paths for Spanish entries (non-en/ IDs) in this route
   const esEmpresas = empresas.filter((emp) => !emp.id.startsWith("en/"));
   return esEmpresas.map((empresa) => ({
     params: { slug: empresa.id.replace(/^es\//, "") },
@@ -32,8 +32,8 @@ const locale = "es";
         <div
           class="media-frame relative aspect-4/3 w-full overflow-hidden bg-panel rounded-3xl border border-line"
         >
-          <img
-            src="https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop"
+          <Image
+            src={empresa.data.featuredImage}
             alt={empresa.data.name}
             class="h-full w-full object-cover"
             transition:name={`hero-image-${empresa.id}`}

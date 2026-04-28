@@ -1,5 +1,6 @@
 ---
 import { DEFAULT_MEDIA_IMAGE } from "@/lib/site";
+import { Image } from "astro:assets";
 
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
@@ -34,7 +35,7 @@ const { dictionary, empresas } = Astro.props;
               <article class="glass-panel flex h-full flex-col rounded-3xl border border-line p-6 transition-colors duration-300 group-hover:border-strategic">
                 {empresa.data.featuredImage || empresa.data.logoUrl ? (
                   <div class="mb-6 flex h-48 w-full items-center justify-center overflow-hidden rounded-2xl bg-panel p-6">
-                    <img
+                    <Image
                       src={
                         empresa.data.featuredImage ??
                         empresa.data.logoUrl ??

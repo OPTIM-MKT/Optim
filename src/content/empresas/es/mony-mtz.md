@@ -10,7 +10,7 @@ servicesProvided:
 isLandingPage: true
 isComprehensiveStrategy: true
 results: Mayor consistencia de marca y crecimiento sostenido en solicitudes comerciales.
-featuredImage: "https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop"
+featuredImage: "../images/mm.webp"
 logoUrl: /images/empresas/lumen-creator-house.svg
 order: 4
 ---

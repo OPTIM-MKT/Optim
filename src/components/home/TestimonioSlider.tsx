@@ -24,7 +24,10 @@ interface TestimonioSliderProps {
 
 const TestimonioSlider = ({ items, ariaLabel }: TestimonioSliderProps) => {
   return (
-    <div className="relative w-full max-w-6xl mx-auto px-4" aria-label={ariaLabel}>
+    <div
+      className="relative w-full max-w-6xl mx-auto px-4"
+      aria-label={ariaLabel}
+    >
       <Swiper
         modules={[Navigation, Pagination, EffectFade, Autoplay]}
         effect="fade"
@@ -118,7 +121,10 @@ const TestimonioSlider = ({ items, ariaLabel }: TestimonioSliderProps) => {
           <Button
             variant="primary"
             className="custom-next cursor-pointer w-12 h-12 shadow-lg hover:shadow-xl hover:scale-105"
-            style={{ backgroundColor: "var(--color-strategic)", color: "var(--color-canvas)" }}
+            style={{
+              backgroundColor: "var(--color-strategic)",
+              color: "var(--color-canvas)",
+            }}
             aria-label="Siguiente testimonio"
             icon={<FiArrowRight size={20} />}
           />

@@ -4,7 +4,7 @@ import { z } from "astro/zod";
 
 const empresasCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/empresas" }),
-  schema: z.object({
+  schema:({ image }) => z.object({
     name: z.string().min(1),
     industry: z.string().min(1),
     description: z.string().min(1),
@@ -13,7 +13,7 @@ const empresasCollection = defineCollection({
     isComprehensiveStrategy: z.boolean(),
     results: z.string().min(1).optional(),
     logoUrl: z.string().min(1).optional(),
-    featuredImage: z.string().min(1).optional(),
+    featuredImage: image(),
     links: z.array(z.object({ label: z.string(), url: z.string() })).optional(),
     order: z.number().int().nonnegative().default(0),
   }),

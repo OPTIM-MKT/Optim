@@ -9,7 +9,7 @@ servicesProvided:
 isLandingPage: true
 isComprehensiveStrategy: false
 results: 2.4x increase in qualified form submissions from launch campaigns.
-featuredImage: "https://images.unsplash.com/photo-1618950399704-86fb060cd003?q=80&w=2070&auto=format&fit=crop"
+featuredImage: "../images/padel.webp"
 logoUrl: /images/empresas/nova-skin-lab.svg
 order: 2
 ---

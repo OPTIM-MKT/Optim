@@ -164,40 +164,32 @@
       "eyebrow": "Testimonios",
       "title": "Lo que dicen nuestros clientes",
       "ariaLabel": "Testimonios de Clientes",
-      "items": [
-        {
-          "id": "t1",
-          "name": "Marcelo Figueroa",
-          "role": "Director de Marketing",
-          "company": "Optima Client Corp",
-          "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
-          "description": "Mensaje consolidado, +150% en ventas el primer trimestre. Optim entiende de negocio, no solo de marketing."
-        },
-        {
-          "id": "t2",
-          "name": "Ana Rodríguez",
-          "role": "CEO",
-          "company": "Tech Solutions",
-          "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
-          "description": "No fue solo un sitio bonito. Armaron un sistema que nos genera oportunidades de negocio todos los días."
-        },
-        {
-          "id": "t3",
-          "name": "Carlos Gómez",
-          "role": "Fundador",
-          "company": "Inmobiliaria Plus",
-          "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
-          "description": "Pauta y creatividad estaban desconectadas. Optim las unió en un sistema que convierte del clic a la firma."
-        },
-        {
-          "id": "t4",
-          "name": "María Fernández",
-          "role": "CMO",
-          "company": "StartupHub",
-          "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=faces",
-          "description": "Capturaron nuestra visión y la convirtieron en una landing que no para de convertir. Así de simple."
-        }
-      ]
+   "items": [
+    {
+      "id": "t1",
+      "name": "Mónica Martínez",
+      "role": "Content Creator",
+      "company": "Optim Creator Studios",
+      "image": "/images/test/mm.webp",
+      "description": "Se encargan de TODO. Pasé de 4k a más de 10k seguidores con millones de vistas. No solo ejecutan, piensan cada detalle para llevar mi proyecto al siguiente nivel."
+    },
+    {
+      "id": "t2",
+      "name": "Punta del Huajuco",
+      "role": "Desarrollo Inmobiliario",
+      "company": "Optim MKT Inmobiliario",
+      "image": "/images/test/punta.webp",
+      "description": "Logramos +1M de alcance y 300 leads calificados. Nos dieron control total de nuestras ventas sin depender de inmobiliarias externas ni compartir comisiones."
+    },
+    {
+      "id": "t3",
+      "name": "QRUSH",
+      "role": "Marca Emergente",
+      "company": "Optim MKT Digital",
+      "image": "/images/test/qrush.webp",
+      "description": "Construyeron nuestra marca desde cero con una estrategia y dirección creativa brutal. Todo se siente alineado, profesional y listo para competir desde el día uno."
+    }
+  ]
     },
     "closing": {
       "title": "Deja de improvisar. Empieza a escalar.",
