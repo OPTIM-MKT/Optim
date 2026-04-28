@@ -32,11 +32,11 @@ export const contactSchema = z.object({
   phone: z.string().optional(),
   service: z.enum(
     SERVICE_OPTIONS.map((s) => s.value) as [string, ...string[]],
-    { errorMap: () => ({ message: "Selecciona un servicio de interés" }) }
+    { message: "Selecciona un servicio de interés" }
   ),
   budget: z.enum(
     BUDGET_OPTIONS.map((b) => b.value) as [string, ...string[]],
-    { errorMap: () => ({ message: "Selecciona tu presupuesto estimado" }) }
+    { message: "Selecciona tu presupuesto estimado" }
   ),
   branch: z.enum(
     BRANCH_OPTIONS.map((b) => b.value) as [string, ...string[]]

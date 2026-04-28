@@ -22,11 +22,12 @@ const { dictionary, locale } = Astro.props;
       <div class="mt-10 grid gap-4 md:grid-cols-5">
         {
           dictionary.servicesPage.method.items.map((item, index) => (
-            <div class="rounded-[1.5rem] border border-canvas/12 p-5 group hover:-translate-y-2 transition-all duration-500 hover:border-strategic ">
-              <p class="text-sm uppercase tracking-[0.22em] text-canvas/50 group-hover:text-strategic">
+            <div class="rounded-3xl border transition-all duration-500 group -translate-y-2 border-strategic md:translate-y-0 md:border-canvas/12 p-5 md:hover:-translate-y-2 md:hover:border-strategic">
+              <p class="text-sm uppercase tracking-[0.22em] transition-colors duration-300 text-strategic md:text-canvas/50 md:group-hover:text-strategic">
                 0{index + 1}
               </p>
-              <p class="mt-5 text-base leading-7 text-canvas/76 group-hover:text-strategic">
+
+              <p class="mt-5 text-base leading-7 transition-colors duration-300 text-strategic md:text-canvas/76 md:group-hover:text-strategic">
                 {item}
               </p>
             </div>
@@ -37,7 +38,7 @@ const { dictionary, locale } = Astro.props;
       <Button
         variant="black&white"
         href={localizePath(locale, "contact")}
-        className="mt-10"
+        className="mt-10 animate-bounce animate-duration-1000 hover:border-white dark:hover:border-black animate-ease-in-out"
       >
         <span class="shrink-0 text-lg"><FiCalendar /></span>
         {dictionary.navigation.cta}

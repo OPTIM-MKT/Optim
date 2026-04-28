@@ -33,15 +33,15 @@ const RamasComponent = ({ title }: RamasComponentProps) => {
         {title}
       </p>
 
-      <div className="w-full flex-1 flex flex-col items-center justify-center md:gap-3 gap-5">
+      <div className="w-full flex-1 flex flex-col items-center justify-center md:gap-3 gap-3">
         {/* Superior Row (2 items) */}
-        <div className="flex justify-center w-full gap-3 sm:gap-5 px-6 sm:px-12">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full gap-3 sm:gap-5 px-6 sm:px-12">
           <BranchBox title="Estrategia" icon={FiTarget} />
           <BranchBox title="Creatividad" icon={FiAperture} />
         </div>
 
         {/* Inferior Row (3 items) */}
-        <div className="flex justify-center w-full md:gap-2 gap-4 px-1 md:px-2">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full gap-3 md:gap-2 px-1 md:px-2">
           <BranchBox title="Producción" icon={FiLayers} />
           <BranchBox title="Automatización" icon={FiCpu} />
           <BranchBox title="Medios" icon={FiActivity} />

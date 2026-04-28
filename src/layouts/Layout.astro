@@ -32,7 +32,7 @@ const {
   snap = false,
   hideHeader = false,
   hideFooter = false,
-  stickyHeader = false,
+  stickyHeader = true,
 } = Astro.props;
 const dictionary = getDictionary(locale);
 const seoTitle = title ?? dictionary.seo.defaultTitle;
