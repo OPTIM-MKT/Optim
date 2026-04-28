@@ -14,7 +14,6 @@ interface Props {
   locale: Locale;
   dictionary: import("@/lib/site").SiteDictionary;
   currentPath: string;
-  /** When true the header becomes position:sticky. Default: false. */
   sticky?: boolean;
 }
 
@@ -87,19 +86,16 @@ const alternatePath = switchLocalePath(currentPath, alternateLocale);
         <Button
           variant="simple"
           href={alternatePath}
-          aria-label={
-            locale === "es" ? "Switch to English" : "Cambiar a español"
-          }
+          aria-label={locale === "es"
+            ? "Switch to English"
+            : "Cambiar a español"}
         >
           <span class="shrink-0 text-lg"><FiGlobe /></span>
           {alternateLocale.toUpperCase()}
         </Button>
 
         <div class="hidden lg:block">
-          <Button
-            variant="primary"
-            href={localizePath(locale, "contact")}
-          >
+          <Button variant="primary" href={localizePath(locale, "contact")}>
             <span class="shrink-0 text-lg"><FiCalendar /></span>
             {dictionary.navigation.cta}
           </Button>
