@@ -27,9 +27,9 @@ export const BRANCH_OPTIONS = [
 
 export const contactSchema = z.object({
   name: z.string().min(2, "El nombre es obligatorio"),
-  email: z.string().min(1, "El correo es obligatorio").email("Correo electrónico inválido"),
+  email: z.string().email("Correo electrónico inválido").optional().or(z.literal("")),
   company: z.string().optional(),
-  phone: z.string().optional(),
+  phone: z.string().min(1, "El teléfono es obligatorio"),
   service: z.enum(
     SERVICE_OPTIONS.map((s) => s.value) as [string, ...string[]],
     { message: "Selecciona un servicio de interés" }

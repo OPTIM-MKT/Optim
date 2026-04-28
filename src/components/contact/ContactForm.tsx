@@ -243,9 +243,8 @@ export default function ContactForm() {
             {...register("name")}
           />
           <InputField
-            label="Correo electrónico"
+            label="Correo electrónico (Opcional)"
             fieldId="cf-email"
-            required
             icon={FiMail}
             type="email"
             placeholder="hola@ejemplo.com"
@@ -265,8 +264,9 @@ export default function ContactForm() {
             {...register("company")}
           />
           <InputField
-            label="Teléfono (Opcional)"
+            label="Teléfono"
             fieldId="cf-phone"
+            required
             icon={FiPhone}
             type="tel"
             placeholder="123 456 7890"
