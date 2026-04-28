@@ -249,7 +249,7 @@ function HeroCarousel({
                     variants={fadeUp}
                   >
                     {/* Eyebrow — white-safe, not CSS-var dependent */}
-                    <p className="eyebrow-rule mb-5 text-[0.7rem] text-indigo-400 font-semibold uppercase tracking-[0.26em]">
+                    <p className="eyebrow-rule mb-5 text-[0.7rem] text-[#38bdf8] font-semibold uppercase tracking-[0.26em]">
                       {item.eyebrow}
                     </p>
                     <h2 className="max-w-4xl text-4xl font-semibold leading-none text-white md:text-7xl">
