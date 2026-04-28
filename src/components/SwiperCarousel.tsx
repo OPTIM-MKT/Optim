@@ -239,7 +239,7 @@ function HeroCarousel({
                 </div>
               )}
 
-              <div className="section-shell relative flex h-full items-end pb-16 pt-28 md:items-center md:pb-10">
+              <div className="section-shell relative flex h-full pt-28 items-center md:pb-10">
                 <div className="grid w-full gap-12 md:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] md:items-end">
                   <motion.div
                     className="max-w-4xl"
