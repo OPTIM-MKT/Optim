@@ -4,6 +4,7 @@ import { Autoplay, EffectCreative } from "swiper/modules";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Swiper as SwiperType } from "swiper";
 import { productsSlider } from "@/constants/ProductsSlider";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 import "swiper/css";
 import "swiper/css/effect-creative";
@@ -23,7 +24,6 @@ interface WorksSliderProps {
 // ─── Unique items (only the 4 base products, not the duplicated array) ─────────
 const SLIDES = productsSlider.slice(0, 4);
 
-// ─── Component ────────────────────────────────────────────────────────────────
 const WorksSlider = ({
   maxWidth = "1280px",
   headText,
@@ -40,6 +40,15 @@ const WorksSlider = ({
     setActiveIndex(swiper.realIndex);
   }, []);
 
+  // Funciones de navegación
+  const handlePrev = useCallback(() => {
+    swiperRef.current?.slidePrev();
+  }, []);
+
+  const handleNext = useCallback(() => {
+    swiperRef.current?.slideNext();
+  }, []);
+
   return (
     <section
       className="works-slider-section snap-section flex items-center overflow-hidden"
@@ -49,7 +58,6 @@ const WorksSlider = ({
         className="section-shell works-slider-shell"
         style={{ maxWidth, margin: "0 auto" }}
       >
-        {/* ── Header ─────────────────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +69,6 @@ const WorksSlider = ({
           <h2 className="works-slider-heading">{title}</h2>
         </motion.div>
 
-        {/* ── Slider layout: [side indicators] + [swiper] ────────────────── */}
         <div className="works-slider-layout">
           {/* Side indicators */}
           <div
@@ -76,11 +83,9 @@ const WorksSlider = ({
                   key={slide.id}
                   role="tab"
                   aria-selected={isActive}
-                  aria-label={`Ir a ${slide.name}`}
                   onClick={() => goTo(i)}
                   className="works-indicator-btn"
                 >
-                  {/* Track line */}
                   <span className="works-indicator-track">
                     {isActive && (
                       <motion.span
@@ -94,31 +99,18 @@ const WorksSlider = ({
                       />
                     )}
                   </span>
-
-                  {/* Label */}
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={isActive ? "active" : "idle"}
-                      initial={{ opacity: 0, x: -4 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 4 }}
-                      transition={{ duration: 0.2 }}
                       className={`works-indicator-label ${isActive ? "works-indicator-label--active" : ""}`}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </motion.span>
                   </AnimatePresence>
-
-                  {/* Dot glow */}
                   {isActive && (
                     <motion.span
                       layoutId="indicator-dot"
                       className="works-indicator-dot"
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 28,
-                      }}
                     />
                   )}
                 </button>
@@ -126,83 +118,69 @@ const WorksSlider = ({
             })}
           </div>
 
-          {/* Swiper */}
+          {/* Swiper Wrapper */}
           <motion.div
+            className="works-slider-swiper-wrapper relative group"
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="works-slider-swiper-wrapper"
+            viewport={{ once: true }}
           >
             <Swiper
               modules={[Autoplay, EffectCreative]}
               effect="creative"
               creativeEffect={{
-                prev: {
-                  shadow: true,
-                  translate: [0, 0, -400],
-                  opacity: 0,
-                },
-                next: {
-                  translate: ["100%", 0, 0],
-                  opacity: 0,
-                },
+                prev: { shadow: true, translate: [0, 0, -400], opacity: 0 },
+                next: { translate: ["100%", 0, 0], opacity: 0 },
               }}
               loop={true}
-              speed={800}
-              autoplay={{
-                delay: 4500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-              }}
+              speed={1500}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
               onSlideChange={handleSlideChange}
-              className="works-swiper"
+              className="works-swiper rounded-2xl"
             >
               {SLIDES.map((slide) => (
                 <SwiperSlide key={slide.id}>
                   <div className="works-slide">
-                    {/* Image */}
                     <div className="works-slide-image-wrapper">
                       <img
                         src={slide.image.src}
                         alt={slide.name}
-                        width={slide.image.width}
-                        height={slide.image.height}
-                        loading="lazy"
-                        decoding="async"
                         className="works-slide-image"
                       />
-                      {/* Gradient overlay */}
-                      <div
-                        className="works-slide-gradient"
-                        aria-hidden="true"
-                      />
+                      <div className="works-slide-gradient" />
                     </div>
-
-                    {/* Caption */}
                     <div className="works-slide-caption">
-                      <motion.div
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="works-slide-caption-pill"
-                      >
+                      <motion.div className="works-slide-caption-pill">
                         <span className="works-slide-number">
                           {String(slide.id).padStart(2, "0")}
                         </span>
                         <h3 className="works-slide-title">{slide.name}</h3>
                       </motion.div>
                     </div>
-
-                    {/* Strategic glow accent */}
-                    <div className="works-slide-glow" aria-hidden="true" />
+                    <div className="works-slide-glow" />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            {/* Navigation Arrows */}
+            <div className="absolute top-6 right-6 md:translate-x-0 md:top-auto md:bottom-6 md:left-auto md:right-6 z-20 flex gap-8">
+              <button
+                onClick={handlePrev}
+                className="p-3 rounded-full border cursor-pointer border-strategic/30 backdrop-blur-md transition-all bg-strategic text-white active:scale-95"
+                aria-label="Previous slide"
+              >
+                <FiArrowLeft size={20} />
+              </button>
+              <button
+                onClick={handleNext}
+                className="p-3 rounded-full border cursor-pointer border-strategic/30 backdrop-blur-md transition-all bg-strategic text-white active:scale-95"
+                aria-label="Next slide"
+              >
+                <FiArrowRight size={20} />
+              </button>
+            </div>
 
             {/* Progress bar */}
             <div className="works-progress-bar" aria-hidden="true">

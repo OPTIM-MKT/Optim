@@ -231,13 +231,7 @@ function HeroCarousel({
                           "drop-shadow(0 0 20px rgba(255,255,255,0.1))",
                         ],
                       }}
-                      transition={{
-                        duration: 3,
-                        ease: "easeInOut",
-                        repeat: Infinity,
-                      }}
                     />
-                    <div className="h-px w-24 bg-strategic/80" />
                     <span className="text-[0.7rem] font-bold uppercase tracking-[0.5em] text-white transition-opacity duration-700 group-hover:opacity-100">
                       Marketing Estratégico
                     </span>
