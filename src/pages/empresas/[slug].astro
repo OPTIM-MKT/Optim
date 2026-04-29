@@ -38,13 +38,13 @@ const locale = "es";
       {/* Left: The Transition Key (Image) */}
       <div class="relative group">
         <div
-          class="media-frame sticky top-32 aspect-5/5 w-full overflow-hidden rounded-[2.5rem] border border-line bg-panel shadow-2xl shadow-strategic/5"
+          class="media-frame sticky top-32 aspect-4/3 w-full overflow-hidden rounded-[2.5rem] border border-line bg-panel shadow-2xl shadow-strategic/5"
         >
           <Image
             src={empresa.data.featuredImage}
             alt={empresa.data.name}
             class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            transition:name={`hero-image-${empresa.id}`}
+            transition:name={`hero-image-${empresa.id.replace(/\//g, "-")}`}
           />
           {/* Industry Badge Over Image */}
           <div class="absolute bottom-8 left-8">
@@ -67,7 +67,7 @@ const locale = "es";
             >
             <h1
               class="text-5xl font-bold leading-[1.1] text-ink md:text-7xl"
-              transition:name={`title-${empresa.id}`}
+              transition:name={`title-${empresa.id.replace(/\//g, "-")}`}
             >
               {empresa.data.name}
             </h1>
@@ -151,5 +151,5 @@ const locale = "es";
       </aside>
     </div>
   </div>
-  <ClosingSection dictionary={dictionary} locale={locale} />
+  <ClosingSection dictionary={dictionary} locale={locale} isSnap={false} />
 </ContentLayout>

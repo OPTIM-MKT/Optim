@@ -6,15 +6,16 @@ import { FiCalendar } from "react-icons/fi";
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
   locale: Locale;
+  isSnap?: boolean;
 }
 
-const { dictionary, locale } = Astro.props;
+const { dictionary, locale, isSnap = true } = Astro.props;
 
 const bgImage =
   "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2874&auto=format&fit=crop";
 ---
 
-<section class="snap-section flex items-center">
+<section class={isSnap ? "snap-section flex items-center" : "py-10"}>
   <div class="section-shell py-10">
     <article class="relative overflow-hidden rounded-[2.5rem]">
       {/* Background image */}

@@ -2,6 +2,13 @@
 import ContentLayout from "@/layouts/ContentLayout.astro";
 import { getCollection, render } from "astro:content";
 import { Image } from "astro:assets";
+import { FiArrowUpRight, FiCheckCircle } from "react-icons/fi";
+import ClosingSection from "@/components/home/ClosingSection.astro";
+
+import { getDictionary } from "@/lib/site";
+
+const dictionary = getDictionary("en");
+
 export const prerender = true;
 
 export async function getStaticPaths() {
@@ -23,24 +30,26 @@ const locale = "en";
   title={empresa.data.name}
   description={empresa.data.description || empresa.data.industry}
 >
-  <div class="section-shell py-12 md:py-20 min-h-screen">
-    {/* Hero Section */}
-    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start mb-24">
-      {/* Left Column: Image Card */}
-      <div class="flex flex-col gap-4">
+  <div class="section-shell py-12">
+    {/* --- HERO SPLIT SECTION --- */}
+    <div
+      class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 items-stretch mb-32"
+    >
+      {/* Left: The Transition Key (Image) */}
+      <div class="relative group">
         <div
-          class="media-frame relative aspect-4/3 w-full overflow-hidden bg-panel rounded-3xl border border-line"
+          class="media-frame sticky top-32 aspect-4/3 w-full overflow-hidden rounded-[2.5rem] border border-line bg-panel shadow-2xl shadow-strategic/5"
         >
           <Image
             src={empresa.data.featuredImage}
             alt={empresa.data.name}
-            class="h-full w-full object-cover"
-            transition:name={`hero-image-${empresa.id}`}
+            class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            transition:name={`hero-image-${empresa.id.replace(/\//g, "-")}`}
           />
-          {/* Floating Badge */}
-          <div class="absolute left-6 top-6">
+          {/* Industry Badge Over Image */}
+          <div class="absolute bottom-8 left-8">
             <span
-              class="rounded-full border border-white/20 bg-black/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-white backdrop-blur-md"
+              class="rounded-full border border-white/20 bg-black/60 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur-xl"
             >
               {empresa.data.industry}
             </span>
@@ -48,92 +57,99 @@ const locale = "en";
         </div>
       </div>
 
-      {/* Right Column: Key Information */}
-      <div class="flex flex-col justify-center space-y-8 lg:pt-8">
-        <div>
-          <span class="editorial-label text-strategic block mb-4"
-            >Case Study</span
-          >
-          <h1
-            class="text-4xl font-semibold leading-tight text-ink md:text-5xl border-l-[3px] border-strategic pl-6 ml-[-1.65rem]"
-            style={`view-transition-name: title-${empresa.id}`}
-          >
-            {empresa.data.name}
-          </h1>
-        </div>
+      {/* Right: Project Header Info */}
+      <div class="flex flex-col justify-center">
+        <div class="space-y-8">
+          <header>
+            <span
+              class="editorial-label text-strategic block mb-6 tracking-[0.3em]"
+              >Study case</span
+            >
+            <h1
+              class="text-5xl font-bold leading-[1.1] text-ink md:text-7xl"
+              transition:name={`title-${empresa.id.replace(/\//g, "-")}`}
+            >
+              {empresa.data.name}
+            </h1>
+          </header>
 
-        {
-          empresa.data.description && (
-            <p class="text-lg leading-relaxed text-muted">
-              {empresa.data.description}
-            </p>
-          )
-        }
+          <p class="text-xl leading-relaxed text-muted max-w-xl">
+            {empresa.data.description}
+          </p>
 
-        {/* Services / Keywords Tag list */}
-        {
-          empresa.data.servicesProvided &&
-            empresa.data.servicesProvided.length > 0 && (
-              <div class="border-t border-line mt-8 pt-8">
-                <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-ink mb-4">
-                  Implemented Services
-                </h3>
-                <div class="flex flex-wrap gap-2">
-                  {empresa.data.servicesProvided.map((service) => (
-                    <span class="rounded-full border border-line bg-panel px-4 py-2 text-xs font-medium text-ink transition-colors hover:border-strategic">
-                      {service}
-                    </span>
-                  ))}
-                </div>
+          {/* Key Metrics / Results Preview */}
+          {
+            empresa.data.results && (
+              <div class="p-6 rounded-3xl bg-strategic/5 border border-strategic/10 flex items-start gap-4">
+                <FiCheckCircle className="text-strategic text-2xl shrink-0 mt-1" />
+                <p class="text-ink font-medium leading-relaxed italic">
+                  "{empresa.data.results}"
+                </p>
               </div>
             )
-        }
+          }
 
-        {/* Links / External URLs Tag list */}
-        {
-          empresa.data.links && empresa.data.links.length > 0 && (
-            <div class="border-t border-line mt-8 pt-8">
-              <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-ink mb-4">
-                Project Links
-              </h3>
-              <div class="flex flex-wrap gap-3">
+          {/* Quick Links */}
+          {
+            empresa.data.links && (
+              <div class="flex flex-wrap gap-4 pt-4">
                 {empresa.data.links.map((link) => (
                   <a
                     href={link.url}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="group flex items-center gap-2 rounded-full border border-line bg-canvas px-4 py-2 text-xs font-semibold uppercase tracking-widest text-ink transition-colors hover:border-strategic hover:bg-strategic/5"
+                    class="group flex items-center gap-3 rounded-full bg-ink px-8 py-4 text-xs font-bold uppercase tracking-widest text-canvas transition-all hover:bg-strategic active:scale-95"
                   >
                     {link.label}
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      class="opacity-50 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-strategic group-hover:opacity-100"
-                    >
-                      <path
-                        d="M7 17l9.2-9.2M17 17V7H7"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                    <FiArrowUpRight className="text-lg transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </a>
                 ))}
               </div>
-            </div>
-          )
-        }
+            )
+          }
+        </div>
       </div>
     </div>
 
-    {/* Section: Main Markdown Content */}
+    {/* --- DETAILED CONTENT SECTION --- */}
     <div
-      class="prose prose-lg dark:prose-invert max-w-3xl mx-auto prose-headings:font-display prose-headings:font-semibold prose-a:text-strategic prose-p:text-muted prose-h2:text-ink prose-h3:text-ink prose-strong:text-ink pb-20"
+      class="grid lg:grid-cols-[1fr_350px] gap-20 border-t border-line pt-20"
     >
-      <Content />
+      {/* The Styled Markdown Content */}
+      <div
+        class="prose prose-lg dark:prose-invert max-w-none
+        prose-headings:text-ink prose-headings:font-bold prose-headings:tracking-tight
+        prose-p:text-muted prose-p:leading-8
+        prose-strong:text-ink prose-strong:font-bold
+        prose-li:text-muted
+        prose-img:rounded-[2rem] prose-img:shadow-xl
+        prose-blockquote:border-l-strategic prose-blockquote:bg-strategic/5 prose-blockquote:py-2 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-ink
+        prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8
+        prose-hr:border-line"
+      >
+        <Content />
+      </div>
+
+      {/* Sidebar: Complementary Info */}
+      <aside class="space-y-12">
+        {
+          empresa.data.servicesProvided && (
+            <div class="p-8 rounded-4xl border border-line bg-panel/50 backdrop-blur-sm">
+              <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-ink/40 mb-8">
+                Services provided
+              </h3>
+              <ul class="space-y-4">
+                {empresa.data.servicesProvided.map((service) => (
+                  <li class="flex items-center gap-3 text-sm font-semibold text-ink">
+                    <div class="h-1.5 w-1.5 rounded-full bg-strategic" />
+                    {service}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+      </aside>
     </div>
   </div>
+  <ClosingSection dictionary={dictionary} locale={locale} isSnap={false} />
 </ContentLayout>

@@ -43,7 +43,7 @@ const { dictionary, empresas } = Astro.props;
                     alt={empresa.data.name}
                     class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     loading="lazy"
-                    transition:name={`hero-image-${empresa.id}`}
+                    transition:name={`hero-image-${empresa.id.replace(/\//g, "-")}`}
                   />
 
                   {/* Overlay sutil para mejorar legibilidad si fuera necesario */}
@@ -53,7 +53,7 @@ const { dictionary, empresas } = Astro.props;
                 <div class="px-2 pb-4">
                   <h3
                     class="text-2xl font-bold text-ink transition-colors duration-300 group-hover:text-strategic"
-                    transition:name={`title-${empresa.id}`}
+                    transition:name={`title-${empresa.id.replace(/\//g, "-")}`}
                   >
                     {empresa.data.name}
                   </h3>
