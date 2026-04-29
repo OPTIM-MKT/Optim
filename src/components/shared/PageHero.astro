@@ -33,7 +33,7 @@ const restOfTitle = titleWords.join(" ");
       <div class={isLogo ? "max-w-3xl" : "max-w-5xl"}>
         <p class="editorial-label eyebrow-rule">{eyebrow}</p>
         <h1
-          class="mt-6 text-5xl font-semibold text-ink lg:text-7xl text-balance leading-[1.1]"
+          class="mt-6 md:text-5xl text-4xl font-semibold text-ink lg:text-7xl text-balance leading-[1.1]"
         >
           {isPrimary && lastWord ? restOfTitle : title}
           {
@@ -51,7 +51,7 @@ const restOfTitle = titleWords.join(" ");
 
       {
         isLogo && (
-          <div class="flex justify-center w-full mt-10 lg:mt-0">
+          <div class="md:flex hidden justify-center w-full mt-10 lg:mt-0 ">
             <div class="relative w-full max-w-60 aspect-square border border-ink rounded-[2.5rem] bg-white/40 dark:bg-gray-900/40 backdrop-blur-2xl dark:border-white/10 flex items-center justify-center p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] group">
               {/* Subtle background glow/backdrop */}
               <div class="absolute inset-0 bg-linear-to-tr from-strategic/10 via-transparent to-transparent rounded-[2.5rem] pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
