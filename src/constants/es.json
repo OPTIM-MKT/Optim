@@ -245,6 +245,7 @@
       {
         "title": "Estrategia de Marketing",
         "summary": "El mapa antes de la acción. Primero pensamos, luego ejecutamos.",
+        "image":"/images/serSlider/estra.avif",
         "how": [
           "Diagnóstico de negocio y mercado.",
           "Audiencias, mensajes y canales definidos.",
@@ -254,6 +255,7 @@
       {
         "title": "Creación de Contenido",
         "summary": "Piezas con narrativa e intención. No contenido por llenar.",
+        "image":"/images/serSlider/content.avif",
         "how": [
           "Concepto creativo y guión.",
           "Producción audiovisual y edición.",
@@ -263,6 +265,7 @@
       {
         "title": "Publicidad Digital",
         "summary": "Meta Ads + Google Ads (y cualquier plataforma de anuncios digitales)",
+        "image":"/images/serSlider/publi.avif",
         "how": [
           "Arquitectura de campañas inteligente.",
           "Testing de creatividades y mensajes.",
@@ -272,6 +275,7 @@
       {
         "title": "Branding",
         "summary": "Que tu marca se vea como lo que vale.",
+        "image":"/images/serSlider/brand.avif",
         "how": [
           "Sistema visual y verbal completo.",
           "Jerarquía de mensajes y tono.",
@@ -281,6 +285,7 @@
       {
         "title": "Sitios Web y Landing Pages",
         "summary": "Rápidos, claros y diseñados para convertir.",
+        "image":"/images/serSlider/web.avif",
         "how": [
           "Arquitectura de contenido y UX.",
           "Diseño alineado a conversión.",
@@ -290,6 +295,7 @@
       {
         "title": "Integración CRM",
         "summary": "Que ningún lead se pierda. Del formulario al cierre.",
+        "image":"/images/serSlider/crm.avif",
         "how": [
           "Mapeo de pipeline y etapas.",
           "Automatizaciones y formularios.",
@@ -299,6 +305,7 @@
         {
         "title": "Producción Profesional",
         "summary": "Producción de contenido completa, desde la idea hasta la ejecución, adaptada a tu visión, presupuesto y objetivos.",
+        "image":"/images/serSlider/produ.avif",
         "how": [
           "Armado de equipo y talento especializado (directores, crew, audio, etc.)",
           "Planeación, pre-producción, producción y post-producción.",

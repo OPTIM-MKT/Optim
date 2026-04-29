@@ -2,7 +2,7 @@
 title: Optim Creator Studios
 subtitle: Marcas personales que crecen, conectan y convierten.
 description: Desde estrategia hasta ejecución, desarrollamos narrativa y sistemas de crecimiento para creadores que se toman en serio su impacto y monetización.
-featuredImage: "../images/studio.avif"
+featuredImage: "../images/produ.avif"
 order: 3
 ---
 

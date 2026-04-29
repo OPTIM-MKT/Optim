@@ -2,7 +2,7 @@
 title: Optim Creator Studios
 subtitle: Personal brands that grow, connect, and convert.
 description: From strategy to execution, we develop narratives and growth systems for creators who are serious about their impact and monetization.
-featuredImage: "../images/studio.avif"
+featuredImage: "../images/produ.avif"
 order: 3
 ---
 

@@ -18,6 +18,7 @@ import SmoothScroll from "./SmothScroll";
 export type ServiceItem = {
   title: string;
   summary: string;
+  image: string;
   how: string[];
 };
 
@@ -48,9 +49,6 @@ const getIconForService = (title: string, index: number) => {
   ];
   return fallbackIcons[index % fallbackIcons.length];
 };
-
-const IMAGE_URL =
-  "https://images.unsplash.com/photo-1653435682730-7a2f1ccbcbd2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 export default function ScrollCarousel({
   items,
@@ -131,12 +129,12 @@ export default function ScrollCarousel({
                   {/* Left: Image / Media Block */}
                   <div className="relative aspect-video lg:aspect-square lg:max-h-[60vh] w-full bg-neutral-100 rounded-4xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center p-6 border border-neutral-100 dark:border-neutral-800">
                     <img
-                      src={IMAGE_URL}
+                      src={service.image}
                       alt={service.title}
                       className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-[2s] hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
                   </div>
 
                   {/* Right: Text Block */}

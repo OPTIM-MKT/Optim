@@ -245,6 +245,7 @@
       {
         "title": "Marketing Strategy",
         "summary": "The map before the action. Think first, execute second.",
+        "image":"/images/serSlider/estra.avif",
         "how": [
           "Business and market diagnostic.",
           "Audiences, messaging and channels defined.",
@@ -254,6 +255,7 @@
       {
         "title": "Content Creation",
         "summary": "Assets with narrative and intent. Not filler content.",
+        "image":"/images/serSlider/content.avif",
         "how": [
           "Creative concept and scripting.",
           "Audiovisual production and editing.",
@@ -263,6 +265,7 @@
       {
         "title": "Digital Advertising",
         "summary": "Meta Ads + Google Ads (and any other digital advertising platform)",
+        "image":"/images/serSlider/publi.avif",
         "how": [
           "Smart campaign architecture.",
           "Creative and messaging testing.",
@@ -272,6 +275,7 @@
       {
         "title": "Branding",
         "summary": "Make your brand look like what it's worth.",
+        "image":"/images/serSlider/brand.avif",
         "how": [
           "Full visual and verbal system.",
           "Message hierarchy and tone.",
@@ -281,6 +285,7 @@
       {
         "title": "Websites and Landing Pages",
         "summary": "Fast, clear and built to convert.",
+        "image":"/images/serSlider/web.avif",
         "how": [
           "Content architecture and UX.",
           "Design aligned to conversion.",
@@ -290,6 +295,7 @@
       {
         "title": "CRM Integration",
         "summary": "No lead left behind. From form to close.",
+        "image":"/images/serSlider/crm.avif",
         "how": [
           "Pipeline and stage mapping.",
           "Automations and forms.",
@@ -299,6 +305,7 @@
       {
         "title": "Professional Production",
         "summary": "Full-scale content production, from concept to execution, tailored to your vision, budget, and goals.",
+        "image":"/images/serSlider/produ.avif",
         "how": [
           "Assembling specialized crews and talent (directors, crew, audio, etc.).",
           "Planning, pre-production, production, and post-production.",
