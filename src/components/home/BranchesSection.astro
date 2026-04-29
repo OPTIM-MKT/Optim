@@ -1,19 +1,18 @@
 ---
-import { Icon } from "astro-icon/components";
+import OptimServices from "./OptimServices.astro";
+import { getCollection } from "astro:content";
 
 interface Props {
   dictionary: import("@/lib/site").SiteDictionary;
+  locale: import("@/lib/site").Locale;
 }
 
-const { dictionary } = Astro.props;
-
-// Iconos específicos para cada rama de Optim
-const branchIcons = [
-  "fa6-solid/rocket", // Digital
-  "fa6-solid/house-chimney", // Inmobiliario
-  "fa6-solid/star", // Creators
-  "fa6-solid/film", // Productions
-];
+const { dictionary, locale } = Astro.props;
+const allUnits = await getCollection("optim");
+const units = allUnits.filter((unit) => {
+  if (locale === "en") return unit.id.startsWith("en/");
+  return !unit.id.startsWith("en/");
+});
 ---
 
 <section class="snap-section flex items-center">
@@ -29,39 +28,8 @@ const branchIcons = [
       </h2>
     </div>
 
-    <!-- Elementos -->
-    <div class="mt-12 grid gap-6 md:grid-cols-2">
-      {
-        dictionary.home.branches.items.map((branch, index) => {
-          const iconName = branchIcons[index % branchIcons.length];
-          return (
-            <article class="rounded-[2rem] border border-line bg-ink px-8 py-10 transition-all duration-500 hover:scale-[1.02] hover:border-strategic hover:shadow-2xl hover:shadow-strategic/20 text-canvas group relative overflow-hidden">
-              <div class="relative z-10">
-                <div class="flex justify-between items-start mb-6">
-                  <p class="text-3xl font-semibold md:text-4xl text-white dark:text-black transition-colors duration-300 group-hover:text-strategic inline-block">
-                    {branch.name}
-                    <span class="block h-1 w-0 bg-strategic transition-all duration-500 group-hover:w-full mt-1" />
-                  </p>
-
-                  <div class="text-4xl text-strategic opacity-0 -translate-y-4 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0">
-                    <Icon name={iconName} />
-                  </div>
-                </div>
-
-                <p class="max-w-2xl text-lg leading-8 text-canvas/70 transition-colors duration-300 group-hover:text-canvas">
-                  {branch.description}
-                </p>
-              </div>
-
-              <div class="absolute -bottom-8 -right-8 text-[12rem] text-strategic opacity-0 translate-y-12 rotate-12 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:opacity-[0.08] group-hover:translate-y-0 group-hover:rotate-0 pointer-events-none">
-                <Icon name={iconName} />
-              </div>
-
-              <div class="absolute inset-0 bg-strategic/0 transition-colors duration-500 group-hover:bg-strategic/5 pointer-events-none" />
-            </article>
-          );
-        })
-      }
-    </div>
+    <section class="mt-10">
+      <OptimServices units={units} />
+    </section>
   </div>
 </section>

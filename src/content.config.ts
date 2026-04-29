@@ -19,6 +19,21 @@ const empresasCollection = defineCollection({
   }),
 });
 
+
+const optimCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/optim" }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    description: z.string(),
+    featuredImage: image(),
+    order: z.number().default(0),
+  }),
+});
+
+
+
 export const collections = {
   empresas: empresasCollection,
+  optim: optimCollection,
 };

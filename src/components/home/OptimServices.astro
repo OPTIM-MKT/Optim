@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  title?: string;
+  eyebrow?: string;
+  description?: string;
+  units?: CollectionEntry<"optim">[];
+}
+
+const { title, eyebrow, description, units = [] } = Astro.props;
+
+const formatId = (id: string) => id.replace(/\//g, "-");
+---
+
+<div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+  {
+    units
+      .sort((a, b) => a.data.order - b.data.order)
+      .map((unit) => {
+        const isEn = unit.id.startsWith("en/");
+        const slug = unit.id.replace(/^(es|en)\//, "");
+        const href = isEn ? `/en/optim/${slug}` : `/optim/${slug}`;
+
+        return (
+          <a href={href} class="group block h-full">
+            <article class="surface-card flex h-full flex-col rounded-4xl border border-line bg-panel p-4 transition-all duration-500 md:hover:-translate-y-2 md:hover:border-strategic md:hover:shadow-2xl md:hover:shadow-strategic/10">
+              {/* Image Wrapper con Transition Name */}
+              <div class="relative mb-6 aspect-4/5 w-full overflow-hidden rounded-3xl bg-ink/5">
+                <Image
+                  src={unit.data.featuredImage}
+                  alt={unit.data.title}
+                  class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  loading="lazy"
+                  transition:name={`hero-image-${formatId(unit.id)}`}
+                />
+
+                <div class="absolute inset-0 bg-linear-to-t from-ink/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              </div>
+
+              <div class="px-2 pb-4 flex flex-col">
+                {/* Title con Transition Name */}
+                <h3
+                  class="text-xl font-bold text-ink transition-colors duration-300 group-hover:text-strategic"
+                  transition:name={`title-${formatId(unit.id)}`}
+                >
+                  {unit.data.title}
+                </h3>
+              </div>
+            </article>
+          </a>
+        );
+      })
+  }
+</div>

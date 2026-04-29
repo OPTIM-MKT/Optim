@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import ContactForm from "@/components/contact/ContactForm";
+import ContentLayout from "@/layouts/ContentLayout.astro";
+import { getDictionary } from "@/lib/site";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const servicios = await getCollection("optim");
+  const esServicios = servicios.filter((opt) => opt.id.startsWith("en/"));
+  return esServicios.map((opt) => ({
+    params: { slug: opt.id.replace(/^en\//, "") },
+    props: { opt },
+  }));
+}
+
+const { opt } = Astro.props;
+const { Content } = await render(opt);
+const locale = "en";
+---
+
+<ContentLayout
+  locale={locale}
+  title={opt.data.title}
+  description={opt.data.description}
+>
+  <div class="section-shell py-12">
+    {/* --- HERO SPLIT SECTION --- */}
+    <div
+      class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 items-center mb-24"
+    >
+      {/* Left: The Transition Key (Image) */}
+      <div class="relative group">
+        <div
+          class="media-frame aspect-4/3 w-full overflow-hidden rounded-[2.5rem] border border-line bg-panel shadow-2xl shadow-strategic/5"
+        >
+          <Image
+            src={opt.data.featuredImage}
+            alt={opt.data.title}
+            class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            transition:name={`hero-image-${opt.id.replace(/\//g, "-")}`}
+          />
+        </div>
+      </div>
+
+      {/* Right: Project Header Info */}
+      <div class="flex flex-col justify-center">
+        <div class="space-y-8">
+          <header>
+            <span class="editorial-label text-strategic block mb-6 tracking-[0.3em]">
+              {locale === "es" ? "Servicio" : "Service"}
+            </span>
+            <h1
+              class="text-5xl font-bold leading-[1.1] text-ink md:text-6xl"
+              transition:name={`title-${opt.id.replace(/\//g, "-")}`}
+            >
+              {opt.data.title}
+            </h1>
+          </header>
+
+          {opt.data.subtitle && (
+            <p class="text-2xl font-semibold text-ink/90 leading-snug">
+              {opt.data.subtitle}
+            </p>
+          )}
+
+          <p class="text-xl leading-relaxed text-muted max-w-xl">
+            {opt.data.description}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* --- DETAILED CONTENT SECTION --- */}
+    <div class="border-t border-line pt-20 mb-24">
+      <div class="max-w-3xl mx-auto">
+        <div
+          class="prose prose-lg dark:prose-invert max-w-none
+          prose-headings:text-ink prose-headings:font-bold prose-headings:tracking-tight
+          prose-p:text-muted prose-p:leading-8
+          prose-strong:text-ink prose-strong:font-bold
+          prose-li:text-muted
+          prose-img:rounded-[2rem] prose-img:shadow-xl
+          prose-blockquote:border-l-strategic prose-blockquote:bg-strategic/5 prose-blockquote:py-2 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:italic prose-blockquote:text-ink
+          prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8
+          prose-hr:border-line"
+        >
+          <Content />
+        </div>
+      </div>
+    </div>
+
+    {/* --- CONTACT FORM SECTION --- */}
+    <div class="border-t border-line pt-20 pb-12">
+      <div class="max-w-4xl mx-auto">
+        <div class="mb-12 text-center">
+          <h2 class="text-3xl font-bold text-ink md:text-4xl">
+            {locale === "es" ? "Comienza tu proyecto" : "Start your project"}
+          </h2>
+          <p class="mt-4 text-lg text-muted">
+            {locale === "es" 
+              ? "Cuéntanos sobre tu visión y cómo podemos ayudarte a hacerla realidad." 
+              : "Tell us about your vision and how we can help you make it a reality."}
+          </p>
+        </div>
+        <ContactForm client:visible />
+      </div>
+    </div>
+  </div>
+</ContentLayout>
