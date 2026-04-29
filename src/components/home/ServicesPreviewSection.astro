@@ -28,7 +28,7 @@ const serviceIcons = [
         <p class="editorial-label eyebrow-rule">
           {dictionary.home.servicesPreview.eyebrow}
         </p>
-        <h2 class="max-w-4xl text-5xl font-semibold text-ink md:text-6xl">
+        <h2 class="max-w-4xl text-4xl font-semibold text-ink md:text-6xl">
           {dictionary.home.hero.headline}
           <span class="block text-strategic"
             >{dictionary.home.hero.headlineAccent}</span
@@ -54,7 +54,7 @@ const serviceIcons = [
     </div>
 
     <!-- 6 cards -->
-    <div class="mt-16 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <div class="mt-16 grid gap-4 grid-cols-2 md:grid-cols-2 xl:grid-cols-3">
       {
         dictionary.home.servicesPreview.items.map((service, index) => {
           const iconName = serviceIcons[index % serviceIcons.length];
@@ -76,7 +76,7 @@ const serviceIcons = [
                 </div>
 
                 <div class="relative z-10">
-                  <span class="text-2xl font-semibold text-strategic transition-colors duration-300 md:text-ink md:group-hover:text-strategic">
+                  <span class="text-lg md:text-2xl font-semibold text-strategic transition-colors duration-300 md:text-ink md:group-hover:text-strategic">
                     {service}
                   </span>
                   {/* underline */}

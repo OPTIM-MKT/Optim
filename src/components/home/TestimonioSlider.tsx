@@ -63,12 +63,12 @@ const TestimonioSlider = ({ items, ariaLabel }: TestimonioSliderProps) => {
                   transition={{ duration: 0.5 }}
                   className="relative z-10"
                 >
-                  <blockquote className="text-2xl md:text-3xl font-medium italic mb-8 text-ink dark:text-white leading-relaxed">
+                  <blockquote className="md:text-2xl text-lg  font-medium italic mb-8 text-ink dark:text-white leading-relaxed">
                     "{item.description}"
                   </blockquote>
 
                   <div>
-                    <p className="text-sm tracking-wide uppercase font-semibold text-secondary mb-1">
+                    <p className="md:text-sm text-xs tracking-wide uppercase font-semibold text-strategic mb-1">
                       Representando a
                     </p>
                     <p className="text-xl font-bold text-gray-800 dark:text-gray-200">
@@ -86,7 +86,7 @@ const TestimonioSlider = ({ items, ariaLabel }: TestimonioSliderProps) => {
                   transition={{ duration: 0.6 }}
                   className="flex flex-col items-center text-center"
                 >
-                  <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 mb-8 bg-gray-200 dark:bg-gray-700">
+                  <div className="w-28 h-28 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl border-4 border-white dark:border-gray-800 mb-8 bg-gray-200 dark:bg-gray-700">
                     <img
                       src={item.image}
                       alt={`Avatar de ${item.name}`}
@@ -94,10 +94,10 @@ const TestimonioSlider = ({ items, ariaLabel }: TestimonioSliderProps) => {
                       loading="lazy"
                     />
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-ink dark:text-white mb-2">
+                  <h3 className="text-lg md:text-4xl font-bold text-ink dark:text-white mb-2">
                     {item.name}
                   </h3>
-                  <p className="text-lg text-secondary font-medium">
+                  <p className="md:text-lg text-sm text-secondary font-medium">
                     {item.role}
                   </p>
                 </motion.div>

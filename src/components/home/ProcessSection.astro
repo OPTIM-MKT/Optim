@@ -35,12 +35,12 @@ const processIcons = [
         dictionary.home.process.steps.map((step, index) => {
           const iconName = processIcons[index % processIcons.length];
           return (
-            <article class="rounded-4xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all duration-500 hover:scale-110 hover:border-strategic group-hover/process:opacity-40 group-hover/process:blur-[2px] hover:opacity-100! hover:blur-none! cursor-default">
+            <article class="rounded-4xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 transition-all duration-500 hover:scale-110 hover:border-cyan-500 group-hover/process:opacity-40 group-hover/process:blur-[2px] hover:opacity-100! hover:blur-none! cursor-default">
               <div class="flex items-start justify-between">
-                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-strategic">
+                <p class="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-500">
                   0{index + 1}
                 </p>
-                <div class="text-2xl text-strategic/80 transition-transform duration-500 group-hover:scale-110">
+                <div class="text-2xl text-cyan-500 transition-transform duration-500 group-hover:scale-110">
                   <Icon name={iconName} />
                 </div>
               </div>
