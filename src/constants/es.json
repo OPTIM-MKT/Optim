@@ -262,7 +262,7 @@
       },
       {
         "title": "Publicidad Digital",
-        "summary": "Meta Ads + Google Ads con foco en ROI, no en vanidad.",
+        "summary": "Meta Ads + Google Ads (y cualquier plataforma de anuncios digitales)",
         "how": [
           "Arquitectura de campañas inteligente.",
           "Testing de creatividades y mensajes.",
@@ -294,6 +294,15 @@
           "Mapeo de pipeline y etapas.",
           "Automatizaciones y formularios.",
           "Trazabilidad lead → seguimiento → cierre."
+        ]
+      },
+        {
+        "title": "Producción Profesional",
+        "summary": "Producción de contenido completa, desde la idea hasta la ejecución, adaptada a tu visión, presupuesto y objetivos.",
+        "how": [
+          "Armado de equipo y talento especializado (directores, crew, audio, etc.)",
+          "Planeación, pre-producción, producción y post-producción.",
+          "Ejecución optimizada según nivel de calidad y alcance del proyecto."
         ]
       }
     ],

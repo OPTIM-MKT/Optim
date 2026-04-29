@@ -9,6 +9,7 @@ import ServicesPreviewSection from "@/components/home/ServicesPreviewSection.ast
 import TestimonialsSection from "@/components/home/TestimonialsSection.astro";
 import ParallaxMedia from "@/components/shared/ParallaxMedia.astro";
 import Layout from "@/layouts/Layout.astro";
+import ServSlider from "@/components/services/ServSlider.astro";
 
 import {
   DEFAULT_MEDIA_IMAGE,
@@ -91,5 +92,6 @@ const heroSlides: HeroSlide[] = dictionary.home.hero.slides.map(
   </div>
   <TestimonialsSection dictionary={dictionary} />
   <BranchesSection dictionary={dictionary} locale={locale} />
+  <ServSlider client:visible locale={locale} />
   <ClosingSection dictionary={dictionary} locale={locale} />
 </Layout>

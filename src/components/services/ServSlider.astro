@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+import CaseStudiesSection from "@/components/services/CaseStudiesSection.astro";
+
+import { getDictionary, type Locale } from "@/lib/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dictionary = getDictionary(locale);
+const empresas = (await getCollection("empresas"))
+  .filter((empresa) => empresa.id.startsWith(`${locale}/`))
+  .sort((left, right) => left.data.order - right.data.order);
+---
+
+<CaseStudiesSection dictionary={dictionary} empresas={empresas} />

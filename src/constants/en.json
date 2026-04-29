@@ -262,7 +262,7 @@
       },
       {
         "title": "Digital Advertising",
-        "summary": "Meta Ads + Google Ads focused on ROI, not vanity.",
+        "summary": "Meta Ads + Google Ads (and any other digital advertising platform)",
         "how": [
           "Smart campaign architecture.",
           "Creative and messaging testing.",
@@ -294,6 +294,15 @@
           "Pipeline and stage mapping.",
           "Automations and forms.",
           "Traceability: lead → follow-up → close."
+        ]
+      },
+      {
+        "title": "Professional Production",
+        "summary": "Full-scale content production, from concept to execution, tailored to your vision, budget, and goals.",
+        "how": [
+          "Assembling specialized crews and talent (directors, crew, audio, etc.).",
+          "Planning, pre-production, production, and post-production.",
+          "Optimized execution based on the project's quality level and scope."
         ]
       }
     ],

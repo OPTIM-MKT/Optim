@@ -1,5 +1,7 @@
 ---
 import { localizePath, navigationSlugs, type Locale } from "@/lib/site";
+import { Image } from "astro:assets";
+import Logo from "@/assets/images/logo.webp";
 
 interface Props {
   locale: Locale;
@@ -23,15 +25,14 @@ const labels = [
       class="grid gap-12 md:grid-cols-[minmax(0,1.4fr)_repeat(3,minmax(0,0.8fr))]"
     >
       <div class="space-y-5">
-        <a
-          href={localizePath(locale)}
-          class="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.24em] text-white dark:text-black z-50"
-        >
-          <span
-            class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white dark:bg-black text-black dark:text-white"
-            >O</span
-          >
-          <span>Optim</span>
+        <a href={localizePath(locale)} class="z-50">
+          <Image
+            src={Logo}
+            alt="Logo Optimizacion y Transformacion"
+            width={200}
+            height={100}
+            class="h-20 w-auto object-contain"
+          />
         </a>
         <h2 class="max-w-md text-4xl font-semibold">
           {dictionary.footer.tagline}
