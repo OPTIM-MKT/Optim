@@ -1,22 +1,29 @@
 ---
 name: Punta del Huajuco
 industry: MKT Inmobiliario
-description: Desarrollo de casas premium con alto valor, ubicado en exclusiva zona de Nuevo León.
+description: Sistema de captación inmobiliaria diseñado para generar leads calificadas de forma constante e independencia de brokers.
 servicesProvided:
   - Estrategia de Marketing
-  - Publicidad Digital
-  - Sitios Web y Landing Pages
-  - Integración CRM
+  - Publicidad Digital (Meta Ads)
+  - Sitio Web y Landing Page
+  - Sistema de captación de leads
+  - Seguimiento y optimización
 isLandingPage: true
 isComprehensiveStrategy: true
-results: CPL reducido 31% durante la primera fase de captación.
+results: +300 leads calificadas, +1M de alcance y flujo constante de citas sin intermediarios.
 featuredImage: "./images/punta.webp"
-
-logoUrl: /images/empresas/aurora-residences.svg
+logoUrl: /images/empresas/nova-skin-lab.svg
 links:
-  - label: "Visitar Landing Page"
-    url: "https://aurora-residences.com"
+  - label: "Visitar Sitio Web"
+    url: "https://www.puntadelhuajuco.com"
 order: 1
 ---
 
-Caso placeholder para desarrollos inmobiliarios que requieren una experiencia de marca más sólida, un funnel de captación más claro y mejor trazabilidad del lead hasta la cita comercial.
+Sistema diseñado para lograr mayor control sobre ventas. Como menciona el cliente, “lanzamos todo rápido y sin fricción” y hoy cuentan con un flujo continuo de oportunidades reales, incluyendo “múltiples citas con clientes que realmente tienen intención de avanzar”.
+
+**Resultados clave:**
+
+- +1,000,000 de alcance total.
+- +300 leads calificadas.
+- Decenas de citas con clientes potenciales.
+- Mayor control y rentabilidad al no compartir comisión.

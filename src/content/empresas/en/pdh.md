@@ -1,21 +1,29 @@
 ---
 name: Punta del Huajuco
-industry: Real Estate Marketing
-description: Premium residential development focused on qualified lead generation and high-value perception.
+industry: Real Estate MKT
+description: Real estate lead generation system designed for consistent high-quality lead flow and independence from external brokers.
 servicesProvided:
   - Marketing Strategy
-  - Digital Advertising
-  - Websites and Landing Pages
-  - CRM Integration
+  - Digital Advertising (Meta Ads)
+  - Optimized Website & Landing Page
+  - Lead Generation System
+  - Continuous Monitoring & Optimization
 isLandingPage: true
 isComprehensiveStrategy: true
-results: CPL reduced by 31% during the first lead generation phase.
+results: +300 qualified leads, 1M+ reach, and a steady flow of high-intent appointments.
 featuredImage: "../images/punta.webp"
-logoUrl: /images/empresas/aurora-residences.svg
+logoUrl: /images/empresas/pdh-logo.svg
 links:
-  - label: "Visit Landing Page"
-    url: "https://aurora-residences.com"
+  - label: "Visit Website"
+    url: "https://www.puntadelhuajuco.com"
 order: 1
 ---
 
-Placeholder case study for real estate developments that require a stronger brand experience, a clearer lead generation funnel, and better lead traceability up to the sales appointment.
+A specialized system designed for greater sales control. As the client mentions, “we launched everything fast and frictionless,” and today they maintain a continuous flow of real opportunities, including “multiple appointments with clients who truly intend to move forward.”
+
+**Key Results:**
+
+- 1,000,000+ total reach.
+- +300 qualified leads.
+- Dozens of appointments with potential clients.
+- Increased control and profitability by eliminating commission sharing.

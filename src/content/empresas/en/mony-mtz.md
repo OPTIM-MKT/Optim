@@ -1,18 +1,29 @@
 ---
-name: ⁠Mony Martínez
+name: Mony Martínez
 industry: Creator Studios
-description: Creator collective looking to structure their narrative, monetization, and visual presence.
+description: Personal brand building and digital growth system focused on content, virality, and massive conversion.
 servicesProvided:
-  - Content Creation
-  - Branding
-  - Digital Advertising
-  - Optim Productions
-isLandingPage: true
+  - Content Strategy
+  - Video Production & Editing
+  - Social Media Management
+  - Digital Campaigns (Meta Ads)
+  - Website & Funnels
+isLandingPage: false
 isComprehensiveStrategy: true
-results: Greater brand consistency and sustained growth in commercial inquiries.
+results: Growth from 4K to 10K+ followers and millions of views with high engagement.
 featuredImage: "../images/mm.webp"
-logoUrl: /images/empresas/lumen-creator-house.svg
-order: 4
+logoUrl: /images/empresas/mony-logo.svg
+links:
+  - label: "View Project"
+    url: "https://www.instagram.com/monymtz._/"
+order: 2
 ---
 
-Reference case study for creators needing to transition from isolated posts to a brand operation with a narrative, premium assets, and clear monetization pathways.
+Full personal brand construction. As the client states, “they take care of everything with impeccable execution,” managing to scale both the community and digital authority at an accelerated pace.
+
+**Key Results:**
+
+- Growth from 3–4K to 10K+ followers.
+- 2–3 million+ total views.
+- Multiple viral videos across YouTube and Reels.
+- 1M+ interactions in campaigns and giveaways.

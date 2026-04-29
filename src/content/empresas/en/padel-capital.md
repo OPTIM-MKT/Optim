@@ -1,17 +1,29 @@
 ---
 name: Padel Capital
-industry: MKT Digital
-description: Digital marketing agency focused on the real estate sector.
+industry: Digital Marketing
+description: Digital strategy aimed at maximizing tournament attendance and positioning events as regional benchmarks.
 servicesProvided:
-  - Branding
-  - Content Creation
-  - Digital Advertising
-isLandingPage: true
+  - Content Strategy
+  - Asset Design
+  - Video Production & Editing
+  - Digital Campaigns
+  - Event Planning (Digital)
+isLandingPage: false
 isComprehensiveStrategy: false
-results: 2.4x increase in qualified form submissions from launch campaigns.
+results: Sold-out tournaments with high real-world attendance and event expectation.
 featuredImage: "../images/padel.webp"
-logoUrl: /images/empresas/nova-skin-lab.svg
-order: 2
+logoUrl: /images/empresas/padel-logo.svg
+links:
+  - label: "View Project"
+    url: "https://www.instagram.com/p/DXkVXfBiaCl/"
+order: 5
 ---
 
-Placeholder for a wellness brand needing to integrate visual identity, ads, and a clearer landing page to convert cold traffic into high-intent leads.
+Digital strategy focused on maximizing tournament attendance, generating excitement, and positioning events as a benchmark in Northern Mexico.
+
+**Key Results:**
+
+- Increased tournament interest and participation.
+- Higher social media engagement.
+- Improved communication and brand perception at events.
+- Active and recurring audience base.

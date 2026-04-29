@@ -1,18 +1,29 @@
 ---
-name: ⁠Mony Martínez
+name: Mony Martínez
 industry: Creator Studios
-description: Colectivo de creadores que buscaba estructurar narrativa, monetización y presencia visual.
+description: Construcción de marca personal y sistema de crecimiento enfocado en contenido, viralidad y conversión masiva.
 servicesProvided:
-  - Creación de Contenido
-  - Branding
-  - Publicidad Digital
-  - Optim Productions
-isLandingPage: true
+  - Estrategia de contenido
+  - Producción y edición de video
+  - Gestión de redes sociales
+  - Campañas digitales (Meta Ads)
+  - Sitio web y funnels
+isLandingPage: false
 isComprehensiveStrategy: true
-results: Mayor consistencia de marca y crecimiento sostenido en solicitudes comerciales.
+results: Crecimiento de 4K a +10K seguidores y millones de views con alto engagement.
 featuredImage: "./images/mm.webp"
-logoUrl: /images/empresas/lumen-creator-house.svg
-order: 4
+logoUrl: /images/empresas/mony-logo.svg
+links:
+  - label: "Ver Proyecto"
+    url: "https://www.instagram.com/monymtz._/"
+order: 2
 ---
 
-Caso de referencia para creators que necesitan pasar de publicaciones aisladas a una operación de marca con narrativa, piezas premium y vías claras de monetización.
+Construcción completa de marca personal. Como menciona la cliente, “se encargan de todo con una ejecución impecable”, logrando escalar la comunidad y la autoridad digital de forma acelerada.
+
+**Resultados clave:**
+
+- Crecimiento de 3–4K a +10K seguidores.
+- +2–3 millones de visualizaciones totales.
+- Múltiples videos virales en YouTube y Reels.
+- +1M de interacción en campañas y giveaways.
