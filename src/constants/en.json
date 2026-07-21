@@ -164,41 +164,41 @@
       "eyebrow": "Testimonials",
       "title": "What our clients say",
       "ariaLabel": "Client Testimonials",
-   "items": [
-    {
-      "id": "t1",
-      "name": "Mónica Martínez",
-      "role": "Content Creator",
-      "company": "Optim Creator Studios",
-      "image": "/images/test/mm.webp",
-      "description": "They take care of EVERYTHING. I went from 4k to over 10k followers with millions of views. They don't just execute; they think through every detail to take my project to the next level."
-    },
-    {
-      "id": "t2",
-      "name": "Punta del Huajuco",
-      "role": "Real Estate Development",
-      "company": "Optim MKT Inmobiliario",
-      "image": "/images/test/punta.webp",
-      "description": "We achieved 1M+ reach and 300 qualified leads. They gave us total control over our sales without relying on external agencies or sharing commissions."
-    },
-    {
-      "id": "t3",
-      "name": "QRUSH",
-      "role": "Emerging Brand",
-      "company": "Optim MKT Digital",
-      "image": "/images/test/qrush.webp",
-      "description": "They built our brand from scratch with a brutal strategy and creative direction. Everything feels aligned, professional, and ready to compete from day one."
-    }
-  ]
+      "items": [
+        {
+          "id": "t1",
+          "name": "Mónica Martínez",
+          "role": "Content Creator",
+          "company": "Optim Creator Studios",
+          "image": "/images/test/mm.webp",
+          "description": "They take care of EVERYTHING. I went from 4k to over 10k followers with millions of views. They don't just execute; they think through every detail to take my project to the next level."
+        },
+        {
+          "id": "t2",
+          "name": "Punta del Huajuco",
+          "role": "Real Estate Development",
+          "company": "Optim MKT Inmobiliario",
+          "image": "/images/test/punta.webp",
+          "description": "We achieved 1M+ reach and 300 qualified leads. They gave us total control over our sales without relying on external agencies or sharing commissions."
+        },
+        {
+          "id": "t3",
+          "name": "QRUSH",
+          "role": "Emerging Brand",
+          "company": "Optim MKT Digital",
+          "image": "/images/test/qrush.webp",
+          "description": "They built our brand from scratch with a brutal strategy and creative direction. Everything feels aligned, professional, and ready to compete from day one."
+        }
+      ]
     },
     "closing": {
       "title": "Stop winging it. Start scaling.",
       "description": "Book a free diagnostic. We identify your critical gaps and design the system your business needs.",
       "cta": "Book now"
     },
-    "worksSlider":{
-      "headline":"Our Works",
-      "title":"What we build for our clients"
+    "worksSlider": {
+      "headline": "Our Works",
+      "title": "What we build for our clients"
     }
   },
   "aboutPage": {
@@ -245,7 +245,7 @@
       {
         "title": "Marketing Strategy",
         "summary": "The map before the action. Think first, execute second.",
-        "image":"/images/serSlider/estra.avif",
+        "image": "/images/serSlider/estra.avif",
         "how": [
           "Business and market diagnostic.",
           "Audiences, messaging and channels defined.",
@@ -255,7 +255,7 @@
       {
         "title": "Content Creation",
         "summary": "Assets with narrative and intent. Not filler content.",
-        "image":"/images/serSlider/content.avif",
+        "image": "/images/serSlider/content.avif",
         "how": [
           "Creative concept and scripting.",
           "Audiovisual production and editing.",
@@ -265,7 +265,7 @@
       {
         "title": "Digital Advertising",
         "summary": "Meta Ads + Google Ads (and any other digital advertising platform)",
-        "image":"/images/serSlider/publi.avif",
+        "image": "/images/serSlider/publi.avif",
         "how": [
           "Smart campaign architecture.",
           "Creative and messaging testing.",
@@ -275,7 +275,7 @@
       {
         "title": "Branding",
         "summary": "Make your brand look like what it's worth.",
-        "image":"/images/serSlider/brand.avif",
+        "image": "/images/serSlider/brand.avif",
         "how": [
           "Full visual and verbal system.",
           "Message hierarchy and tone.",
@@ -285,7 +285,7 @@
       {
         "title": "Websites and Landing Pages",
         "summary": "Fast, clear and built to convert.",
-        "image":"/images/serSlider/web.avif",
+        "image": "/images/serSlider/web.avif",
         "how": [
           "Content architecture and UX.",
           "Design aligned to conversion.",
@@ -295,7 +295,7 @@
       {
         "title": "CRM Integration",
         "summary": "No lead left behind. From form to close.",
-        "image":"/images/serSlider/crm.avif",
+        "image": "/images/serSlider/crm.avif",
         "how": [
           "Pipeline and stage mapping.",
           "Automations and forms.",
@@ -305,7 +305,7 @@
       {
         "title": "Professional Production",
         "summary": "Full-scale content production, from concept to execution, tailored to your vision, budget, and goals.",
-        "image":"/images/serSlider/produ.avif",
+        "image": "/images/serSlider/produ.avif",
         "how": [
           "Assembling specialized crews and talent (directors, crew, audio, etc.).",
           "Planning, pre-production, production, and post-production.",
@@ -394,6 +394,14 @@
       {
         "label": "WhatsApp",
         "href": "https://wa.me/528124467284"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/optim.mkt/"
+      },
+      {
+        "label": "Facebook",
+        "href": "https://www.facebook.com/profile.php?id=61577944496755"
       }
     ],
     "form": {

@@ -164,32 +164,32 @@
       "eyebrow": "Testimonios",
       "title": "Lo que dicen nuestros clientes",
       "ariaLabel": "Testimonios de Clientes",
-   "items": [
-    {
-      "id": "t1",
-      "name": "Mónica Martínez",
-      "role": "Content Creator",
-      "company": "Optim Creator Studios",
-      "image": "/images/test/mm.webp",
-      "description": "Se encargan de TODO. Pasé de 4k a más de 10k seguidores con millones de vistas. No solo ejecutan, piensan cada detalle para llevar mi proyecto al siguiente nivel."
-    },
-    {
-      "id": "t2",
-      "name": "Punta del Huajuco",
-      "role": "Desarrollo Inmobiliario",
-      "company": "Optim MKT Inmobiliario",
-      "image": "/images/test/punta.webp",
-      "description": "Logramos +1M de alcance y 300 leads calificados. Nos dieron control total de nuestras ventas sin depender de inmobiliarias externas ni compartir comisiones."
-    },
-    {
-      "id": "t3",
-      "name": "QRUSH",
-      "role": "Marca Emergente",
-      "company": "Optim MKT Digital",
-      "image": "/images/test/qrush.webp",
-      "description": "Construyeron nuestra marca desde cero con una estrategia y dirección creativa brutal. Todo se siente alineado, profesional y listo para competir desde el día uno."
-    }
-  ]
+      "items": [
+        {
+          "id": "t1",
+          "name": "Mónica Martínez",
+          "role": "Content Creator",
+          "company": "Optim Creator Studios",
+          "image": "/images/test/mm.webp",
+          "description": "Se encargan de TODO. Pasé de 4k a más de 10k seguidores con millones de vistas. No solo ejecutan, piensan cada detalle para llevar mi proyecto al siguiente nivel."
+        },
+        {
+          "id": "t2",
+          "name": "Punta del Huajuco",
+          "role": "Desarrollo Inmobiliario",
+          "company": "Optim MKT Inmobiliario",
+          "image": "/images/test/punta.webp",
+          "description": "Logramos +1M de alcance y 300 leads calificados. Nos dieron control total de nuestras ventas sin depender de inmobiliarias externas ni compartir comisiones."
+        },
+        {
+          "id": "t3",
+          "name": "QRUSH",
+          "role": "Marca Emergente",
+          "company": "Optim MKT Digital",
+          "image": "/images/test/qrush.webp",
+          "description": "Construyeron nuestra marca desde cero con una estrategia y dirección creativa brutal. Todo se siente alineado, profesional y listo para competir desde el día uno."
+        }
+      ]
     },
     "closing": {
       "title": "Deja de improvisar. Empieza a escalar.",
@@ -245,7 +245,7 @@
       {
         "title": "Estrategia de Marketing",
         "summary": "El mapa antes de la acción. Primero pensamos, luego ejecutamos.",
-        "image":"/images/serSlider/estra.avif",
+        "image": "/images/serSlider/estra.avif",
         "how": [
           "Diagnóstico de negocio y mercado.",
           "Audiencias, mensajes y canales definidos.",
@@ -255,7 +255,7 @@
       {
         "title": "Creación de Contenido",
         "summary": "Piezas con narrativa e intención. No contenido por llenar.",
-        "image":"/images/serSlider/content.avif",
+        "image": "/images/serSlider/content.avif",
         "how": [
           "Concepto creativo y guión.",
           "Producción audiovisual y edición.",
@@ -265,7 +265,7 @@
       {
         "title": "Publicidad Digital",
         "summary": "Meta Ads + Google Ads (y cualquier plataforma de anuncios digitales)",
-        "image":"/images/serSlider/publi.avif",
+        "image": "/images/serSlider/publi.avif",
         "how": [
           "Arquitectura de campañas inteligente.",
           "Testing de creatividades y mensajes.",
@@ -275,7 +275,7 @@
       {
         "title": "Branding",
         "summary": "Que tu marca se vea como lo que vale.",
-        "image":"/images/serSlider/brand.avif",
+        "image": "/images/serSlider/brand.avif",
         "how": [
           "Sistema visual y verbal completo.",
           "Jerarquía de mensajes y tono.",
@@ -285,7 +285,7 @@
       {
         "title": "Sitios Web y Landing Pages",
         "summary": "Rápidos, claros y diseñados para convertir.",
-        "image":"/images/serSlider/web.avif",
+        "image": "/images/serSlider/web.avif",
         "how": [
           "Arquitectura de contenido y UX.",
           "Diseño alineado a conversión.",
@@ -295,17 +295,17 @@
       {
         "title": "Integración CRM",
         "summary": "Que ningún lead se pierda. Del formulario al cierre.",
-        "image":"/images/serSlider/crm.avif",
+        "image": "/images/serSlider/crm.avif",
         "how": [
           "Mapeo de pipeline y etapas.",
           "Automatizaciones y formularios.",
           "Trazabilidad lead → seguimiento → cierre."
         ]
       },
-        {
+      {
         "title": "Producción Profesional",
         "summary": "Producción de contenido completa, desde la idea hasta la ejecución, adaptada a tu visión, presupuesto y objetivos.",
-        "image":"/images/serSlider/produ.avif",
+        "image": "/images/serSlider/produ.avif",
         "how": [
           "Armado de equipo y talento especializado (directores, crew, audio, etc.)",
           "Planeación, pre-producción, producción y post-producción.",
@@ -394,6 +394,14 @@
       {
         "label": "WhatsApp",
         "href": "https://wa.me/528124467284"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/optim.mkt/"
+      },
+      {
+        "label": "Facebook",
+        "href": "https://www.facebook.com/profile.php?id=61577944496755"
       }
     ],
     "form": {
